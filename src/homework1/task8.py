@@ -1,4 +1,10 @@
 """
+В заданиях на сайте www.codewars.com нужно было написать только функцию.
+Поэтому условия к вводу данных я формировал сам.
+"""
+
+
+"""
 Complete the function that accepts a string parameter, and reverses each word in the string.
 All spaces in the string should be retained.
 
@@ -8,16 +14,16 @@ Examples:
 """
 
 
-def reverse_words(text):
-    rev = []
-    lst = text.split(' ')
-    for word in lst:
-        rev.append(word[::-1])
-    return ' '.join(rev)
-
-
-string = input('Введите строку: ')
-print(reverse_words(string))
+# def reverse_words(text):
+#     rev = []
+#     lst = text.split(' ')
+#     for word in lst:
+#         rev.append(word[::-1])
+#     return ' '.join(rev)
+#
+#
+# string = input('Введите строку: ')
+# print(reverse_words(string))
 
 
 """
@@ -30,20 +36,36 @@ You can assume, for the purpose of this kata, that the supplied array will not b
 """
 
 
-def find_smallest_int(arr):
-    smallest = arr[0]
-    for i in range(0, len(arr)):
-        if arr[i] < smallest:
-            smallest = arr[i]
-    return smallest
+# def find_smallest_int(arr):
+#     smallest = arr[0]
+#     for i in range(0, len(arr)):
+#         if arr[i] < smallest:
+#             smallest = arr[i]
+#     return smallest
+#
+#
+# string = input('Введите числа через пробел: ')
+# x = string.split(' ')
+# array = [int(elem) for elem in x]
+# print('Наименьшее число: ' + str(find_smallest_int(array)))
 
 
-string = input('Введите числа через пробел: ')
-x = string.split(' ')
-array = [int(elem) for elem in x]
-print('Наименьшее число: ' + str(find_smallest_int(array)))
+"""
+Your task is to create a function that does four basic mathematical operations.
 
-# В задании на сайте www.codewars.com нужно было написать только функцию.
-# Поэтому условия к вводу данных я формировал сам.
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+"""
 
+
+def basic_op(operator, value1, value2):
+    if operator == '+':
+        x = value1 + value2
+    elif operator == '-':
+        x = value1 - value2
+    elif operator == '*':
+        x = value1 * value2
+    elif operator == '/':
+        x = value1 / value2
+    return x
 

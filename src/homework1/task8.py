@@ -42,3 +42,8 @@ string = input('Введите числа через пробел: ')
 x = string.split(' ')
 array = [int(elem) for elem in x]
 print('Наименьшее число: ' + str(find_smallest_int(array)))
+
+# В задании на сайте www.codewars.com нужно было написать только функцию.
+# Поэтому условия к вводу данных я формировал сам.
+
+

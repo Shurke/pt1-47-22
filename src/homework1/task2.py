@@ -5,16 +5,16 @@
 - len(list) - количество элементов в списке
 """
 
+from string import punctuation
 
 sentence = input('Введите предложение ')
-marks = '''!()-[]{};:'"\, <>./#$%^&*_~'''       # list of punctuation marks
 
-for i in range(len(marks)):                     # iterate over sentence characters over a list of punctuation characters
-    sentence = sentence.replace(marks[i], " ")  #
-sentence_clr = sentence.split()                 # divide the sentence by spaces
-L = 0                                           # variable number of characters in a word
-for c in sentence_clr:                          # loop through the words in the cleared list
-    d = len(c)                                  # variable number of characters in a word
+for i in range(len(punctuation)):                     # iterate over sentence char over a list of punctuation characters
+    sentence = sentence.replace(punctuation[i], " ")  #
+sentence_clr = sentence.split()                       # divide the sentence by spaces
+L = 0                                                 # variable number of characters in a word
+for c in sentence_clr:                                # loop through the words in the cleared list
+    d = len(c)                                        # variable number of characters in a word
     if d > L:
         L = d
         wrd = c

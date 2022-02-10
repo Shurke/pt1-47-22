@@ -5,16 +5,16 @@ n - вводится
 """
 
 
-n = int(input('Номер желаемого числа: '))
-itter = 3
-first_num = 0
-second_num = 1
-current_num = 0
+N = int(input('Номер желаемого числа: '))
+ITTER = 3
+FIRST_NUM = 0
+SECOND_NUM = 1
+CURRENT_NUM = 0
 
-while itter <= n:
-    current_num = first_num + second_num
-    first_num = second_num
-    second_num = current_num
-    itter += 1
+while ITTER <= N:
+    CURRENT_NUM = FIRST_NUM + SECOND_NUM
+    FIRST_NUM = SECOND_NUM
+    SECOND_NUM = CURRENT_NUM
+    ITTER += 1
 
-print(f'Число, стоящее в ряду Фибоначчи под номером {itter-1}, это {current_num}.')
+print(f'Число, стоящее в ряду Фибоначчи под номером {ITTER - 1}, это {CURRENT_NUM}.')

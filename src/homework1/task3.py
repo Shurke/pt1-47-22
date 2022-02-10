@@ -4,13 +4,13 @@
 """
 
 
-str_1 = input('Исходная строка: ')
-trash = ' '
-str_2 = ''
+STR_1 = input('Исходная строка: ')
+TRASH = ' '
+STR_2 = ''
 
-for char in str_1:
-    if char not in trash:
-        str_2 += char
-        trash += char
+for char in STR_1:
+    if char not in TRASH:
+        STR_2 += char
+        TRASH += char
 
-print(f'Чистая строка: {str_2}')
+print(f'Чистая строка: {STR_2}')

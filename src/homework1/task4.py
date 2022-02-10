@@ -6,14 +6,14 @@
 
 import string
 
-str_1 = input('Исходная строка: ')
-big_count = 0
-small_count = 0
+STR_1 = input('Исходная строка: ')
+BIG_COUNT = 0
+SMALL_COUNT = 0
 
-for char in str_1:
-    if char in string.ascii_uppercase:
-        big_count += 1
-    elif char in string.ascii_lowercase:
-        small_count += 1
+for CHAR in STR_1:
+    if CHAR in string.ascii_uppercase:
+        BIG_COUNT += 1
+    elif CHAR in string.ascii_lowercase:
+        SMALL_COUNT += 1
 
-print(f'Заглавных английских букв {big_count}, а строчных - {small_count}!')
+print(f'Заглавных английских букв {BIG_COUNT}, а строчных - {SMALL_COUNT}!')

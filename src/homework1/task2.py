@@ -9,21 +9,21 @@
 
 import string
 
-str_1 = (input('Исходная строка: '))
-str_2 = ''
-best_word = ''
-best_word_length = 0
+STR_1 = (input('Исходная строка: '))
+STR_2 = ''
+BEST_WORD = ''
+BEST_WORD_LENGTH = 0
 
-for char in str_1:
-    if char not in string.punctuation:
-        str_2 += char
+for CHAR in STR_1:
+    if CHAR not in string.punctuation:
+        STR_2 += CHAR
     else:
-        str_2 += ' '
+        STR_2 += ' '
 
-list_s = str_2.split()
-for small_str in list_s:
-    if len(small_str) > best_word_length:
-        best_word = small_str
-        best_word_length = len(small_str)
+LIST_S = STR_2.split()
+for SMALL_STR in LIST_S:
+    if len(SMALL_STR) > BEST_WORD_LENGTH:
+        BEST_WORD = SMALL_STR
+        BEST_WORD_LENGTH = len(SMALL_STR)
 
-print(f'Самое длинное слово - это "{best_word}" с количеством букв, равным {best_word_length}')
+print(f'Самое длинное слово - это "{BEST_WORD}" с количеством букв, равным {BEST_WORD_LENGTH}')

@@ -4,15 +4,15 @@
 столбца и номер строки сначала для первой клетки, потом для второй клетки.
 """
 
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
 
-ab = (a + b) % 2
-cd = (c + d) % 2
+AB = (A + B) % 2
+CD = (C + D) % 2
 
-if ab == cd:
+if AB == CD:
     print("YES")
 else:
     print("NO")
@@ -27,12 +27,12 @@ else:
 """
 
 
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
 
-if a == c or b == d:
+if A == C or B == D:
     print("YES")
 else:
     print("NO")
@@ -44,15 +44,15 @@ else:
 """
 
 
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
-ac = abs(a - c)
-bd = abs(b - d)
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+AC = abs(A - C)
+BD = abs(B - D)
 
 
-if ac == bd or a == c or b == d:
+if AC == BD or A == C or B == D:
     print("YES")
 else:
     print("NO")
@@ -65,15 +65,15 @@ else:
 """
 
 
-a = int(input())
-b = int(input())
-c = int(input())
-d = int(input())
-ac = abs(a - c)
-bd = abs(b - d)
+A = int(input())
+B = int(input())
+C = int(input())
+D = int(input())
+AC = abs(A - C)
+BD = abs(B - D)
 
 
-if ac == 1 and bd == 2 or bd == 1 and ac == 2:
+if AC == 1 and BD == 2 or BD == 1 and AC == 2:
     print("YES")
 else:
     print("NO")
@@ -90,10 +90,10 @@ else:
 
 N = int(input())
 M = int(input())
-x = int(input())
-y = int(input())
+S_X = int(input())
+S_Y = int(input())
 mmax = max(N, M)
 mmin = min(N, M)
-N = mmax - y
-M = mmin - x
-print(min(x, y, M, N))
+N = mmax - S_Y
+M = mmin - S_X
+print(min(S_X, S_Y, M, N))

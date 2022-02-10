@@ -9,29 +9,29 @@ Output: Общая цена 9 рублей 60 копеек
 
 import string
 
-str_1 = input('Введите сначала рубли, копейки, а потом количество в произвольной форме:')
-str_2 = ''
-numbers = []
+STR_1 = input('Введите сначала рубли, копейки, а потом количество в произвольной форме:')
+STR_2 = ''
+NUMBERS = []
 
-for char in list(str_1):
-    if char in string.digits:
-        str_2 += char
+for CHAR in list(STR_1):
+    if CHAR in string.digits:
+        STR_2 += CHAR
     else:
-        str_2 += ' '
+        STR_2 += ' '
 
-for num in str_2.split():
-    numbers.append(num)
+for NUM in STR_2.split():
+    NUMBERS.append(NUM)
 
-M = float(numbers[0])
-N = float(numbers[1])
-S = float(numbers[2])
+M = float(NUMBERS[0])
+N = float(NUMBERS[1])
+S = float(NUMBERS[2])
 
-part_price = int(N*S % 100)
-full_price = int(M*S + N*S//100)
+PART_PRICE = int(N * S % 100)
+FULL_PRICE = int(M * S + N * S // 100)
 
-if full_price % 10 == 1:
-    print(f'Нужно {full_price} рубль {part_price} копеек.')
-elif full_price % 10 in [2, 3, 4]:
-    print(f'Нужно {full_price} рубля {part_price} копеек.')
+if FULL_PRICE % 10 == 1:
+    print(f'Нужно {FULL_PRICE} рубль {PART_PRICE} копеек.')
+elif FULL_PRICE % 10 in [2, 3, 4]:
+    print(f'Нужно {FULL_PRICE} рубля {PART_PRICE} копеек.')
 else:
-    print(f'Нужно {full_price} рублей {part_price} копеек.')
+    print(f'Нужно {FULL_PRICE} рублей {PART_PRICE} копеек.')

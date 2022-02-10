@@ -5,29 +5,26 @@
 """
 
 
-sides = [float(i) for i in input('Введите размеры сторон треугольника через пробел: ').split()]
-big_side = 0
-s_of_small_sides = 0
+SIDES = [float(I) for I in input('Введите размеры сторон треугольника через пробел: ').split()]
+BIG_SIDE = 0
+S_OF_SMALL_SIDES = 0
 
-if len(sides) != 3:
+if len(SIDES) != 3:
     print(f'У треугольника не может быть столько сторон!')
 else:
 
-    for side in sides:
-        if side > big_side:
-            big_side = side
+    for SIDE in SIDES:
+        if SIDE > BIG_SIDE:
+            BIG_SIDE = SIDE
 
-    p = sum(sides) / 2
-    sides.remove(big_side)
+    p = sum(SIDES) / 2
+    SIDES.remove(BIG_SIDE)
 
-    for side in sides:
-        s_of_small_sides += side
+    for SIDE in SIDES:
+        S_OF_SMALL_SIDES += SIDE
 
-    if s_of_small_sides <= big_side:
+    if S_OF_SMALL_SIDES <= BIG_SIDE:
         print('Треугольник с такими сторонами не может существовать!')
     else:
-        side_1 = sides[0]
-        side_2 = sides[1]
-        side_3 = big_side
-        S = (p*(p - side_1)*(p - side_2)*(p - side_3))**0.5
+        S = (p*(p - SIDES[0])*(p - SIDES[1])*(p - BIG_SIDE))**0.5
         print(f'Площадь треугольника равна {S}.')

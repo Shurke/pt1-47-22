@@ -4,12 +4,12 @@
 """
 
 str_1 = input('Введите строку:')
-sum_small = 0
-sum_big = 0
+sums = 0
+sumb = 0
 for word in str_1:
     if 'a' <= word <= 'z':
-        sum_small = sum_small + 1
+        sums = sums + 1
     elif 'A' <= word <= 'Z':
-        sum_big = sum_big + 1
-print('Сумма строчных букв =', sum_small)
-print('Сумма прописных букв =', sum_big)
+        sumb = sumb + 1
+print('Сумма строчных букв =', sums)
+print('Сумма прописных букв =', sumb)

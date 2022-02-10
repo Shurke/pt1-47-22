@@ -4,11 +4,11 @@
 
 str_ = input('Введите строку:')
 str_ = str_.replace(' ', '')
-new_str_ = ''
+new_str = ''
 for i in range(len(str_)):
     if i % 3 != 0:
-        new_str_ = new_str_ + str_[i]
-print('Новая строка:', new_str_)
+        new_str = new_str + str_[i]
+print('Новая строка:', new_str)
 
 
 """
@@ -22,14 +22,14 @@ print('Новая строка:', new_str_)
 
 v = float(input('Скорость движения:'))
 t = float(input('Время в пути:'))
-s = 109
-mark = 0
+dist = 109
+mark_km = 0
 if v > 0:
-    mark = int((v * t) % s)
-    print('Байкер находится на отметке:', mark)
+    mark_km = int((v * t) % dist)
+    print('Байкер находится на отметке:', mark_km)
 else:
-    mark = int(abs(s - (abs(v * t)) % s))
-    print('Байкер находится на отметке:', mark)
+    mark = int(abs(dist - (abs(v * t)) % dist))
+    print('Байкер находится на отметке:', mark_km)
 
 
 """
@@ -43,6 +43,3 @@ M = int(input('Минуты:'))
 S = int(input('Секунды:'))
 Deg = H * 30 + M * 30 / 60 + S * 30 / 3600
 print('Угол равен', Deg, 'градусов')
-
-
-

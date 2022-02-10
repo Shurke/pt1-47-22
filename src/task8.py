@@ -54,3 +54,6 @@ def backward_string(val: str) -> str:
 
 def replace_first(items: list) -> Iterable:
    return items[1:] + items[:1]
+
+
+

@@ -9,10 +9,10 @@ print("Введите длины сторон треугольника:")
 a = int(input('a = '))
 b = int(input('b = '))
 c = int(input('c = '))
-p = (a+b+c) / 2
+p = (a + b + c) / 2
 
 if a + b > c and a + c > b and b + c > a:
-    s = (p * (p-a) * (p-b) * (p-c)) ** 0.5
+    s = (p * (p - a) * (p - b) * (p - c)) ** 0.5
     print('Площадь треугольника = ' + str(s))
 else:
     print('Стороны не образуют треугольник')

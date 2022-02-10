@@ -84,7 +84,8 @@ def make_upper_case(s):
 
 
 """
-You will be given an array a and a value x. All you need to do is check whether the provided array contains the value.
+You will be given an array a and a value x. 
+All you need to do is check whether the provided array contains the value.
 
 Array can contain numbers or strings. X can be either.
 

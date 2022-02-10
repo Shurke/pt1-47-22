@@ -14,16 +14,16 @@ Examples:
 """
 
 
-def reverse_words(text):
-    rev = []
-    lst = text.split(' ')
-    for word in lst:
-        rev.append(word[::-1])
-    return ' '.join(rev)
-
-
-string = input('Введите строку: ')
-print(reverse_words(string))
+# def reverse_words(text):
+#     rev = []
+#     lst = text.split(' ')
+#     for word in lst:
+#         rev.append(word[::-1])
+#     return ' '.join(rev)
+#
+#
+# string = input('Введите строку: ')
+# print(reverse_words(string))
 
 
 """
@@ -36,18 +36,18 @@ You can assume, for the purpose of this kata, that the supplied array will not b
 """
 
 
-def find_smallest_int(arr):
-    smallest = arr[0]
-    for i in range(0, len(arr)):
-        if arr[i] < smallest:
-            smallest = arr[i]
-    return smallest
-
-
-string = input('Введите числа через пробел: ')
-x = string.split(' ')
-array = [int(elem) for elem in x]
-print('Наименьшее число: ' + str(find_smallest_int(array)))
+# def find_smallest_int(arr):
+#     smallest = arr[0]
+#     for i in range(0, len(arr)):
+#         if arr[i] < smallest:
+#             smallest = arr[i]
+#     return smallest
+#
+#
+# string = input('Введите числа через пробел: ')
+# x = string.split(' ')
+# array = [int(elem) for elem in x]
+# print('Наименьшее число: ' + str(find_smallest_int(array)))
 
 
 """
@@ -59,16 +59,16 @@ https://www.codewars.com/kata/57356c55867b9b7a60000bd7/train/python
 """
 
 
-def basic_op(operator, value1, value2):
-    if operator == '+':
-        x = value1 + value2
-    elif operator == '-':
-        x = value1 - value2
-    elif operator == '*':
-        x = value1 * value2
-    elif operator == '/':
-        x = value1 / value2
-    return x
+# def basic_op(operator, value1, value2):
+#     if operator == '+':
+#         x = value1 + value2
+#     elif operator == '-':
+#         x = value1 - value2
+#     elif operator == '*':
+#         x = value1 * value2
+#     elif operator == '/':
+#         x = value1 / value2
+#     return x
 
 
 """
@@ -77,9 +77,9 @@ https://www.codewars.com/kata/57a0556c7cb1f31ab3000ad7/train/python
 """
 
 
-def make_upper_case(s):
-    upper = s.upper()
-    return upper
+# def make_upper_case(s):
+#     upper = s.upper()
+#     return upper
 
 
 

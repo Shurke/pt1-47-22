@@ -4,12 +4,12 @@
 """
 
 str_1 = input('Введите строку:')
-letter_low = 0
-letter_up = 0
+LETTER_LOW = 0
+LETTER_UP = 0
 for word in str_1:
     if 'a' <= word <= 'z':
-        letter_low = letter_low + 1
+        LETTER_LOW += 1
     elif 'A' <= word <= 'Z':
-        letter_up = letter_up + 1
-print('Сумма строчных букв =', letter_low)
-print('Сумма прописных букв =', letter_up)
+        LETTER_UP += 1
+print('Сумма строчных букв =', LETTER_LOW)
+print('Сумма прописных букв =', LETTER_UP)

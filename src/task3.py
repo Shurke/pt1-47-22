@@ -5,8 +5,8 @@
 
 str_ = input('Введите строку:')
 str_ = str_.replace(' ', '')
-s_new = ''
+S_NEW = ''
 for i in str_:
-    if i not in s_new:
-        s_new = s_new + i
-print('Результат:', s_new)
+    if i not in S_NEW:
+        S_NEW = S_NEW + i
+print('Результат:', S_NEW)

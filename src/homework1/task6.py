@@ -11,7 +11,7 @@ copy_n = n
 while n != 0:
     c = n % 10
     result = result * 10 + c
-    n = int(n/10)
+    n = int(n / 10)
 
 print('число: ', result)
 if(result == copy_n):

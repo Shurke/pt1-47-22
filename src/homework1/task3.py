@@ -8,5 +8,5 @@ newText = ''
 for i in text:
     if i not in newText and i != ' ':
         newText += i
-        
+
 print(newText)

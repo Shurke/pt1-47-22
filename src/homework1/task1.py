@@ -8,7 +8,7 @@ M = input()
 N = input()
 S = input()
 
-L = (int(M) + int(N)/100) * int(S)
+L = (int(M) + int(N) / 100) * int(S)
 
 a = str(L).split('.')
 a = int(a[0])

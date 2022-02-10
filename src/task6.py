@@ -6,12 +6,12 @@
 
 x_1 = int(input('Введите число:'))
 x_2 = x_1
-res = 0
+w = 0
 while x_1 > 0:
     digit = x_1 % 10
-    res = res * 10 + digit
+    w = w * 10 + digit
     x_1 = int(x_1 / 10)
-if res == x_2:
+if w == x_2:
     print('Число является палиндромом')
 else:
     print('Число не является палиндромом')

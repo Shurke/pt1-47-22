@@ -5,10 +5,10 @@
 
 str_ = input('Введите предложение:')
 str_ = str_.split()
-word = ''
-word_1 = 0
+w = ''
+w1 = 0
 for i in str_:
-    if len(i) > word_1:
-        word_1 = len(i)
-        word = i
-print('Самое длинное слово:', word)
+    if len(i) > w1:
+        w1 = len(i)
+        w = i
+print('Самое длинное слово:', w)

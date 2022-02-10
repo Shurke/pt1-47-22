@@ -5,12 +5,12 @@
 """
 
 
-SIDES = [float(I) for I in input('Введите размеры сторон треугольника через пробел: ').split()]
+SIDES = [float(EL) for EL in input('Введите размеры сторон треугольника через пробел: ').split()]
 BIG_SIDE = 0
 S_OF_SMALL_SIDES = 0
 
 if len(SIDES) != 3:
-    print(f'У треугольника не может быть столько сторон!')
+    print('У треугольника не может быть столько сторон!')
 else:
 
     for SIDE in SIDES:
@@ -26,5 +26,5 @@ else:
     if S_OF_SMALL_SIDES <= BIG_SIDE:
         print('Треугольник с такими сторонами не может существовать!')
     else:
-        S = (p*(p - SIDES[0])*(p - SIDES[1])*(p - BIG_SIDE))**0.5
+        S = (p * (p - SIDES[0]) * (p - SIDES[1]) * (p - BIG_SIDE)) ** 0.5
         print(f'Площадь треугольника равна {S}.')

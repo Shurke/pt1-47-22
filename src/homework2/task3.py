@@ -10,7 +10,7 @@ for CHAR in TUPLE[0]:
     print(CHAR)
 print(len(TUPLE))
 
-#OR
+# OR
 
 TUPLE = [1, 2, 3],
 for CHAR in TUPLE[0]:

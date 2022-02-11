@@ -5,8 +5,6 @@ import string
 message = input("enter your message ")
 message_low = 0
 message_high = 0
-high = "QWERTYUIOPASDFGHJKLZXCVBNM"
-low = "qwertyuiopasdfghjklzxcvbnm"
 for letter in message:
     if letter in string.ascii_uppercase:
         message_high += 1

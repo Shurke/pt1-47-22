@@ -3,9 +3,9 @@
 
 
 sen = input("enter sentence ")
-new_sen = " "
+new_sen = ""
 for letters in sen:
     if letters not in new_sen:
         new_sen += letters
 final = new_sen.split()
-print(" ".join(final))
+print("".join(final))

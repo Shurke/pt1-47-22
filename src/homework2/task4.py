@@ -7,7 +7,7 @@
 Важно: 1 1 1 - это 3 пары, 1 1 1 1 - это 6 пар
 """
 
-TUPLE = tuple(int(i) for i in input('Введите последовательность через пробел: ').split())
+TUPLE = tuple(int(ELEM) for ELEM in input('Введите последовательность через пробел: ').split())
 NUM_OF_PAIRS = 0
 for I_CHAR in range(0, len(TUPLE)):
     for I_CHAR_1 in range(I_CHAR + 1, len(TUPLE)):

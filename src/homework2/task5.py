@@ -5,7 +5,7 @@
 """
 
 
-LIST = [i for i in input('Введите список через пробел: ').split()]
+LIST = [ELEM for ELEM in input('Введите список через пробел: ').split()]
 CHECK_LIST = []
 for ITEM in LIST:
     if ITEM not in CHECK_LIST:

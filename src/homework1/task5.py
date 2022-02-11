@@ -5,7 +5,7 @@
 
 
 n = int(input('Введите порядковый номер числа Фибоначи: '))
-n1 = 1                              # variable for first number in the fibonacci series
+n1 = 0                              # variable for first number in the fibonacci series
 n2 = 1                              # variable for second number in the fibonacci series
 print(n1, n2, end=' ')
 x = 0                               # counter value variable

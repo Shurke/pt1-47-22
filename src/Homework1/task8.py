@@ -10,12 +10,12 @@ if __name__ == '__main__':
     assert is_even(2) == True
     assert is_even(5) == False
     assert is_even(0) == True
-    print("Coding complete? Click 'Check' to earn cool rewards!") """
+    print("Coding complete? Click 'Check' to earn cool rewards!")"""
 
 
 def is_even(num: int) -> bool:
     # your code here
-    return num / 2 == num // 2
+    return num % 2 == 0
 
 
 if __name__ == '__main__':
@@ -26,6 +26,7 @@ if __name__ == '__main__':
     assert is_even(5) is False
     assert is_even(0) is True
     print("Coding complete? Click 'Check' to earn cool rewards!")
+
 
 """def between_markers(text: str, begin: str, end: str) -> str:
        # returns substring between two given markers
@@ -62,7 +63,8 @@ if __name__ == '__main__':
     assert between_markers('>apple<', '>', '<') == "apple"
     print('Wow, you are doing pretty good. Time to check it!')
 
-"""def is_acceptable_password(password: str) -> bool:
+
+""" def is_acceptable_password(password: str) -> bool:
     # your code here
     return True
 if __name__ == '__main__':
@@ -73,7 +75,7 @@ if __name__ == '__main__':
     assert is_acceptable_password('short') == False
     assert is_acceptable_password('muchlonger') == True
     assert is_acceptable_password('ashort') == False
-    print("Coding complete? Click 'Check' to earn cool rewards!")"""
+    print("Coding complete? Click 'Check' to earn cool rewards!") """
 
 
 def is_acceptable_password(password: str) -> bool:
@@ -91,7 +93,7 @@ if __name__ == '__main__':
     assert is_acceptable_password('ashort') is False
     print("Coding complete? Click 'Check' to earn cool rewards!")
 
-"""from typing import List, Any
+""" from typing import List, Any
 def all_the_same(elements: List[Any]) -> bool:
     if elements == []:
         return True
@@ -108,7 +110,7 @@ if __name__ == '__main__':
     assert all_the_same(['a', 'a', 'a']) == True
     assert all_the_same([]) == True
     assert all_the_same([1]) == True
-    print("Coding complete? Click 'Check' to earn cool rewards!")"""
+    print("Coding complete? Click 'Check' to earn cool rewards!") """
 
 
 def all_the_same(elements: List[Any]) -> bool:
@@ -131,7 +133,7 @@ if __name__ == '__main__':
     assert all_the_same([1]) is True
     print("Coding complete? Click 'Check' to earn cool rewards!")
 
-"""def first_word(text: str) -> str:
+""" def first_word(text: str) -> str:
     returns the first word in a given text.
     # your code here
     return text[0:2]
@@ -142,25 +144,7 @@ if __name__ == "__main__":
     assert first_word("Hello world") == "Hello"
     assert first_word("a word") == "a"
     assert first_word("hi") == "hi"
-    print("Coding complete? Click 'Check' to earn cool rewards!")
-"""
-
-"""def correct_sentence(text: str) -> str:
-        returns a corrected sentence which starts with a capital letter
-        and ends with a dot.
-    # your code here
-    return text
-if __name__ == '__main__':
-    print("Example:")
-    print(correct_sentence("greetings, friends"))                                                
-    
-    # These "asserts" are used for self-checking and not for an auto-testing
-    assert correct_sentence("greetings, friends") == "Greetings, friends."
-    assert correct_sentence("Greetings, friends") == "Greetings, friends."
-    assert correct_sentence("Greetings, friends.") == "Greetings, friends."
-    assert correct_sentence("hi") == "Hi."
-    assert correct_sentence("welcome to New York") == "Welcome to New York."
-    print("Coding complete? Click 'Check' to earn cool rewards!")"""
+    print("Coding complete? Click 'Check' to earn cool rewards!") """
 
 
 def first_word(text: str) -> str:
@@ -178,4 +162,46 @@ if __name__ == "__main__":
     assert first_word("Hello world") == "Hello"
     assert first_word("a word") == "a"
     assert first_word("hi") == "hi"
+    print("Coding complete? Click 'Check' to earn cool rewards!")
+
+""" def correct_sentence(text: str) -> str:
+        returns a corrected sentence which starts with a capital letter
+        and ends with a dot.
+    # your code here
+    return text
+if __name__ == '__main__':
+    print("Example:")
+    print(correct_sentence("greetings, friends"))                                                
+
+    # These "asserts" are used for self-checking and not for an auto-testing
+    assert correct_sentence("greetings, friends") == "Greetings, friends."
+    assert correct_sentence("Greetings, friends") == "Greetings, friends."
+    assert correct_sentence("Greetings, friends.") == "Greetings, friends."
+    assert correct_sentence("hi") == "Hi."
+    assert correct_sentence("welcome to New York") == "Welcome to New York."
+    print("Coding complete? Click 'Check' to earn cool rewards!") """
+
+
+def correct_sentence(text: str) -> str:
+    """
+    returns a corrected sentence which starts with a capital letter
+    and ends with a dot.
+    """
+    text = text[0].upper() + text[1:]
+    if not text.endswith('.'):
+        text += '.'
+    return text
+
+
+if __name__ == "__main__":
+    print("Example:")
+    print(correct_sentence("greetings, friends"))
+
+    # These "asserts" are used for self-checking and not for an auto-testing
+    assert correct_sentence("greetings, friends") is "Greetings, friends."
+    assert correct_sentence("Greetings, friends") is "Greetings, friends."
+    assert correct_sentence("Greetings, friends.") is "Greetings, friends."
+    assert correct_sentence("hi") == "Hi."
+    assert correct_sentence("welcome to New York") is "Welcome to New York."
+
     print("Coding complete? Click 'Check' to earn cool rewards!")

@@ -1,11 +1,12 @@
-'''Make a program that filters a list of strings and returns a list with only your friends name in it.
+""" Make a program that filters a list of strings and returns a list with only your friends name in
+it.
 
 If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours!
 Otherwise, you can be sure he's not...
 
 Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
 friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
-'''
+"""
 
 def friend(x):
     return [i for i in x if len(i) == 4]
@@ -27,7 +28,7 @@ Examples:(Input1, Input2 --> Output (explanation)))
 
 def add_binary(a,b):
     c = a + b
-    return (bin(c)[2::1])
+    return bin(c)[2::1]
 
 
 '''This code does not execute properly. Try to figure out why.

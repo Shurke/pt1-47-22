@@ -8,13 +8,12 @@ Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
 friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
 """
 
+
 def friend(x):
     return [i for i in x if len(i) == 4]
-    print(i)
 
 
-
-'''Implement a function that adds two numbers together and returns their sum in binary. The 
+''' Implement a function that adds two numbers together and returns their sum in binary. The 
 conversion can be done before, or after the addition.
 
 The binary number returned should be a string.
@@ -26,7 +25,7 @@ Examples:(Input1, Input2 --> Output (explanation)))
 '''
 
 
-def add_binary(a,b):
+def add_binary(a, b):
     c = a + b
     return bin(c)[2::1]
 
@@ -34,9 +33,9 @@ def add_binary(a,b):
 '''This code does not execute properly. Try to figure out why.
 '''
 
+
 def multiply(a, b):
     return a * b
-
 
 
 '''Given the triangle of consecutive odd numbers:
@@ -54,8 +53,9 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 2 --> 3 + 5 = 8
 '''
 
+
 def row_sum_odd_numbers(n):
-    return n*n*n
+    return n * n * n
 
 
 '''Write a function that takes an integer as input, and returns the number of bits that are equal 
@@ -64,6 +64,7 @@ to one in the binary representation of that number. You can guarantee that input
 Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this 
 case
 '''
+
 
 def countBits(n):
     return bin(n).count("1")

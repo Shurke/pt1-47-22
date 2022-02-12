@@ -5,8 +5,9 @@
 """
 
 
-def number_length(a: int) -> int:
-    return len(str(a))
+A = int(input())
+NUMBER_LEIGHT = len(str(A))
+print(NUMBER_LEIGHT)
 
 
 """
@@ -19,8 +20,9 @@ def number_length(a: int) -> int:
 """
 
 
-def first_word(text: str) -> str:
-    return text.split()[0]
+TEXT = input()
+FIRST_WORD = TEXT.split()[0]
+print(FIRST_WORD)
 
 
 """
@@ -30,8 +32,9 @@ def first_word(text: str) -> str:
 """
 
 
-def end_zeros(num: int) -> int:
-    return len(str(num)) - len(str(num).rstrip('0'))
+NUM = int(input())
+END_ZEROS = len(str(NUM)) - len(str(NUM).rstrip('0'))
+print(END_ZEROS)
 
 
 """
@@ -41,9 +44,9 @@ def end_zeros(num: int) -> int:
 """
 
 
-def backward_string(val: str) -> str:
-    return val[::-1]
-
+VAL = str(input())
+VAL = VAL[::-1]
+print(VAL)
 
 """
 В данном списке первый элемент должен стать последним.
@@ -53,5 +56,6 @@ def backward_string(val: str) -> str:
 """
 
 
-def replace_first(items: list) -> iter:
-    return items[1:] + items[:1]
+ITEMS = list(input())
+REPLACE_FIRST = ITEMS[1:] + ITEMS[:1]
+print(REPLACE_FIRST)

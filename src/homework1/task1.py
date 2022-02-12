@@ -30,9 +30,9 @@ PART_PRICE = int(N * S % 100)
 FULL_PRICE = int(M * S + N * S // 100)
 
 if FULL_PRICE % 10 == 1:
-    RUB = 'рубль'
+    print(f'Нужно {FULL_PRICE} рубль {PART_PRICE} копеек.')
 elif FULL_PRICE % 10 in [2, 3, 4]:
-    RUB = 'рубля'
+    print(f'Нужно {FULL_PRICE} рубля {PART_PRICE} копеек.')
 else:
     RUB = 'рублей'
 print(f'Нужно {FULL_PRICE} {RUB} {PART_PRICE} копеек.')

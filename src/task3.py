@@ -3,16 +3,16 @@
 
 
 a = input("Введите строку")
-Big = 0
-Small = 0
-Another = 0
+big = 0
+small = 0
+another = 0
 for i in a:
     if 'a' <= i <= 'z':
-        Small += 1
+        small += 1
     elif 'A' <= i <= 'Z':
-        Big += 1
+        big += 1
     else:
-        Another += 1
-print(Big, "Кол-во заглавных бук")
-print(Small, "Кол-во строчных букв")
-print(Another, "Кол-во неверно введенных символов")
+        another += 1
+print(big, "Кол-во заглавных бук")
+print(small, "Кол-во строчных букв")
+print(another, "Кол-во неверно введенных символов")

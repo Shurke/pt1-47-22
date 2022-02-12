@@ -7,7 +7,6 @@
 
 SIDES = [float(EL) for EL in input('Введите размеры сторон треугольника через пробел: ').split()]
 BIG_SIDE = 0
-S_OF_SMALL_SIDES = 0
 
 if len(SIDES) != 3:
     print('У треугольника не может быть столько сторон!')
@@ -20,10 +19,7 @@ else:
     p = sum(SIDES) / 2
     SIDES.remove(BIG_SIDE)
 
-    for SIDE in SIDES:
-        S_OF_SMALL_SIDES += SIDE
-
-    if S_OF_SMALL_SIDES <= BIG_SIDE:
+    if SIDES[0] + SIDES[1] <= BIG_SIDE:
         print('Треугольник с такими сторонами не может существовать!')
     else:
         S = (p * (p - SIDES[0]) * (p - SIDES[1]) * (p - BIG_SIDE)) ** 0.5

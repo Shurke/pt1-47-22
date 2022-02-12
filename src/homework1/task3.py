@@ -5,12 +5,10 @@
 
 
 STR_1 = input('Исходная строка: ')
-TRASH = ' '
 STR_2 = ''
 
 for char in STR_1:
-    if char not in TRASH:
+    if char not in STR_2 and char != ' ':
         STR_2 += char
-        TRASH += char
 
 print(f'Чистая строка: {STR_2}')

@@ -13,8 +13,8 @@ elif a > b:
 else:
     print(a)
 
-"""Даны два целых числа m и n (m>n). 
-Напишите программу, которая выводит все нечетные числа от m до n включительно в порядке убывания."""
+"""Даны два целых числа m и n (m>n). Напишите программу, которая выводит все нечетные числа
+ от m до n включительно в порядке убывания."""
 
 m = int(input(""))
 n = int(input(""))
@@ -28,8 +28,8 @@ elif m % 2 == 0:
     if m - 1 == n:
         print(n)
 
-"""На числовой прямой даны два отрезка: (a1 - b1), (a2-b2). 
-Напишите программу, которая находит их пересечение."""
+"""На числовой прямой даны два отрезка: (a1 - b1), (a2-b2). Напишите программу, которая находит
+их пересечение."""
 
 a1, b1 = int(input()), int(input())
 a2, b2 = int(input()), int(input())
@@ -51,12 +51,9 @@ else:
         print(a1, b2)
 
 """
-Given an integer,perform the following conditional actions:
-
-    If n is odd, print Weird
-If n is even and in the inclusive range of 2 to 5, print Not Weird
-If n  is even and in the inclusive range of 6 to 20, print Weird
-If n is even and greater than 20 , print - NotWeird"""
+Given an integer,perform the following conditional actions: If n is odd, print Weird
+If n is even and in the inclusive range of 2 to 5, print Not Weird If n  is even and in the 
+inclusive range of 6 to 20, print Weird If n is even and greater than 20 , print - NotWeird"""
 
 n = int(input("ВВедите число"))
 if (n + 1) % 2 == 0:

@@ -7,8 +7,8 @@
 import re
 
 sen = input("Enter your sentence: ")
-new_sen = re.sub(r'[^\w\s]', '', sen)
-new_sen = sen.split()
+new_sen = re.sub(r'[^\w\s]','', sen)
+new_sen = new_sen.split()
 x = len(new_sen)
 word = 0
 i = 0

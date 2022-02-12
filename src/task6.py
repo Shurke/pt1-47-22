@@ -4,10 +4,10 @@
 (без конвертации числа в строку или что-нибудь еще)
 """
 
-n = str(input('Please enter number: n = '))
-num = len(n)
-for i in range(num // 2):
-    if n[i] != n[-1 - i]:
+N = str(input('Please enter number: n = '))
+NUM = len(N)
+for i in range(NUM // 2):
+    if N[i] != N[-1 - i]:
         print('It is not palindrome')
         break
 else:

@@ -4,8 +4,8 @@
 """
 
 s = input('Please enter string text: ')
-s_new = ''
+S_NEW = ''
 for i in s:
-    if i not in s_new and i != ' ':
-        s_new += i
-print(s_new)
+    if i not in S_NEW and i != ' ':
+        S_NEW += i
+print(S_NEW)

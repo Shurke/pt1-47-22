@@ -4,13 +4,13 @@
 """
 
 str_1 = input('Please enter string text: ')
-let_lower = 0
-let_upper = 0
+L_LOWER = 0
+L_UPPER = 0
 for i in str_1:
     if 'a' <= i <= 'z':
-        let_lower += 1
+        L_LOWER += 1
     else:
         if 'A' <= i <= 'Z':
-            let_upper += 1
-print('lower =', let_lower)
-print('upper =', let_upper)
+            L_UPPER += 1
+print('lower =', L_LOWER)
+print('upper =', L_UPPER)

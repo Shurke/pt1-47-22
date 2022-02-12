@@ -3,13 +3,13 @@
 циклические операторы и условные операторы. n - вводится
 """
 
-f1 = f2 = 1
+F1, F2 = 0, 1
 
 n = input('Please enter the number: n = ')
 n = int(n) - 2
 
 while n > 0:
-    f1, f2 = f2, f1 + f2
+    F1, F2 = F2, F1 + F2
     n -= 1
 
-print('Fibonacci number value =', f2)
+print('Fibonacci number value =', F2)

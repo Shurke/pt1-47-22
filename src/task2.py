@@ -6,12 +6,11 @@
 - len(list) - количество элементов в списке
 """
 
-import re
-
 my_str = input('Please enter text: ')
-words = re.split('[- ,:;."'']', my_str)
-str_1 = 0
-for i in range(len(words)):
-    if len(words[i]) > len(words[str_1]):
-        str_1 = i
-print(words[str_1])
+my_str = my_str.replace(",", "", 1)
+my_str = my_str.replace(":", "", 1)
+my_str = my_str.replace(";", "", 1)
+my_str = my_str.replace("-", "", 1)
+my_str = my_str.replace(".", "", 1)
+words = my_str.split()
+print(max(words, key=len))

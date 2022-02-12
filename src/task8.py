@@ -5,20 +5,9 @@
 """
 
 
-def number_length(a: int) -> int:
-    return len(str(a))
-
-
-if __name__ == "__main__":
-    print("Example:")
-    print(number_length(10))
-
-    # These "asserts" are used for self-checking and not for an auto-testing
-    assert number_length(10) == 2
-    assert number_length(0) == 1
-    assert number_length(4) == 1
-    assert number_length(44) == 2
-    print("Coding complete? Click 'Check' to earn cool rewards!")
+A = int(input())
+NUMBER_LEIGHT = len(str(A))
+print(NUMBER_LEIGHT)
 
 
 """Дана строка и нужно найти ее первое слово.
@@ -31,23 +20,9 @@ if __name__ == "__main__":
 """
 
 
-def first_word(text: str) -> str:
-    """
-    returns the first word in a given text.
-    """
-    # your code here
-    return text.split()[0]
-
-
-if __name__ == "__main__":
-    print("Example:")
-    print(first_word("Hello world"))
-
-    # These "asserts" are used for self-checking and not for an auto-testing
-    assert first_word("Hello world") == "Hello"
-    assert first_word("a word") == "a"
-    assert first_word("hi") == "hi"
-    print("Coding complete? Click 'Check' to earn cool rewards!")
+TEXT = input()
+FIRST_WORD = TEXT.split()[0]
+print(FIRST_WORD)
 
 
 """Попробуйте выяснить какое количество нулей содержит данное число в конце.
@@ -57,23 +32,9 @@ if __name__ == "__main__":
 """
 
 
-def end_zeros(num: int) -> int:
-    # your code here
-    return len(str(num)) - len(str(num).rstrip('0'))
-
-
-if __name__ == "__main__":
-    print("Example:")
-    print(end_zeros(0))
-
-    # These "asserts" are used for self-checking and not for an auto-testing
-    assert end_zeros(0) == 1
-    assert end_zeros(1) == 0
-    assert end_zeros(10) == 1
-    assert end_zeros(101) == 0
-    assert end_zeros(245) == 0
-    assert end_zeros(100100) == 2
-    print("Coding complete? Click 'Check' to earn cool rewards!")
+NUM = int(input())
+END_ZEROS = len(str(NUM)) - len(str(NUM).rstrip('0'))
+print(END_ZEROS)
 
 
 """Верните данную строку в перевернутом виде.
@@ -83,21 +44,9 @@ if __name__ == "__main__":
 """
 
 
-def backward_string(val: str) -> str:
-    # your code here
-    return val [::-1]
-
-
-if __name__ == '__main__':
-    print("Example:")
-    print(backward_string('val'))
-
-    # These "asserts" are used for self-checking and not for an auto-testing
-    assert backward_string('val') == 'lav'
-    assert backward_string('') == ''
-    assert backward_string('ohho') == 'ohho'
-    assert backward_string('123456789') == '987654321'
-    print("Coding complete? Click 'Check' to earn cool rewards!")
+VAL = str(input())
+VAL = VAL[::-1]
+print(VAL)
 
 
 """В данном списке первый элемент должен стать последним.
@@ -108,19 +57,6 @@ if __name__ == '__main__':
 """
 
 
-from typing import Iterable
-
-
-def replace_first(items: list) -> Iterable:
-    # your code here
-    return items[1:] + items[:1]
-
-if __name__ == "__main__":
-    print("Example:")
-    print(list(replace_first([1, 2, 3, 4])))
-
-    # These "asserts" are used for self-checking and not for an auto-testing
-    assert list(replace_first([1, 2, 3, 4])) == [2, 3, 4, 1]
-    assert list(replace_first([1])) == [1]
-    assert list(replace_first([])) == []
-    print("Coding complete? Click 'Check' to earn cool rewards!")
+ITEMS = list(input())
+REPLACE_FIRST = ITEMS[1:] + ITEMS[:1]
+print(REPLACE_FIRST)

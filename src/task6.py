@@ -1,19 +1,14 @@
-'''
+"""
 6. Определите, является ли число палиндромом (читается слева направо и справа налево одинаково).
 Число положительное целое, произвольной длины. Задача требует работать только с числами
 (без конвертации числа в строку или что-нибудь еще)
-'''
+"""
 
-
-n = str(input('Please enter the data: n = '))
-l = len(n)
-for i in range(l//2):
-    if n[i] != n[-1-i]:
-       print('It is not palindrome')
-       break
+n = str(input('Please enter number: n = '))
+num = len(n)
+for i in range(num // 2):
+    if n[i] != n[-1 - i]:
+        print('It is not palindrome')
+        break
 else:
     print('It is palindrome')
-
-
-
-

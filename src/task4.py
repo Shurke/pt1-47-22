@@ -1,8 +1,7 @@
-'''
+"""
 Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке.
 Учитывать только английские буквы.
-'''
-
+"""
 
 str_1 = input('Please enter string text: ')
 let_lower = 0
@@ -15,5 +14,3 @@ for i in str_1:
             let_upper += 1
 print('lower =', let_lower)
 print('upper =', let_upper)
-
-

@@ -4,10 +4,10 @@
 столбца и номер строки сначала для первой клетки, потом для второй клетки.
 """
 
-A = int(input())
-B = int(input())
-C = int(input())
-D = int(input())
+A = int(input('X-координата первой клетки: '))
+B = int(input('Y-координата первой клетки: '))
+C = int(input('X-координата второй клетки: '))
+D = int(input('Y-координата второй клетки: '))
 
 AB = (A + B) % 2
 CD = (C + D) % 2
@@ -27,10 +27,10 @@ else:
 """
 
 
-A = int(input())
-B = int(input())
-C = int(input())
-D = int(input())
+A = int(input('X-координата первой клетки: '))
+B = int(input('Y-координата первой клетки: '))
+C = int(input('X-координата второй клетки: '))
+D = int(input('Y-координата второй клетки: '))
 
 if A == C or B == D:
     print("YES")
@@ -44,10 +44,10 @@ else:
 """
 
 
-A = int(input())
-B = int(input())
-C = int(input())
-D = int(input())
+A = int(input('X-координата первой клетки: '))
+B = int(input('Y-координата первой клетки: '))
+C = int(input('X-координата второй клетки: '))
+D = int(input('Y-координата второй клетки: '))
 AC = abs(A - C)
 BD = abs(B - D)
 
@@ -65,10 +65,10 @@ else:
 """
 
 
-A = int(input())
-B = int(input())
-C = int(input())
-D = int(input())
+A = int(input('X-координата первой клетки: '))
+B = int(input('Y-координата первой клетки: '))
+C = int(input('X-координата второй клетки: '))
+D = int(input('Y-координата второй клетки: '))
 AC = abs(A - C)
 BD = abs(B - D)
 
@@ -88,12 +88,12 @@ else:
 """
 
 
-N = int(input())
-M = int(input())
-S_X = int(input())
-S_Y = int(input())
+N = int(input('Длина бассейка: '))
+M = int(input('Ширина бассейна: '))
+S_X = int(input('Расстояние до одного из длинных бортиков: '))
+S_Y = int(input('Расстояние до одного из коротких бортиков: '))
 MMAX = max(N, M)
 MMIN = min(N, M)
 N = MMAX - S_Y
 M = MMIN - S_X
-print(min(S_X, S_Y, M, N))
+print(f'Минимальное расстояние до бортика: {min(S_X, S_Y, M, N)}')

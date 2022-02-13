@@ -4,9 +4,9 @@
 """
 
 
-a = input()
-b = ''
-for c in range(len(a)):
-    if b.find(a[c]) == -1 and a[c] != ' ':
-        b += a[c]
-print(b)
+str_input = input('Введите строку: ')
+result = ''
+for c in range(len(str_input)):
+    if result.find(str_input[c]) == -1 and str_input[c] != ' ':
+        result += str_input[c]
+print(result)

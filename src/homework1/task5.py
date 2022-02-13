@@ -12,16 +12,13 @@ def get_fibnum(num):
     :rtype: int
     """
     step = 1
-    a, b = 0, 0
+    a, b = 0, 1
 
     while step < num:
-        if a == 0:
-            a, b = 1, 1
-        else:
-            a, b = b, a + b
+        a, b = b, a + b
         step += 1
     return a
 
 
-input_int = int(input("Введите число: "))
+input_int = int(input("Введите искомый номер числа в последовательности Фибоначчи: "))
 print(get_fibnum(input_int))

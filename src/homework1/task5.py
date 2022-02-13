@@ -5,7 +5,7 @@
 
 
 n = int(input('Введите число n: '))
-number1 = 1
+number1 = 0
 number2 = 1
 sum = 0
 index = 0

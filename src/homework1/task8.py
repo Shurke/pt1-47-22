@@ -41,9 +41,6 @@ first_word("Hello world") == "Hello"
 
 
 def first_word(text: str) -> str:
-    """
-    returns the first word in a given text.
-    """
     text = text.split()
     return text[0]
 
@@ -79,10 +76,9 @@ if __name__ == '__main__':
 
 """
 Make a program that filters a list of strings and returns a list with only your friends name in it.
-If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! 
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours!
 Otherwise, you can be sure he's not...
 Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
-i.e.
 friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
 Note: keep the original order of the names in the output.
 """
@@ -104,7 +100,7 @@ print(friend(x))
 """
 Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
 
-For example, if we run 9119 through the function, 
+For example, if we run 9119 through the function,
 811181 will come out, because 92 is 81 and 12 is 1.
 """
 

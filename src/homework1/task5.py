@@ -10,7 +10,7 @@ number2 = 1
 sum = 0
 index = 0
 
-while index < n-2:
+while index < n - 2:
     sum = number1 + number2
     number1 = number2
     number2 = sum

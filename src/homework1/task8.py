@@ -9,13 +9,9 @@ https://py.checkio.org/ , https://www.codewars.com, https://www.hackerrank.com/,
 
 """
 Вам дано положительное целое число. Определите сколько цифр оно имеет.
-
 Входные данные: Положительное целое число
-
 Выходные данные: Целое число.
-
 Пример:
-
 number_length(10) == 2
 number_length(0) == 1
 """
@@ -34,17 +30,12 @@ if __name__ == "__main__":
 
 """
 Дана строка и нужно найти ее первое слово.
-
 Это упрощенная версия миссии First Word , которую можно решить позднее.
-
 Строка состоит только из английских символов и пробелов.
 В начале и в конце строки пробелов нет.
 Входные данные: строка.
-
 Выходные данные: строка.
-
 Пример:
-
 first_word("Hello world") == "Hello"
 """
 
@@ -64,16 +55,10 @@ if __name__ == "__main__":
 
 """
 В этой задаче, Вам нужно создать функцию проверки пароля.
-
-Условия проверки:
-
-длина пароля должна быть больше 6.
+Условия проверки: длина пароля должна быть больше 6.
 Входные данные: Строка.
-
 Выходные данные: Логический тип.
-
 Пример:
-
 is_acceptable_password('short') == False
 is_acceptable_password('muchlonger') == True
 """
@@ -94,13 +79,10 @@ if __name__ == '__main__':
 
 """
 Make a program that filters a list of strings and returns a list with only your friends name in it.
-
-If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
-
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! 
+Otherwise, you can be sure he's not...
 Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
-
 i.e.
-
 friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]
 Note: keep the original order of the names in the output.
 """
@@ -112,6 +94,7 @@ def friend(x):
         if len(char) == 4:
             new_friends.append(char)
     return new_friends
+
 
 x = ["Ryan", "Kieran", "Jason", "Yous"]
 

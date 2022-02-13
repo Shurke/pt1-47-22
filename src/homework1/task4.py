@@ -2,18 +2,19 @@
 Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке.
 Учитывать только английские буквы.
 """
+import string
 
+strng = input('Введите строку: ')
+print(string.ascii_lowercase)
+lwr = 0
+upr = 0
+for x in strng:
+    if x in string.ascii_lowercase:                             # Counting char in lower case
+        lwr += 1
+    elif x in string.ascii_uppercase:                           # Counting char in upper case
+        upr += 1
+    else:                                                       # To display a message about
+        print(f'{x} - не является английским символом')         # an unsuitable char as a result
 
-string = input('Введите строку: ')
-lowercase = 0
-uppercase = 0
-for x in string:
-    if 'a' <= x <= 'z':                                         # Counting char in lower case
-        lowercase += 1                                          #
-    elif 'A' <= x <= 'Z':                                       # Counting char in upper case
-        uppercase += 1                                          #
-    # else:                                                     # To display a message about
-    #     print(str(x) + ' - не является английским символом')  # an unsuitable char as a result
-
-print('Количество английских строчных символов - ' + str(lowercase))
-print('Количество английских прописных символов - ' + str(uppercase))
+print(f'Символов в нижнем регистре: {lwr}')
+print(f'Символов в верхнем регистре: {upr}')

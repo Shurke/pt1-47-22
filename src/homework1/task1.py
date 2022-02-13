@@ -23,7 +23,7 @@ def get_total_price(cost, quantity):
     return (rub, kop)
 
 
-C = input("Введите цену (руб.коп): ")
-Q = int(input("Введите количество товаров: "))
-r = get_total_price(C, Q)
-print(f"Общая цена {r[0]} рублей {r[1]} копеек")
+input_cost = input("Введите цену (руб.коп): ")
+input_quantity = int(input("Введите количество товаров: "))
+result = get_total_price(input_cost, input_quantity)
+print(f"Общая цена {result[0]} рублей {result[1]} копеек")

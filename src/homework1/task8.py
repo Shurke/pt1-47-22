@@ -9,6 +9,11 @@ codewars katas for homework #1
 что заставляли задуматься больше чем на 5-15 минут, сюда собрал только 6-4 kyu
 Полный список решенного: https://www.codewars.com/users/inorangestylee/completed
 """
+from collections import Counter
+import enum
+import re
+import string
+
 
 # 1. Replace With Alphabet Position
 # Rank: 6
@@ -21,9 +26,6 @@ codewars katas for homework #1
 # alphabet_position("The sunset sets at twelve o' clock.")
 # Should return:
 # "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" ( as a string )
-import string
-
-
 def alphabet_position(text):
     return " ".join([str(string.ascii_lowercase.find(
         x.lower()) + 1) for x in text if x.lower() in string.ascii_lowercase])
@@ -94,9 +96,6 @@ def comp(array1, array2):
 #   because it uses the letters A-Z at least once (case is irrelevant).
 # Given a string, detect whether or not it is a pangram.
 # Return True if it is, False if not. Ignore numbers and punctuation.
-import string  # noqa: F811,E402
-
-
 def is_pangram(s):
     for ch in string.ascii_lowercase:
         if ch not in s.lower():
@@ -267,9 +266,6 @@ def copyMatrix(matrix):
 # Only letters from the latin/english alphabet should be shifted,
 # like in the original Rot13 "implementation".
 # Please note that using encode is considered cheating.
-import string  # noqa: F811,E402
-
-
 def rot13(message):
     result = []
     for ch in message:
@@ -326,9 +322,6 @@ def rot13(message):
 # The Haskell version takes a list of directions with data Direction = North | East | West | South.
 # The Clojure version returns nil when the path is reduced to nothing.
 # The Rust version takes a slice of enum Direction {North, East, West, South}.
-import enum  # noqa: F811,E402
-
-
 class DirectionEnum(enum.Enum):
     NORTH = 1 << 0
     SOUTH = 1 << 1
@@ -455,8 +448,6 @@ def pick_peaks(arr):
 #   [2, 8, 7, 4, 1, 9, 6, 3, 5],
 #   [3, 0, 0, 4, 8, 1, 1, 7, 9]
 # ]); // => false
-import string  # noqa: F811,E402
-
 DIGITS_KIT = string.digits[1:]
 
 
@@ -959,9 +950,6 @@ def two_sum(numbers, target):
 # domain_name("http://github.com/carbonfive/raygun") == "github"
 # domain_name("http://www.zombie-bites.com") == "zombie-bites"
 # domain_name("https://www.cnet.com") == "cnet"
-import re  # noqa: F811,E402
-
-
 def domain_name(url):
     result = re.match(r'^(?:\w+:\/\/)?(?:www)?(?:\.)?([\w\-]+)(?:.+)$', url)
     return result.groups()[0]
@@ -1016,9 +1004,6 @@ def array_diff(a, b):
 # find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
 # It’s guaranteed that array contains at least 3 numbers.
 # The tests contain some very huge arrays, so think about performance.
-from collections import Counter  # noqa: F811,E402
-
-
 def find_uniq(arr):
     mydict = Counter(arr)
     return next(k for k in mydict.keys() if mydict[k] == 1)
@@ -1092,9 +1077,6 @@ def likes(names):
 # You need to return the highest scoring word as a string.
 # If two words score the same, return the word that appears earliest in the original string.
 # All letters will be lowercase and all inputs will be valid.
-import string  # noqa: F811,E402
-
-
 def high(x):
     result = {"word": "", "score": 0}
     for w in x.split():
@@ -1167,9 +1149,6 @@ def encrypt(s, n):
 # foo9 -> foo10
 # foo099 -> foo100
 # Attention: If the number has leading zeros the amount of digits should be considered.
-import re  # noqa: F811,E402
-
-
 def increment_string(strng):
     match = re.match(r'^(.*?)(\d*)$', strng)
     if not match:

@@ -12,7 +12,7 @@ def friend(x):
     return [i for i in x if len(i) == 4]
 
 
-''' Implement a function that adds two numbers together and returns their sum in binary. The 
+''' Implement a function that adds two numbers together and returns their sum in binary. The
 conversion can be done before, or after the addition.
 
 The binary number returned should be a string.
@@ -45,7 +45,7 @@ def multiply(a, b):
    13    15    17    19
 21    23    25    27    29
 ...
-Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: 
+Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.:
 (Input --> Output)
 
 1 -->  1
@@ -57,10 +57,10 @@ def row_sum_odd_numbers(n):
     return n * n * n
 
 
-'''Write a function that takes an integer as input, and returns the number of bits that are equal 
+'''Write a function that takes an integer as input, and returns the number of bits that are equal
 to one in the binary representation of that number. You can guarantee that input is non-negative.
 
-Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this 
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this
 case
 '''
 

@@ -7,6 +7,5 @@ M = int(input())
 N = int(input())
 L = int(input())
 
-
 a = L * (100 * M + N)
 print({'Общая цена'}, a // 100, {'рублей'}, a % 100, {'копеек'})

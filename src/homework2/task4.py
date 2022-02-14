@@ -6,7 +6,7 @@
 Важно: 1 1 1 - это 3 пары, 1 1 1 1 - это 6 пар
 """
 
-STR = [int(numb) for numb in input('Введите строку из чисел: ').replace(' ', '')]
+STR = [int(numb) for numb in input('Введите строку из чисел: ').split()]
 QUANT = 0
 for i in range(0, len(STR)):
     for j in range(i + 1, len(STR)):

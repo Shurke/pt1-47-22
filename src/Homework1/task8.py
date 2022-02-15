@@ -1,5 +1,5 @@
-from typing import List
 from typing import Any
+from typing import List
 
 """def is_even(num: int) -> bool:
     # your code here
@@ -168,8 +168,7 @@ if __name__ == "__main__":
     return text
 if __name__ == '__main__':
     print("Example:")
-    print(correct_sentence("greetings, friends"))                                                
-
+    print(correct_sentence("greetings, friends"))
     # These "asserts" are used for self-checking and not for an auto-testing
     assert correct_sentence("greetings, friends") == "Greetings, friends."
     assert correct_sentence("Greetings, friends") == "Greetings, friends."

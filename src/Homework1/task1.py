@@ -13,6 +13,6 @@ S = int(input("Enter the quantity of item "))
 print("quantity of item ", S)
 price_kops = M * 100 + N
 L = price_kops * S
-x_rub = int(L/100)
+x_rub = int(L / 100)
 x_kop = L - x_rub * 100
 print("total price", x_rub, "rubles", x_kop, "kopecks")

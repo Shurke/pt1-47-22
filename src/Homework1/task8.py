@@ -1,4 +1,5 @@
-from typing import List, Any
+from typing import List
+from typing import Any
 
 """def is_even(num: int) -> bool:
     # your code here
@@ -44,9 +45,7 @@ if __name__ == '__main__':
 
 
 def between_markers(text: str, begin: str, end: str) -> str:
-    """
-        returns substring between two given markers
-    """
+
     # your code here
     a = text.find(begin)
     b = text.find(end)
@@ -148,9 +147,7 @@ if __name__ == "__main__":
 
 
 def first_word(text: str) -> str:
-    """
-    returns the first word in a given text.
-    """
+
     text = text.split()
     return text[0]
 
@@ -183,10 +180,7 @@ if __name__ == '__main__':
 
 
 def correct_sentence(text: str) -> str:
-    """
-    returns a corrected sentence which starts with a capital letter
-    and ends with a dot.
-    """
+
     text = text[0].upper() + text[1:]
     if not text.endswith('.'):
         text += '.'
@@ -198,10 +192,10 @@ if __name__ == "__main__":
     print(correct_sentence("greetings, friends"))
 
     # These "asserts" are used for self-checking and not for an auto-testing
-    assert correct_sentence("greetings, friends") is "Greetings, friends."
-    assert correct_sentence("Greetings, friends") is "Greetings, friends."
-    assert correct_sentence("Greetings, friends.") is "Greetings, friends."
+    assert correct_sentence("greetings, friends") == "Greetings, friends."
+    assert correct_sentence("Greetings, friends") == "Greetings, friends."
+    assert correct_sentence("Greetings, friends.") == "Greetings, friends."
     assert correct_sentence("hi") == "Hi."
-    assert correct_sentence("welcome to New York") is "Welcome to New York."
+    assert correct_sentence("welcome to New York") == "Welcome to New York."
 
     print("Coding complete? Click 'Check' to earn cool rewards!")

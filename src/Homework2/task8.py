@@ -25,7 +25,7 @@ if not smaller:
 else:
     start = lager.index(smaller[0])
     while meter2 < len(smaller):
-        if lager[start] == smaller[i]:
+        if lager[start] == smaller[meter2]:
             meter1 += 1
             start += 1
         meter2 += 1

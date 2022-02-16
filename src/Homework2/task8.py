@@ -18,18 +18,18 @@ smaller = input("Введите подсписок через пробел\n")
 smaller = smaller.split()
 print("Вы ввели список:\n", lager)
 print("Вы ввели подсписок:\n", smaller)
-i = 0
-meter = 0
+meter2 = 0
+meter1 = 0
 if not smaller:
     print("Ваш подсписок является частью списка - True")
 else:
     start = lager.index(smaller[0])
-    while i < len(smaller):
+    while meter2 < len(smaller):
         if lager[start] == smaller[i]:
-            meter += 1
+            meter1 += 1
             start += 1
-        i += 1
-    if meter == len(smaller):
+        meter2 += 1
+    if meter1 == len(smaller):
         print("Ваш подсписок является частью списка - True")
     else:
         print("Ваш подсписок не является частью списка - False")

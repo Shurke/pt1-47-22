@@ -10,13 +10,13 @@ new_lis = lis.split()
 new_lis.sort()
 lis_num = []
 lis_long = []
-i = 0
+number = 0
 for num in new_lis:
     if num not in lis_num:
         lis_num.append(num)
-        lo = new_lis.count(num)
-        long = (lo * (lo - 1)) / 2
+        count = new_lis.count(num)
+        long = (count * (count - 1)) / 2
         lis_long.append(int(long))
-while i < len(lis_num):
-    print("Число ", lis_num[i], "имеет ", lis_long[i], "пар")
-    i += 1
+while number < len(lis_num):
+    print("Число ", lis_num[number], "имеет ", lis_long[number], "пар")
+    number += 1

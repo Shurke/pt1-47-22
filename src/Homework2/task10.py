@@ -5,12 +5,12 @@
 задачу нужно выполнить за один проход по списку.
 Распечатайте полученный список."""
 
-x = input("Введите список через пробел ")
-x = x.split()
-print(x)
-for i in x:
-    if int(i) == 0:
-        z = i
-        x.remove(i)
-        x.append(z)
-print(x)
+lis = input("Введите числа списока через пробел\n")
+lis = lis.split()
+print("Вы ввели:\n", lis)
+for num1 in lis:
+    if int(num1) == 0:
+        num2 = num1
+        lis.remove(num1)
+        lis.append(num2)
+print("Вот Ваш отсортированный список:\n", lis)

@@ -4,10 +4,10 @@
 """
 
 a = input("Введите данные:")
-bol = mal = 0
+big = little = 0
 for char in list(a.replace(" ", "")) :
     if 65 <= ord(char) <= 90:
-        bol += 1
+       big += 1
     else:
-        mal += 1
-print(F"прописных {bol} строчных {mal}")
+        little += 1
+print(F"прописных {big} строчных {little}")

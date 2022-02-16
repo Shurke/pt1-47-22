@@ -2,14 +2,14 @@
  но вместо чисел, кратных 3 пишет Fizz, вместо чисел кратный 5 пишет Buzz,
   а вместо чисел одновременно кратных и 3 и 5 - FizzBuzz"""
 
-for i in range(1, 101):
-    if i % 3 == 0 and i % 5 != 0:
+for num in range(1, 101):
+    if num % 3 == 0 and num % 5 != 0:
         print("Fizz")
         continue
-    elif i % 3 != 0 and i % 5 == 0:
+    elif num % 3 != 0 and num % 5 == 0:
         print("Buzz")
         continue
-    elif i % 3 == 0 and i % 5 == 0:
+    elif num % 3 == 0 and num % 5 == 0:
         print("FizzBuzz")
         continue
-    print(i)
+    print(num)

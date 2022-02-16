@@ -5,17 +5,17 @@
 Заметьте, что ваша программа должна вернуть как минимум один пустой
 список, гарантированно являющийся подсписком для любого списка."""
 
-x = input("Введите список через пробел ")
-x = x.split()
-z = []
-i = 0
-y = 0
-long = len(x)
-while i < len(x):
-    y += 1
-    if x[i:y] not in z:
-        z.append(x[i:y])
-        if y == len(x):
-            y = 0
-            i += 1
-print(z)
+lis1 = input("Введите список через пробел\n")
+lis1 = lis1.split()
+new_lis = []
+start = 0
+end = 0
+long = len(lis1)
+while start < len(lis1):
+    end += 1
+    if lis1[start:end] not in new_lis:
+        new_lis.append(lis1[start:end])
+        if end == len(lis1):
+            end = 0
+            start += 1
+print("В ваш список входят следующие подсписки:\n", new_lis)

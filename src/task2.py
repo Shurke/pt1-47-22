@@ -11,4 +11,3 @@ import re
 pred = input('Введите предложение: ')
 znak = re.sub(r'[^\w\s]', '', pred)
 print("Самое длинное слово:", (max(znak.split(), key=len)))
-

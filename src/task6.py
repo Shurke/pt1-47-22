@@ -7,11 +7,11 @@
 a = int(input("Введите число: "))
 с = a
 i = 0
-while (a > 0):
+while a > 0:
     b = a % 10
     i = i * 10 + b
     a = a // 10
-if (с == i):
+if с == i:
     print(с, "- полиндромом!")
 else:
     print(с, "- полиндромом!")

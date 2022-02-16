@@ -5,18 +5,18 @@
 Выходные данные - количество пар.
 Важно: 1 1 1 - это 3 пары, 1 1 1 1 - это 6 пар"""
 
-lis = input("Введите числа разделеные пробелами ")
+lis = input("Введите числа списка разделеные пробелами\n")
 new_lis = lis.split()
 new_lis.sort()
-y = []
-z = []
+lis_num = []
+lis_long = []
 i = 0
-for x in new_lis:
-    if x not in y:
-        y.append(x)
-        lo = new_lis.count(x)
+for num in new_lis:
+    if num not in lis_num:
+        lis_num.append(num)
+        lo = new_lis.count(num)
         long = (lo * (lo - 1)) / 2
-        z.append(int(long))
-while i < len(y):
-    print("Число ", y[i], "имеет пар ", z[i])
+        lis_long.append(int(long))
+while i < len(lis_num):
+    print("Число ", lis_num[i], "имеет ", lis_long[i], "пар")
     i += 1

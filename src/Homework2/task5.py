@@ -2,10 +2,10 @@
 только один раз. Элементы нужно выводить в том порядке, в котором они
 встречаются в списке."""
 
-x = input("Введите список через пробел ")
-x = x.split()
-y = []
-for i in x:
-    if x.count(i) == 1:
-        y.append(i)
-print(y)
+lis1 = input("Введите числа списока через пробел\n")
+lis1 = lis1.split()
+new_lis = []
+for num in lis1:
+    if lis1.count(num) == 1:
+        new_lis.append(num)
+print("Ваш уникальный список:\n", new_lis)

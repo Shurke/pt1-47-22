@@ -3,34 +3,33 @@
 """
 
 cif = int(input("Введите целое число: "))
-chis = 0
+num = 0
 
 while cif > 0:
     digit = cif % 10
     cif = cif // 10
-    chis = chis * 10
-    chis = chis + digit
-print('Обратное число:', chis)
-
+    num = num * 10
+    num = num + digit
+print('Обратное число:', num)
 
 """
 Дано число. Найти сумму и произведение его цифр.
 """
 
 n = int(input("Введите число: "))
-summa = 0
-proizv = 1
+summ = 0
+piec = 1
 
 while n > 0:
     digit = n % 10
-    sum = summa + digit
-    proizv = proizv * digit
+    summ = piec + digit
+    proizv = piec * digit
     n = n // 10
-print("Сумма:", summa)
-print("Произведение:", proizv)
+print("Сумма:", summ)
+print("Произведение:", piec)
 
-
-"""Рассчитать месячные выплаты (a) и суммарную выплату (b) по кредиту.
+"""
+Рассчитать месячные выплаты (a) и суммарную выплату (b) по кредиту.
 О кредите известно, что он составляет c рублей, берется на d лет, под e процентов.
 """
 

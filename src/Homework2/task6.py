@@ -8,20 +8,21 @@
 должен оказаться таким: -4, -1, -2, 0, 0, 3 и 1. Каждое значение должно
 отображаться на новой строке."""
 
-y = []
-z = []
-c = []
-x = None
+lis_pl = []
+lis_min = []
+lis_zero = []
+lis1 = None
 while True:
-    x = input("Введите число, или просто нажми Enter")
-    if x == "":
+    lis1 = input("Введите число, или просто нажми Enter ")
+    if lis1 == "":
         break
-    elif int(x) > 0:
-        y.append(x)
-    elif int(x) < 0:
-        z.append(x)
-    elif int(x) == 0:
-        c.append(x)
-lis = z + c + y
-for num in lis:
+    elif int(lis1) > 0:
+        lis_pl.append(lis1)
+    elif int(lis1) < 0:
+        lis_min.append(lis1)
+    elif int(lis1) == 0:
+        lis_zero.append(lis1)
+new_lis = lis_min + lis_zero + lis_pl
+print("Вы ввели следующие числа:")
+for num in new_lis:
     print(num)

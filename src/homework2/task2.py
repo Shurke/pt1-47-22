@@ -17,9 +17,8 @@ print(first_list[::2])
 
 sec_list = [z + 'a' for z in '1234']
 print(sec_list)
+print(sec_list.pop(1))
 
-INDEX_OF_2A = sec_list.index('2a')
-print(sec_list.pop(sec_list.index('2a')))
-C_NEW_CHECK_LIST = copy.deepcopy(sec_list)
-C_NEW_CHECK_LIST.insert(INDEX_OF_2A, '2a')
-print(C_NEW_CHECK_LIST)
+thrd_list = copy.deepcopy(sec_list)
+thrd_list.insert(1, '2a')
+print(thrd_list)

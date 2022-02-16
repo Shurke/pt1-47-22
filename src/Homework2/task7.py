@@ -6,11 +6,11 @@
 """
 import random
 
-i = 6
-x = []
-while i > len(x):
-    y = random.randint(1, 49)
-    if y not in x:
-        x.append(y)
-x.sort()
-print(x)
+long = 6
+lis = []
+while long > len(lis):
+    num = random.randint(1, 49)
+    if num not in lis:
+        lis.append(num)
+lis.sort()
+print("Ваш счастливый билет:\n", lis)

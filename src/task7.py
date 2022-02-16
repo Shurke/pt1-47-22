@@ -3,14 +3,13 @@
  Если нет, вывести сообщение о неверных данных.
 """
 
-dlin = 5
-vis = 4
-shir = 3
+a = 5
+b = 4
+c = 3
 
-if dlin + vis > shir and dlin + shir > vis and vis + shir > dlin:
-    midl = (dlin + vis + shir) / 2
-    s = (midl * (midl - dlin) * (midl - vis) * (midl - shir)) ** 0.5
+if a + b > c and a + c > b and b + c > a:
+    d = (a + b + c) / 2
+    s = (d * (d - a) * (d - b) * (d - c)) ** 0.5
     print(s)
 else:
     print("Не треугольник")
-

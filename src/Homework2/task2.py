@@ -10,11 +10,11 @@
 
 import copy
 
-lis = [x + y for x in "ab" for y in "bcd"]
+lis = [lis1 + lis2 for lis1 in "ab" for lis2 in "bcd"]
 print("Задание 1:\n", lis)
 lis = lis[::2]
 print("Задание 2:\n", lis)
-new_lis = [x + y for x in "1234" for y in "a"]
+new_lis = [lis1 + lis2 for lis1 in "1234" for lis2 in "a"]
 print("Задание 3:\n", new_lis)
 print("Задание 4:\n", new_lis.pop(1))
 print(new_lis)

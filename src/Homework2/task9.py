@@ -5,10 +5,10 @@
  гарантированно являющийся подсписком для любого списка.
 """
 
-a = list(map(int, input('Введите числа через пробел: ').split()))
-b = len(a) + 1
-c = [[]]
+list_1 = list(map(int, input('Введите числа через пробел: ').split()))
+b = len(list_1) + 1
+list_2 = [[]]
 for i in range(1, b):
     for f in range(b-i):
-        c.append(a[f:f+i])
-print(c)
+        list_2.append(list_1[f:f+i])
+print('Итог: ', list_2)

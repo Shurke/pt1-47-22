@@ -5,18 +5,18 @@
 Например, если он ввел следующие числа: 3, -4, 1, 0, -1, 0 и -2, вывод должен оказаться
  таким: -4, -1, -2, 0, 0, 3 и 1. Каждое значение должно отображаться на новой строке.
 """
-a = input()
-b = []
-c = []
-d = []
-while a != "":
-    if int(a) < 0:
-        b.append(a)
-        a = input()
-    elif int(a) == 0:
-        c.append(a)
-        a = input()
-    elif int(a) > 0:
-        d.append(a)
-        a = input()
-print(', '.join(b + c + d))
+numbers = input('Введите числа для сортировки (проблел для окончания): ')
+list_1 = []
+list_2 = []
+list_3 = []
+while numbers != "":
+    if int(numbers) < 0:
+        list_1.append(numbers)
+        numbers = input()
+    elif int(numbers) == 0:
+        list_2.append(numbers)
+        numbers = input()
+    elif int(numbers) > 0:
+        list_3.append(numbers)
+        numbers = input()
+print(', '.join(list_1 + list_2 + list_3))

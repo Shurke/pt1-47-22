@@ -2,9 +2,9 @@
  нужно выводить в том порядке, в котором они встречаются в списке.
 """
 
-a = str(input())
-b = []
-for i in a:
-    if a.count(i) == 1:
-        b.append(i)
-print(', '.join(b))
+list_1 = str(input('Введите строку для проверки на уникальность обьектов: '))
+list_2 = []
+for i in list_1:
+    if list_1.count(i) == 1:
+        list_2.append(i)
+print('Итог: ' + ', '.join(list_2))

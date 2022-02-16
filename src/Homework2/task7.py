@@ -7,7 +7,7 @@
 
 import random
 
-a = [i for i in range(1, 50)]
-random.shuffle(a)
-a = sorted(a[:6])
-print(', '.join(map(str, a)))
+list_1 = [i for i in range(1, 50)]
+random.shuffle(list_1)
+list_1 = sorted(list_1[:6])
+print('Счастливые числа: ' + ', '.join(map(str, list_1)))

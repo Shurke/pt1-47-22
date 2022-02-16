@@ -5,11 +5,11 @@
 Важно: 1 1 1 - это 3 пары, 1 1 1 1 - это 6 пар
 """
 
-a = input()
-b = [int(i) for i in a.split(" ")]
+list_1 = input('Введите числа для подсчета пар элементов: ')
+list_2 = [int(i) for i in list_1.split(" ")]
 dub = 0
-for i in range(len(b)):
-    for f in range(i + 1, len(b)):
-        if b[i] == b[f]:
+for i in range(len(list_2)):
+    for f in range(i + 1, len(list_2)):
+        if list_2[i] == list_2[f]:
             dub += 1
-print(dub)
+print('Итог: ', dub)

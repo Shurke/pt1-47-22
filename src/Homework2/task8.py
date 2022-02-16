@@ -12,10 +12,10 @@
    списка larger.
 """
 
-a = list(map(int, input('Введите числа через пробел: ').split()))
-b = list(map(int, input('Введите числа через пробел: ').split()))
+list_1 = list(map(int, input('Введите числа через пробел: ').split()))
+list_2 = list(map(int, input('Введите числа через пробел: ').split()))
 
-if str(b).strip('[]') in str(a).strip('[]'):
+if str(list_2).strip('[]') in str(list_1).strip('[]'):
     print(True)
 else:
     print(False)

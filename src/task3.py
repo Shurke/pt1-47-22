@@ -3,12 +3,13 @@
 Например, если было введено "abc cde def", то должно быть выведено "abcdef".
 """
 
+pred = input("Введите предложение: ")
+str = pred.split()
+dgon = ("".join(str))
+rez = ""
+for char in dgon:
+    if char not in rez:
+        rez = rez + char
+print("Полученная строка: ", rez)
 
-a = input("Введите предложение: ")
-b= a.split()
-c = ("".join(b))
-d = ""
-for char in c:
-    if char not in d:
-        d = d + char
-print(d)
+

@@ -2,15 +2,15 @@
 Вводится целое число. Вывести число, обратное введенному по порядку составляющих его цифр.
 """
 
-a1 = int(input("Введите целое число: "))
-a2 = 0
+cif = int(input("Введите целое число: "))
+chis = 0
 
-while a1 > 0:
-    digit = a1 % 10
-    a1 = a1 // 10
-    a2 = a2 * 10
-    a2 = a2 + digit
-print('Обратное число:', a2)
+while cif > 0:
+    digit = cif % 10
+    cif = cif // 10
+    chis = chis * 10
+    chis = chis + digit
+print('Обратное число:', chis)
 
 
 """
@@ -18,15 +18,15 @@ print('Обратное число:', a2)
 """
 
 n = int(input("Введите число: "))
-sum = 0
+summa = 0
 proizv = 1
 
 while n > 0:
     digit = n % 10
-    sum = sum + digit
+    sum = summa + digit
     proizv = proizv * digit
     n = n // 10
-print("Сумма:", sum)
+print("Сумма:", summa)
 print("Произведение:", proizv)
 
 

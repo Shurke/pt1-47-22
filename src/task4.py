@@ -3,12 +3,11 @@
 Учитывать только английские буквы.
 """
 
-
 a = input("Введите данные:")
-upper = lower = 0
-for char in list(a.replace(" ", "")):
+bol = mal = 0
+for char in list(a.replace(" ", "")) :
     if 65 <= ord(char) <= 90:
-        upper += 1
+        bol += 1
     else:
-        lower += 1
-print(upper, "прописных" , lower, "строчных")
+        mal += 1
+print(F"прописных {bol} строчных {mal}")

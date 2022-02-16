@@ -3,13 +3,16 @@
 циклические операторы и условные операторы. n - вводится
 """
 
+fib1 = 1
+fib2 = 1
 
 n = input("Номер элемента ряда: ")
 n = int(n)
+
 i = 0
 while i < n - 2:
-    F_sum = F1 + F2
-    F1 = F2
-    F2 = F_sum
+    fib_sum = fib1 + fib2
+    fib1 = fib2
+    fib2 = fib_sum
     i = i + 1
-print("Значение  элемента:", F2)
+print("Значение  элемента:", fib2)

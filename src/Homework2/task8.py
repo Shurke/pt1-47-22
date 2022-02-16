@@ -12,24 +12,24 @@
 списка – larger и smaller. Программа должна возвращать значение True только в том
 случае, если список smaller является подсписком списка larger. """
 
-lager = input("Введите список через пробел ")
+lager = input("Введите список через пробел\n")
 lager = lager.split()
-smaller = input("Введите подсписок через пробел ")
+smaller = input("Введите подсписок через пробел\n")
 smaller = smaller.split()
-print(lager)
-print(smaller)
+print("Вы ввели список:\n", lager)
+print("Вы ввели подсписок:\n", smaller)
 i = 0
-z = 0
+meter = 0
 if not smaller:
-    print("True")
+    print("Ваш подсписок является частью списка - True")
 else:
     start = lager.index(smaller[0])
     while i < len(smaller):
         if lager[start] == smaller[i]:
-            z += 1
+            meter += 1
             start += 1
         i += 1
-    if z == len(smaller):
-        print("True")
+    if meter == len(smaller):
+        print("Ваш подсписок является частью списка - True")
     else:
-        print("False")
+        print("Ваш подсписок не является частью списка - False")

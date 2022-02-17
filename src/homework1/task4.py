@@ -2,15 +2,16 @@
 Учитывать только английские буквы.
 """
 
+import string
 
-a = input()
+a = input('Введите предложение: ')
 upper = 0
 lower = 0
 
 for i in a:
-    if i == i.upper():
+    if i in string.ascii_uppercase:
         upper += 1
-    else:
+    if i in string.ascii_lowercase:
         lower += 1
 
 print('Прописных: ', upper, 'Строчных: ', lower)

@@ -16,4 +16,4 @@ while null_summ + summ_nmbr != len(input_list):
         summ_nmbr += 1
     else:
         null_summ += 1
-print(input_list)
+print(f'Упорядоченный список {input_list}')

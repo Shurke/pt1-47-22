@@ -9,6 +9,6 @@ list_1 = list(map(int, input('Введите числа через пробел:
 b = len(list_1) + 1
 list_2 = [[]]
 for i in range(1, b):
-    for f in range(b-i):
-        list_2.append(list_1[f:f+i])
+    for f in range(b - i):
+        list_2.append(list_1[f: f + i])
 print('Итог: ', list_2)

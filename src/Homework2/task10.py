@@ -6,5 +6,5 @@
 
 list_1 = list(input('Введите список чисел для сортировки: '))
 list_1 = [int(i) for i in list_1]
-list_2 = [i for i in list_1 if i] +[0]*list_1.count(0)
+list_2 = [i for i in list_1 if i] + [0]*list_1.count(0)
 print('Итог: ' + ', '.join(map(str, list_2)))

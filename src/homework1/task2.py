@@ -7,11 +7,12 @@
 """
 
 
-string = input('Введите строку: ')
-signs = [';', ',', '.', ':', '!', '?']
+import string
 
-for char in string:
-    if char in signs:
-        string = string.replace(char, ' ')
+user_string = input('Введите строку: ')
 
-print(max(string.split(), key=len))
+for char in user_string:
+    if char in string.punctuation:
+        user_string = user_string.replace(char, ' ')
+
+print(f'Самое длинное слово в введенном предложении - {max(user_string.split(), key=len)}')

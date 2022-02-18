@@ -11,4 +11,4 @@ for char in string:
     if char not in new_string:
         new_string += char
 
-print(new_string.strip())
+print('Строка, в которой удалены повторяющиеся символы и все пробелы', new_string.strip())

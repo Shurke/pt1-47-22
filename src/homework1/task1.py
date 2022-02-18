@@ -7,15 +7,12 @@ Output: Общая цена 9 рублей 60 копеек
 """
 
 
-rubles = int(input('Введите количество рублей: '))
-cents = int(input('Введите количество копеек: '))
-count = int(input('Введите количество товаров: '))
+M = int(input('Введите количество рублей: '))
+N = int(input('Введите количество копеек: '))
+S = int(input('Введите количество товаров: '))
 
-sum_rubles = count * rubles
-sum_cents = count * cents
+cost = (S * (100 * M + N))
+rubles = cost // 100
+cents = cost % 100
 
-while sum_cents >= 100:
-    sum_rubles += 1
-    sum_cents -= 100
-
-print('Сумма за', count, 'товара составила:', sum_rubles, 'рублей и', sum_cents, 'копеек')
+print(f"Нужно {rubles} рублей и {cents} копеек")

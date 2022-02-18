@@ -16,7 +16,7 @@ smaller = [[]]
 size_larger = len(larger)
 
 for i in range(size_larger):
-    for j in range(i+1, size_larger + 1):
+    for j in range(i + 1, size_larger + 1):
         smaller += [larger[i:j]]
 
 print(f'Подсписки введённого списка: {smaller}')

@@ -26,7 +26,7 @@ result = [[]]
 value = 0
 
 for i in range(size_larger):
-    for j in range(i+1, size_larger + 1):
+    for j in range(i + 1, size_larger + 1):
         result += [larger[i:j]]
 
 if smaller in result:

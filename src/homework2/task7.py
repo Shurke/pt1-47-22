@@ -13,4 +13,4 @@ while len(TICKET) < 6:
     check_num = random.randint(1, 49)
     if check_num not in TICKET:
         TICKET.append(check_num)
-print(sorted(TICKET))
+print('Номера выигрышных билетов: ', sorted(TICKET))

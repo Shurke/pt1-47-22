@@ -30,4 +30,3 @@ for ELEM_IND in range(0, len(INPUT)):
 
 OUTPUT = set_gen(INPUT_LIST)
 print(f'Выходное множество: {OUTPUT}')
-

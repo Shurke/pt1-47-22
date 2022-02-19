@@ -4,10 +4,10 @@
 """
 
 a = input("Введите данные:")
-big = little = 0
-for char in list(a.replace(" ", "")) :
+BIG = LTL = 0
+for char in list(a.replace(" ", "")):
     if 65 <= ord(char) <= 90:
-       big += 1
+    BIG += 1
     else:
-        little += 1
-print(F"прописных {big} строчных {little}")
+     LTL += 1
+print(F"прописных {BIG} строчных {LTL}")

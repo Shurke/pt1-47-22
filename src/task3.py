@@ -4,10 +4,10 @@
 """
 
 pred = input("Введите предложение: ")
-st_r = pred.split()
-dgo_n = ("".join(st_r))
-re_z = ""
-for char in dgo_n:
-    if char not in re_z:
-        re_z = re_z + char
-print("Полученная строка: ", re_z)
+SR_R = pred.split()
+DGO = ("".join(SR_R))
+RE = ""
+for char in DGO:
+    if char not in RE:
+        RE = RE + char
+print("Полученная строка: ", RE)

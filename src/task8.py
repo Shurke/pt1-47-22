@@ -2,31 +2,33 @@
 Вводится целое число. Вывести число, обратное введенному по порядку составляющих его цифр.
 """
 
-cif = int(input("Введите целое число: "))
-num = 0
+CIF = int(input("Введите целое число: "))
+NUM = 0
 
-while cif > 0:
-    digit = cif % 10
-    cif = cif // 10
-    num = num * 10
-    num = num + digit
-print('Обратное число:', num)
+while CIF > 0:
+    digit = CIF % 10
+    CIF = CIF // 10
+    NUM = NUM * 10
+    NUM = NUM + digit
+print('Обратное число:', NUM)
+
 
 """
 Дано число. Найти сумму и произведение его цифр.
 """
 
 n = int(input("Введите число: "))
-summ = 0
-piec = 1
+SUM = 0
+PI = 1
 
 while n > 0:
     digit = n % 10
-    summ = piec + digit
+    SUM = PI + digit
     proizv = piec * digit
     n = n // 10
-print("Сумма:", summ)
-print("Произведение:", piec)
+print("Сумма:", SUM)
+print("Произведение:", PI)
+
 
 """
 Рассчитать месячные выплаты (a) и суммарную выплату (b) по кредиту.

@@ -3,13 +3,13 @@
  Если нет, вывести сообщение о неверных данных.
 """
 
-a = 5
-b = 4
-c = 3
+A = 5
+B = 4
+C = 3
 
-if a + b > c and a + c > b and b + c > a:
-    d = (a + b + c) / 2
-    s = (d * (d - a) * (d - b) * (d - c)) ** 0.5
-    print(s)
+if A + B > C and A + C > B and B + C > A:
+    D = (C + B + C) / 2
+    S = (D * (D - A) * (D - B) * (D - C)) ** 0.5
+    print(S)
 else:
     print("Не треугольник")

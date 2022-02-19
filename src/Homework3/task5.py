@@ -37,6 +37,6 @@ for symbol in text_2:
     for (key, valeu) in dictionary.items():
         if symbol in valeu:
             index = valeu.index(symbol) + 1
-            letter = str(key)*index
+            letter = str(key) * index
             new_text += letter
 print(f"что бы ввести текст\n {text_1} \nнаберите на телефоне\n {new_text}")

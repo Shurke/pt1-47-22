@@ -3,8 +3,8 @@
 включительно, в порядке убывания.
 """
 
-A = int(input())
-B = int(input())
+A = int(input("Введите Ваше первое число: "))
+B = int(input("Введите Ваше второе число: "))
 if A % 2 != 0:
     for i in range(A, B - 1, -2):
         print(i)
@@ -122,3 +122,63 @@ print(a[1::2])
 print(a[5::-1])
 print(a[5::-2])
 print(len(a))
+
+"""
+Given the triangle of consecutive odd numbers:
+
+             1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+1 -->  1
+2 --> 3 + 5 = 8
+"""
+
+
+def row_sum_odd_numbers(my_number):
+    return my_number ** 3
+
+
+"""
+Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted
+string, the longest possible, containing distinct letters - each taken only
+once - coming from s1 or s2.
+
+Examples:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+"""
+
+
+def longest(a1, a2):
+    return "".join(sorted(set(a1 + a2)))
+
+
+"""
+Our football team finished the championship. The result of each match look like
+"x:y". Results of all matches are recorded in the collection.
+
+For example: ["3:1", "2:2", "0:1", ...]
+
+Write a function that takes such collection and counts the points of our team in
+the championship. Rules for counting points for each match:
+
+if x>y - 3 points
+if x<y - 0 point
+if x=y - 1 point
+"""
+
+
+def points(games):
+
+    count = 0
+    for score in games:
+        res = score.split(':')
+        if res[0] > res[1]:
+            count += 3
+        elif res[0] == res[1]:
+            count += 1
+    return count

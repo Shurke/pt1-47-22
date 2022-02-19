@@ -11,6 +11,7 @@ m = int(input('Пожалуйста, введите цену одной вещи
 n = int(input('Пожалуйста, введите цену одной вещи (копейки) = '))
 s = int(input('Пожалуйста, введите количество товара = '))
 
-price_r = (m * 100 + n) * s // 100
-price_k = (m * 100 + n) * s % 100
-print('Общая цена = ', price_r, 'руб.', price_k, 'коп.')
+PRICE_CONVERTED_INTO_KOP = (m * 100 + n) * s
+RUB = PRICE_CONVERTED_INTO_KOP // 100
+KOP = PRICE_CONVERTED_INTO_KOP % 100
+print(f'Общая цена составляет {RUB} руб. {KOP} коп.')

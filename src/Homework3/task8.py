@@ -21,4 +21,3 @@ for num in set_1:
         set_2.add(str(num) * counter)
         counter += 1
 print("Вот итоговое множество", set_2)
-

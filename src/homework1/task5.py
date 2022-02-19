@@ -3,14 +3,14 @@
 """
 
 
-n = int(input())
+number = int(input('Введите порядковый номер искомого числа Фибоначчи: '))
 a = 1
 d = 0
 b = 1
 
-while a != n:
+while a != number:
     c = d + b
     a += 1
     b = d
     d = c
-print(c)
+print('Число Фибоначчи: ', c)

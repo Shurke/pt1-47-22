@@ -4,15 +4,15 @@
 """
 
 
-a = int(input())
-copy_a = a
+number = int(input('Введите число для проверки на палиндром: '))
+copy_number = number
 b = 0
 
-while a != 0:
-    c = a % 10
+while number != 0:
+    c = number % 10
     b = b * 10 + c
-    a = int(a / 10)
-if b == copy_a:
+    a = int(number / 10)
+if b == copy_number:
     print("Палиндром")
 else:
     print("Не палиндром")

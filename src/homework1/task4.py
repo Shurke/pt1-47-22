@@ -14,4 +14,4 @@ for i in a:
     if i in string.ascii_lowercase:
         lower += 1
 
-print('Прописных: ', upper, 'Строчных: ', lower)
+print(f'Прописных:  {upper} Строчных: {lower}')

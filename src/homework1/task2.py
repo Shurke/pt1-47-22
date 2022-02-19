@@ -4,11 +4,11 @@
 
 import string
 
-a = input().translate(str.maketrans('', '', string.punctuation)).split(' ')
-b = 0
-c = None
-for i in a:
-    if len(i) >= b:
-        b += len(i)
-        c = i
-print(c)
+sen = input('Введите предложение: ').translate(str.maketrans('', '', string.punctuation)).split(' ')
+a = 0
+sen_2 = None
+for i in sen:
+    if len(i) >= a:
+        a += len(i)
+        sen_2 = i
+print('Самое длинное слово в предложении: ', sen_2)

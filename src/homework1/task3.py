@@ -1,9 +1,9 @@
 """Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы.
 
 """
-a = str(input('Ввведите строку: ')).replace(' ', '')
-b = []
-for i in a:
-    if i not in b:
-        b += i
-print(b)
+str_1 = str(input('Ввведите строку: ')).replace(' ', '')
+list_1 = []
+for i in str_1:
+    if i not in list_1:
+        list_1 += i
+print('Итог: ', list_1)

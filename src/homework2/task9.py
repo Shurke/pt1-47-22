@@ -11,5 +11,5 @@
 LIST = input('Пожалуйста, введите список, разделяя элементы пробелом:').split()
 n = len(LIST)
 SUBLIST = [[]]
-SUBLIST += [LIST[i:j] for i in range(n+1) for j in range(i+1, n+1)]
+SUBLIST += [LIST[i:j] for i in range(n + 1) for j in range(i + 1, n + 1)]
 print('Возможными подсписками введенного списка являются:\n', SUBLIST)

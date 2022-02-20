@@ -16,8 +16,8 @@
 """
 
 
-LIST = input('Введите, пожалуйста, список larger: ')
-SUBLIST = input('Введите, пожалуйста, список smaller: ')
+LIST = input('Введите, пожалуйста, список larger, разделяя элементы пробелом: ').split()
+SUBLIST = input('Введите, пожалуйста, список smaller, разделяя элементы пробелом: ').split()
 
 RESULT = False
 for idx in range(len(LIST) - len(SUBLIST) + 1):

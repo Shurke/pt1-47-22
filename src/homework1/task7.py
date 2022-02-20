@@ -8,8 +8,8 @@
 triang = input('Введите три стороны треугольника: ')
 s_tr = [float(i) for i in triang.split() if i.isdigit()]
 if sum(s_tr) - max(s_tr) > max(s_tr):
-    p = sum(s_tr)/2
-    square = (p*(p-s_tr[0])*(p-s_tr[1])*(p-s_tr[2]))**0.5
+    per_tr = sum(s_tr) / 2
+    square = (per_tr * (per_tr - s_tr[0]) * (per_tr - s_tr[1]) * (per_tr - s_tr[2])) ** 0.5
     print('Площадь треугольника составит:', square)
 else:
     print('Введены неверные данные!')

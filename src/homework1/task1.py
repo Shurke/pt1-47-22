@@ -10,7 +10,7 @@ Output: Общая цена 9 рублей 60 копеек
 str_in = input('Введите количество товара и стоимость за это количество товара в рублях и копейках,'
                'а также количество товара, которое Вы хотите купить:\n')
 str_1 = [int(str_1) for str_1 in str_in.split() if str_1.isdigit()]
-price_1 = (str_1[1]+str_1[2]/100)/str_1[0]
-price_rub = int(price_1*str_1[3])
-price_kop = int((price_1*str_1[3]-price_rub)*100)
+price_1 = (str_1[1] + str_1[2] / 100) / str_1[0]
+price_rub = int(price_1 * str_1[3])
+price_kop = int((price_1 * str_1[3] - price_rub) * 100)
 print(f'Cтоимость {str_1[3]} вещей составит: {price_rub} руб. {price_kop} коп.')

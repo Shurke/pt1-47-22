@@ -4,13 +4,9 @@
 """
 
 
-str_in = input('Введите строку:').replace(' ', '')
-s_new = []
+str_in = input('Введите строку: ').replace(' ', '')
+str_new = ''
 for i in str_in:
-    if i not in s_new:
-        s_new.append(i)
-print('Уникальные символы в строке следующие:', ''.join(s_new))
-
-
-
-
+    if i not in str_new:
+        str_new += i
+print('Уникальные символы в строке следующие:', str_new)

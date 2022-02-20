@@ -11,7 +11,7 @@ new_n = 0
 while m > 0:
     ost = m % 10
     new_n = new_n * 10 + ost
-    m = m//10
+    m = m // 10
 if n == new_n:
     print(f'Введенное число {n} является полиндромом')
 else:

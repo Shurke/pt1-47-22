@@ -7,11 +7,11 @@ import string
 
 str_in = input('Введите строку: ')
 symbal_str = 0
-symbal_PROP = 0
+symbal_prop = 0
 for char in str_in:
     if char in string.ascii_lowercase:
         symbal_str += 1
     elif char in string.ascii_uppercase:
-        symbal_PROP += 1
+        symbal_prop += 1
 print(f'Количество строчный английских букв в строке: {symbal_str} \n'
-      f'Количество прописных английских букв в строке: {symbal_PROP}')
+      f'Количество прописных английских букв в строке: {symbal_prop}')

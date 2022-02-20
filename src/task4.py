@@ -7,7 +7,7 @@ a = input("Введите данные:")
 BIG = LTL = 0
 for char in list(a.replace(" ", "")):
     if 65 <= ord(char) <= 90:
-    BIG += 1
+        BIG += 1
     else:
-     LTL += 1
+        LTL += 1
 print(F"прописных {BIG} строчных {LTL}")

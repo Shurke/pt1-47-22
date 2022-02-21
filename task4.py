@@ -14,3 +14,4 @@ for i in range(len(list)):
         if list[i] == list[j]:
             counter = counter + 1
 print("Количество пар: " + str(counter))
+

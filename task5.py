@@ -11,3 +11,4 @@ for i in range(len(list)):
             break
     else:
         print(list[i], end=' ')
+

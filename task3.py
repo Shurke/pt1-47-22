@@ -8,3 +8,4 @@ list_1 = ((1, 2, 3),)
 for i in list_1[0]:
     print(i)
 print("len() исходного кортежа: " + str(len(list_1)))
+

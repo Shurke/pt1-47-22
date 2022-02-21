@@ -12,3 +12,4 @@ from random import shuffle
 list = [*range(1, 50)]
 shuffle(list)
 print(sorted(list[:6]))
+

@@ -24,3 +24,4 @@ for i in range(digits):
 for i in range(digits):
     if mylist[i] > 0:
         print(mylist[i])
+

@@ -12,3 +12,4 @@ for i in reversed(range(len(main_list))):
     if main_list[i] == 0:
         main_list.append(main_list.pop(i))
 print(main_list)
+

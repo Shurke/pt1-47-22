@@ -11,3 +11,4 @@ for i in range(len(main_list) + 1):
     for j in range(i):
         sublists.append(main_list[j:i])
 print(sublists)
+

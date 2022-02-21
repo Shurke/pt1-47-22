@@ -11,28 +11,37 @@
 """
 
 
-def print_nzp(lst):
+def print_nzp(list_: list) -> None:
     """Печатает элементы списка в последовательности Negatives -> Zeroes -> Positives
 
-    :param list lst: список целых чисел
+    :param list list_: список целых чисел
     :returns: None
     """
-    for nn in lst:
+    for nn in list_:
         if nn < 0:
             print(nn)
-    for zn in lst:
+    for zn in list_:
         if zn == 0:
             print(zn)
-    for pn in lst:
+    for pn in list_:
         if pn > 0:
             print(pn)
 
 
-input_lst = []
-while True:
-    input_str = input("Введите число (пустрая строка завершит ввод): ")
-    if not input_str:
-        break
-    input_lst.append(int(input_str))
+def user_input() -> list:
+    """Обрабатывает ввод пользователя
 
-print_nzp(input_lst)
+    :returns: список чисел
+    :rtype: list
+    """
+    input_lst = []
+    while True:
+        input_str = input("Введите число (пустрая строка завершит ввод): ")
+        if not input_str:
+            break
+        input_lst.append(int(input_str))
+    return input_lst
+
+
+input_data = user_input()
+print_nzp(input_data)

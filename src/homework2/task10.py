@@ -6,18 +6,18 @@
 """
 
 
-def sort_list_solution(lst):
+def sort_list_solution(list_: list) -> list:
     """Сортирует и возвращает обработанный список в соответствии с требованиями задачи
 
-    :param list lst: список для обработки
+    :param list list_: список для обработки
     :returns: обработанный список
-    :rtype: lst
+    :rtype: list
     """
-    lst_len = len(lst)
-    for i, v in enumerate(lst):
+    lst_len = len(list_)
+    for i, v in enumerate(list_):
         if v == 0:
-            lst.insert(lst_len, lst.pop(i))
-    return lst
+            list_.insert(lst_len, list_.pop(i))
+    return list_
 
 
 TEST_LIST = [0, 1, 0, 2, -17, 24, 0, 300, 3, 0, 800, 4, 0, 5]

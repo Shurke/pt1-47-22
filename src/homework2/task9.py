@@ -8,7 +8,7 @@
 """
 
 
-def get_sublists(lst):
+def get_sublists(list_: list) -> list:
     """Возвращает все возможные подсписки для списка lst
 
     :param list lst: список для обработки
@@ -17,10 +17,10 @@ def get_sublists(lst):
     :rtype: list
     """
     result = [[]]
-    lst_len = len(lst)
+    lst_len = len(list_)
     for length in range(0, lst_len):
         for pos in range(0, lst_len - length):
-            result.append(lst[pos:pos + length + 1])
+            result.append(list_[pos:pos + length + 1])
     return result
 
 

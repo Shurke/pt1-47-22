@@ -14,15 +14,8 @@ def fizz_buzz():
     :returns: None
     """
     for i in range(1, 101):
-        result = [i]
-        if not i % 3:
-            result.append("Fizz")
-        if not i % 5:
-            result.append("Buzz")
-        if len(result) > 1:
-            print("".join(result[1:3]))
-        else:
-            print(result[0])
+        result_str = f"{'Fizz' if not i % 3 else ''}{'Buzz' if not i % 5 else ''}"
+        print(result_str or i)
 
 
 fizz_buzz()

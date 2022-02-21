@@ -8,7 +8,7 @@
 import random
 
 
-def get_random_lottery_tickets(number):
+def get_random_lottery_tickets(number: int) -> list:
     """Возвращает сгенерированые лотерейные билеты
 
     :param int number: количество билетов которые необходимо сгенерировать и вернуть
@@ -25,7 +25,7 @@ def get_random_lottery_tickets(number):
     return result
 
 
-def get_random_ticket_id():
+def get_random_ticket_id() -> tuple:
     """Возвращает номера сгенерированного билета
 
     :returns: кортеж элементов с номерами в билете
@@ -41,8 +41,13 @@ def get_random_ticket_id():
     return tuple(result)
 
 
-TICKETS_NUM_INPUT = int(input("Введите необходимое количество билетов: "))
-TICKETS_LST = get_random_lottery_tickets(TICKETS_NUM_INPUT)
-TICKETS_LST.sort()
-for ticket in TICKETS_LST:
-    print(" ".join([str(x) for x in ticket]))
+def tickets_gen() -> None:
+    """Основная функция по обработке ввода пользователя и вывода результата в stdout"""
+    tickets_num_input = int(input("Введите необходимое количество билетов: "))
+    tickets_lst = get_random_lottery_tickets(tickets_num_input)
+    tickets_lst.sort()
+    for ticket in tickets_lst:
+        print(" ".join([str(x) for x in ticket]))
+
+
+tickets_gen()

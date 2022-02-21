@@ -26,6 +26,7 @@ else:
 for check in range(1, num_of_check + 1):
     left = ((num // (10**(amount_of_num - check))) % 10)
     right = (num % (10**check)) // (10**(check - 1))
+
 if left == right:
         correct_check += 1
 

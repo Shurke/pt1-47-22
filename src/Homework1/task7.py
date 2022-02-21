@@ -4,8 +4,8 @@
 """
 
 str_1 = input('Введите строку: ').replace(' ', '')
-str_new = ''
+STR_NEW = ''
 for i in str_1:
-    if i not in str_new:
-        str_new += i
-print('символы в строке следующие:', str_new)
+    if i not in STR_NEW:
+        STR_NEW += i
+print('символы в строке следующие:', STR_NEW)

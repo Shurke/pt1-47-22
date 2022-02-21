@@ -19,17 +19,16 @@ while check_sum > 0:
         check_sum = 0
 
 if amount_of_num % 2 == 0:
-    num_of_check = int(amount_of_num/2)
+    num_of_check = int(amount_of_num / 2)
 else:
     num_of_check = int((amount_of_num - 1) / 2)
 
 for check in range(1, num_of_check + 1):
-    left = ((num // (10**(amount_of_num - check))) % 10)
-    right = (num % (10**check)) // (10**(check - 1))
+    left = ((num // (10 ** (amount_of_num - check))) % 10)
+    right = (num % (10 ** check)) // (10 ** (check - 1))
 
 if left == right:
         correct_check += 1
-
 if check == correct_check:
     print(f'Число {num} является палиндромом')
 else:

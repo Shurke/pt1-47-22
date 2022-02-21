@@ -7,10 +7,10 @@
 import string
 
 
-def get_words(text):
+def get_words(text: str) -> set:
     """Подчищает строку от специальных симоволов и возвращает множество уникальных слов в тексте
 
-    :param text: текст для обработки
+    :param str text: текст для обработки
     :returns: множество слов
     :rtype: set
     """

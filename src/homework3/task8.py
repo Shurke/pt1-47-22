@@ -10,7 +10,7 @@
 """
 
 
-def set_gen(numbers_list):
+def set_gen(numbers_list: list) -> set:
     """генерирует множество согласно задаче"""
     result_set = set(numbers_list)
     numbers = result_set.copy()

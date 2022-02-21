@@ -38,17 +38,21 @@ def get_country(city_name, country_dict):
     return None
 
 
-country_cities_match_dict = {}
-country_input_count = int(input("Введите количество стран: "))
-for i in range(0, country_input_count):
-    country_input_str = input(f"Введите данные страны #{i+1} (формат: СТРАНА город1 город2 ...): ")
-    country_cities_match_dict = update_cities_dict(country_input_str, country_cities_match_dict)
+def solution():
+    """реализация решения"""
+    country_cities_match_dict = {}
+    country_input_count = int(input("Введите количество стран: "))
+    for i in range(0, country_input_count):
+        country_input_str = input(
+            f"Введите данные страны #{i+1} (формат: СТРАНА город1 город2 ...): ")
+        country_cities_match_dict = update_cities_dict(country_input_str, country_cities_match_dict)
+    result = []
+    citiest_input_count = int(input("Введите количество запросов городов: "))
+    for i in range(0, citiest_input_count):
+        city_input_str = input(f"Введите город #{i}: ")
+        result.append(get_country(city_input_str, country_cities_match_dict))
+    for r in result:
+        print(r)
 
-result = []
-citiest_input_count = int(input("Введите количество запросов городов: "))
-for i in range(0, citiest_input_count):
-    city_input_str = input(f"Введите город #{i}: ")
-    result.append(get_country(city_input_str, country_cities_match_dict))
 
-for r in result:
-    print(r)
+solution()

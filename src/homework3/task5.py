@@ -17,10 +17,10 @@ KEY_CHARS = {
 }
 
 
-def encode_mobile_sequence(message):
+def encode_mobile_sequence(message: str) -> str:
     """Кодирует сообщение в последовательность кнопок согласно словарю KEY_CHARS
 
-    :param message: сообщение которое необходимо перевести в последовательность цифр
+    :param str message: сообщение которое необходимо перевести в последовательность цифр
     :returns: строку последовательности цифр
     :rtype: str
     """
@@ -32,10 +32,10 @@ def encode_mobile_sequence(message):
     return " ".join(result)
 
 
-def decode_mobile_sequence(sequence):
+def decode_mobile_sequence(sequence: str) -> str:
     """Декодирует последовательность кнопок в текст согласно словарю KEY_CHARS
 
-    :param sequence: последовательность кнопок
+    :param str sequence: последовательность кнопок
     :returns: декодированное сообщение
     :rtype: str
     """
@@ -47,9 +47,14 @@ def decode_mobile_sequence(sequence):
     return "".join(result)
 
 
-input_str = input("Введите сообщение или последовательность цифр: ")
-is_num_sequnce = "".join(input_str.split()).isdigit()
-if is_num_sequnce:
-    print(f"сообщение: {decode_mobile_sequence(input_str)}")
-else:
-    print(f"последовательность кнопок: {encode_mobile_sequence(input_str)}")
+def solution():
+    """реализация решения"""
+    input_str = input("Введите сообщение или последовательность цифр: ")
+    is_num_sequnce = "".join(input_str.split()).isdigit()
+    if is_num_sequnce:
+        print(f"сообщение: {decode_mobile_sequence(input_str)}")
+    else:
+        print(f"последовательность кнопок: {encode_mobile_sequence(input_str)}")
+
+
+solution()

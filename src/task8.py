@@ -58,5 +58,5 @@ words = [word.lower() for word in STR.split()]
 words.sort()
 
 print("Полученные данные:")
-  for word in words:
-print(word)
+for word in words:
+    print(word)

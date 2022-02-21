@@ -29,10 +29,9 @@ DIST = 109
 MARK = 0
 if v > 0:
     MARK = int((v * t) % DIST)
-    print('Байкер находится на отметке:', MARK)
 else:
     MARK = int(abs(DIST - (abs(v * t)) % DIST))
-    print('Байкер находится на отметке:', MARK)
+print('Байкер находится на отметке:', MARK)
 
 
 PROBLEM = 1  # pylint W0105

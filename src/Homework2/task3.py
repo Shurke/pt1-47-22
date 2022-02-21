@@ -4,7 +4,7 @@ CORTAGE = ("123",)
 # SPISOK = list(CORTAGE)
 # print(SPISOK)
 for i in CORTAGE:
-    print(i)  # , sep=" ", end="\n")
+    print(i)
+    # , sep=" ", end="\n"
     # Пытался разделить объект внутри кортежа, чтобы на новой строке выводилось последовательность.
 print(len(CORTAGE))
-    

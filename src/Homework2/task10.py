@@ -5,7 +5,3 @@ spisok.split()
 for i in spisok:
     if int(i) == 0:
         (int(spisok).remove)(i)
-
-
-
-

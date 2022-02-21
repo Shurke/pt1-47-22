@@ -3,12 +3,10 @@
 Учтите что в предложении есть знаки препинания
 """
 
-str_ = input('Введите предложение:')
-str_ = str_.split()
-W = ''
-W1 = 0
-for i in str_:
-    if len(i) > W1:
-        W1 = len(i)
-        W = i
-print('Самое длинное слово:', W)
+import string
+
+STR_ = input('Пожалуйста, введите любое предложение: ')
+for i in string.punctuation:
+    STR_ = STR_.replace(i, '')
+WORD_LIST = STR_.split()
+print(max(WORD_LIST, key=len))

@@ -3,13 +3,11 @@
 Элементы нужно выводить в том порядке, в котором они встречаются в списке.
 """
 
+
 input_data = [s for s in input('Введите данные через пробел: ').split()]
 output_data = []
-for elmnt in range(len(input_data)):
-    for elmnt_2 in range(len(input_data)):
-        if elmnt != elmnt_2 and input_data[elmnt] == input_data[elmnt_2]:
-            break
-    else:
-        output_data.append(input_data[elmnt])
+for elmnt in input_data:
+    if input_data.count(elmnt) == 1:
+        output_data.append(elmnt)
 
 print(f"Неповторяющиеся символы: {', '.join(output_data)}")

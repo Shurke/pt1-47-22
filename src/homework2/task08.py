@@ -16,19 +16,8 @@ larger и smaller. Программа должна возвращать знач
 """
 
 
-def is_sublist(larger, smaller):
-
-    larger_len, smaller_len = len(larger), len(smaller)
-    if smaller_len > larger_len:
-        return False
-    if smaller == larger or smaller == []:
-        return True
-    for i in range(0, larger_len):
-        if smaller == larger[i:i + smaller_len]:
-            return True
-    return False
-
-
 larger = [int(elmt) for elmt in input('Введите список через пробел: ').split()]
 smaller = [int(elmt) for elmt in input('Введите подсписок через пробел: ').split()]
-print(f'Результат проверки: {is_sublist(larger, smaller)}')
+
+print(f"Результат проверки на вхождение подсписка в список: "
+      f"{str(smaller).strip('[]') in str(larger).strip('[]')}")

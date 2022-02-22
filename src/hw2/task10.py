@@ -17,5 +17,5 @@
 
 
 input_list = list(map(int, input('Введите список: ').split()))
-input_list.sort(key = lambda x: not x)
+input_list.sort(key=lambda x: not x)
 print(input_list)

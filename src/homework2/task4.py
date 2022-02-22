@@ -13,4 +13,4 @@ for I_CHAR in range(0, len(TUPLE)):
     for I_CHAR_1 in range(I_CHAR + 1, len(TUPLE)):
         if TUPLE[I_CHAR] == TUPLE[I_CHAR_1]:
             NUM_OF_PAIRS += 1
-print(NUM_OF_PAIRS)
+print(f'Количество пар элментов: {NUM_OF_PAIRS}')

@@ -5,14 +5,7 @@ Tuple practice
 """
 
 
-TUPLE = str(123),
+TUPLE = ('123',)
 for CHAR in TUPLE[0]:
     print(CHAR)
-print(len(TUPLE))
-
-# OR
-
-TUPLE = [1, 2, 3],
-for CHAR in TUPLE[0]:
-    print(CHAR)
-print(len(TUPLE))
+print(f'Длина кортежа: {len(TUPLE)}')

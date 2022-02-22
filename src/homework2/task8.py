@@ -15,4 +15,7 @@
 
 LARGER = [int(ELEM) for ELEM in input('Введите список "larger" через пробел: ').split()]
 SMALLER = [int(ELEM) for ELEM in input('Введите список "smaller" через пробел: ').split()]
-print(set(SMALLER).issubset(LARGER))
+if set(SMALLER).issubset(LARGER):
+    print('Второй список является подсписком первого!')
+else:
+    print('Второй список не является подсписком первого!')

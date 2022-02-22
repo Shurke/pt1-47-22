@@ -13,4 +13,4 @@ while len(LIST_OF_WIN) < 6:
     NUM = random.randint(1, 49)
     if NUM not in LIST_OF_WIN:
         LIST_OF_WIN.append(NUM)
-print(sorted(LIST_OF_WIN))
+print(f'Выигрышная комбинация: {sorted(LIST_OF_WIN)}')

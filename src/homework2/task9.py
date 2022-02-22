@@ -12,4 +12,4 @@ LIST_OUT = [[]]
 LEN = len(LIST_IN)
 LIST_OUT = [[]]
 LIST_OUT += [LIST_IN[FIR:SEC] for FIR in range(0, LEN) for SEC in range(FIR + 1, LEN + 1)]
-print(LIST_OUT)
+print(f'Все подсписки исходного списка: {LIST_OUT}')

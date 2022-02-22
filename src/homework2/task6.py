@@ -32,5 +32,6 @@ for IND in range(0, len(LIST_OF_NUMBERS)):
 
 GEN_LIST = NEG_LIST + NULL_LIST + POS_LIST
 
+print('Отсортированные значения: ')
 for NUM in GEN_LIST:
     print(NUM)

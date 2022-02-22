@@ -6,8 +6,7 @@
 
 
 LIST = [ELEM for ELEM in input('Введите список через пробел: ').split()]
-CHECK_LIST = []
-for ITEM in LIST:
-    if ITEM not in CHECK_LIST:
-        print(ITEM)
-        CHECK_LIST.append(ITEM)
+
+for ITEM_IND in range(len(LIST)):
+    if LIST[ITEM_IND] not in LIST[:ITEM_IND]:
+        print(f'Уникальный элемент: {LIST[ITEM_IND]}')

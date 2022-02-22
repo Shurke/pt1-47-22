@@ -16,4 +16,4 @@ while AMOUNT_OF_ZERO + AMOUNT_OF_NOT_ZERO != len(LIST):
         AMOUNT_OF_NOT_ZERO += 1
     else:
         AMOUNT_OF_ZERO += 1
-print(LIST)
+print(f'Отсортированный список: {LIST}')

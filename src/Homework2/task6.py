@@ -6,17 +6,17 @@
  таким: -4, -1, -2, 0, 0, 3 и 1. Каждое значение должно отображаться на новой строке.
 """
 numbers = input('Введите числа для сортировки (проблел для окончания): ')
-list_1 = []
-list_2 = []
-list_3 = []
+list_neg = []
+list_zero = []
+list_pos = []
 while numbers != "":
     if int(numbers) < 0:
-        list_1.append(numbers)
+        list_neg.append(numbers)
         numbers = input()
     elif int(numbers) == 0:
-        list_2.append(numbers)
+        list_zero.append(numbers)
         numbers = input()
     elif int(numbers) > 0:
-        list_3.append(numbers)
+        list_pos.append(numbers)
         numbers = input()
-print(', '.join(list_1 + list_2 + list_3))
+print(', '.join(list_neg + list_zero + list_pos))

@@ -16,6 +16,6 @@ list_1 = list(map(int, input('Введите числа через пробел:
 list_2 = list(map(int, input('Введите числа через пробел: ').split()))
 
 if str(list_2).strip('[]') in str(list_1).strip('[]'):
-    print(True)
+    print(True, '- второй список является подсписком первого')
 else:
-    print(False)
+    print(False, '- второй список не является подсписком первого')

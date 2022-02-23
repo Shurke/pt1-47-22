@@ -17,11 +17,9 @@ import random
 
 numbers = []
 
-while True:
+while len(numbers) != 6:
     numb = random.randint(1, 49)
     if numb not in numbers:
         numbers.append(numb)
-    if len(numbers) == 6:
-        break
 
-print('Случайно подобранные шесть новеров для билета:', sorted(numbers))
+print(f'Случайно подобранные шесть новеров для билета: {sorted(numbers)}')

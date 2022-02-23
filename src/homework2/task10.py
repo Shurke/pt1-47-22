@@ -17,4 +17,4 @@ for numb in list1:
         zero = list1.pop(index)
         list1.append(zero)
 
-print('Отсортированный список:', list1)
+print(f'Отсортированный список: {list1}')

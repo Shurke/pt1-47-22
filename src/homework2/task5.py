@@ -8,7 +8,6 @@
 
 list1 = input('Введите числа через пробел: ').split()
 
-for i in range(len(list1)):
-    value = list1.count(list1[i])
-    if value == 1:
-        print(f'Элемент из введённого списка, который встречается один раз: {list1[i]}')
+for i in list1:
+    if list1.count(i) == 1:
+        print(f'Элемент из введённого списка, который встречается один раз: {i}')

@@ -33,4 +33,4 @@ for i in number_list:
         positive_numbers.append(i)
 
 number_list = sorted(negative_numbers) + zero_numbers + sorted(positive_numbers)
-print('Отсортированный список', number_list)
+print(f'Отсортированный список: {number_list}')

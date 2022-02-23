@@ -31,6 +31,6 @@ for i in range(size_larger):
 
 if smaller in result:
     value = 1
-    print('Второй список является подсписком первого:', bool(value))
+    print(f'Второй список является подсписком первого: {bool(value)}')
 else:
-    print('Второй список не является подсписком первого:', bool(value))
+    print(f'Второй список не является подсписком первого: {bool(value)}')

@@ -4,12 +4,11 @@
 """
 
 
+import math
 """
 Первое решение
 """
 
-
-import math
 
 num_one = int(input('Введите первое число: '))
 num_two = int(input('Введите второе число: '))

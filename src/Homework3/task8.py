@@ -7,9 +7,9 @@
 множества через функцию set_gen(). """
 
 
-def set_gen(*_args):
+def set_gen(some_list):
     list_2 = []
-    for digital in list_1:
+    for digital in some_list:
         list_2.append(int(digital))
     set_1 = set(list_2)
     set_2 = set()

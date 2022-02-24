@@ -5,14 +5,12 @@
 и 3 и 5 - FizzBuzz
 """
 
-list1 = []
 for item in range(1, 101):
     if item % 15 == 0:
-        list1.append('FizzBuzz')
+        print('FizzBuzz', end=" ")
     elif item % 3 == 0:
-        list1.append('Fizz')
+        print('Fizz', end=" ")
     elif item % 5 == 0:
-        list1.append('Buzz')
+        print('Buzz', end=" ")
     else:
-        list1.append(item)
-print(list1)
+        print(item, end=" ")

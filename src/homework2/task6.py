@@ -28,5 +28,5 @@ for item in range(len(list0)):
     else:
         list3.append(list0[item])
 list4 = list1 + list2 + list3
-for elem in range(len(list4)):
-    print(list4[elem], end=" ")
+for elem in list4:
+    print(elem)

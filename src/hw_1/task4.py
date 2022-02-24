@@ -4,7 +4,7 @@
 """
 
 
-string = input()
+string = input('Введите предложение: ')
 a = 0
 b = 0
 for i in string:
@@ -15,3 +15,5 @@ for i in string:
             b += 1
 print(a)
 print(b)
+#a - small letters
+#b - big letters

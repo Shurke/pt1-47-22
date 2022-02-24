@@ -4,7 +4,7 @@
 """
 
 
-a = 1
+a = 0
 b = 1
 n = input('Введите число: ')
 n = int(n)
@@ -15,3 +15,6 @@ while i < n - 2:
     b = fib_sum
     i = i + 1
 print(b)
+# a - first number
+# b - second number
+

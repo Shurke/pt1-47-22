@@ -7,17 +7,21 @@
 множества через функцию set_gen(). """
 
 
+def set_gen(*_args):
+    list_2 = []
+    for digital in list_1:
+        list_2.append(int(digital))
+    set_1 = set(list_2)
+    set_2 = set()
+    for num in set_1:
+        set_2.add(num)
+        count = list_2.count(num)
+        counter = 2
+        while counter < count + 1:
+            set_2.add(str(num) * counter)
+            counter += 1
+    return set_2
+
+
 list_1 = input("Введите список через пробел ").split()
-list_2 = []
-for digital in list_1:
-    list_2.append(int(digital))
-set_1 = set(list_2)
-set_2 = set()
-for num in set_1:
-    set_2.add(num)
-    count = list_2.count(num)
-    counter = 2
-    while counter < count + 1:
-        set_2.add(str(num) * counter)
-        counter += 1
-print("Вот итоговое множество", set_2)
+print("Вот итоговое множество", set_gen(list_1))

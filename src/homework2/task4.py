@@ -12,4 +12,4 @@ for i in range(0, len(STR)):
     for j in range(i + 1, len(STR)):
         if STR[i] == STR[j]:
             QUANT += 1
-print(QUANT)
+print(f'Количество пар в списке, равных друг другу: {QUANT}')

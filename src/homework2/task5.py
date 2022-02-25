@@ -8,8 +8,6 @@ lst_ = lst_.split()
 lst_ = list(lst_)
 NEW_lst = []
 for i in lst_:
-    if i in NEW_lst:
-        NEW_lst.remove(i)
-    elif i not in NEW_lst:
+    if lst_.count(i) == 1:
         NEW_lst.append(i)
-print(NEW_lst)
+print(f'Элементы, которые встречаются в списке только один раз: {NEW_lst}')

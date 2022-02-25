@@ -9,4 +9,4 @@ LIST_ = [int(i) for i in input('Введите цифры основного с�
 LIST_prt = []
 LEN = len(LIST_)
 LIST_prt += [LIST_[x:y] for x in range(0, LEN) for y in range(x, LEN + 1)]
-print(LIST_prt)
+print('Все подсписки основного введенного списка: ', LIST_prt)

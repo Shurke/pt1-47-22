@@ -14,4 +14,4 @@
 
 LARGER = [int(i) for i in input('Введите цифры основного списка через пробел: ').split()]
 SMALLER = [int(i) for i in input('Введите цифры подсписка через пробел: ').split()]
-print(set(SMALLER).issubset(LARGER))
+print(f'Введенный подсписок является подсписком основного списка: ', set(SMALLER).issubset(LARGER))

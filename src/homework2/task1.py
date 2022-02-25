@@ -3,8 +3,7 @@
 вместо чисел кратный 5 пишет Buzz, а вместо чисел одновременно кратных и 3 и 5 - FizzBuzz
 """
 
-RES = range(0, 101)
-for i in RES:
+for i in range(0, 101):
     if i % 3 == 0 and i % 5 == 0:
         print('FizzBuzz')
     elif i % 3 == 0:

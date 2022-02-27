@@ -9,11 +9,11 @@
 
 
 for char in range(1, 101):
-    if char % 3 == 0:
-        print('Fizz')
+    if char % 5 == 0 and char % 3 == 0:
+        print('FizzBuzz')
     elif char % 5 == 0:
         print('Buzz')
-    elif char % 3 == 0 and char % 5 == 0:
-        print('FizzBuzz')
+    elif char % 3 == 0:
+        print('Fizz')
     else:
         print(char)

@@ -22,10 +22,13 @@
 
 
 import random
+
 winners = []
 while len(winners) < 6:
     numbers = random.randint(1, 49)
     if numbers not in winners:
         winners.append(numbers)
 
+# winners - номера билетов
 print(sorted(winners))
+# данная функция выводит на экран номера выигрышных билетов по возрастанию

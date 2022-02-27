@@ -20,6 +20,8 @@
 
 input_list = [int(num) for num in input('Введите список: ').split()]
 output_list = [[]]
+# создание пустого списка
 lenth = len(input_list)
 output_list += [input_list[i:n] for i in range(0, lenth) for n in range(i + 1, lenth + 1)]
+# выводит на экран пустой список и содержащий все возможные подсписки заданного
 print(output_list)

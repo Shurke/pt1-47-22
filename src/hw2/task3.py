@@ -10,8 +10,7 @@
 """
 
 
-tuple = str(123),
+tuple = ('123',)
 for char in tuple[0]:
     print(char)
-print(len(char))
 print(len(char))

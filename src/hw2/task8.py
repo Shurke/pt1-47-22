@@ -39,5 +39,9 @@
 
 
 larger = [int(num) for num in input('Введите список "larger" через пробел: ').split()]
+# первый список
 smaller = [int(num) for num in input('Введите список "smaller" через пробел: ').split()]
+# второй список
 print(set(smaller).issubset(larger))
+# выводит на экран значение True/False в зависимости от того,
+# является ли один список подсписком другого

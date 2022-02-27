@@ -13,21 +13,21 @@
 Каждое значение должно отображаться на новой строке.
 """
 
-first_list = []
-second_list = []
-third_list = []
+positive_list = []
+negative_list = []
+zero_list = []
 ent = None
 while True:
     ent = input("Введите число: ")
     if ent == "":
         break
     elif int(ent) > 0:
-        first_list.append(ent)
+        positive_list.append(ent)
     elif int(ent) < 0:
-        second_list.append(ent)
+        negative_list.append(ent)
     elif int(ent) == 0:
-        third_list.append(ent)
-final_list = first_list + second_list + third_list
+        zero_list.append(ent)
+final_list = negative_list + zero_list + positive_list
 print("Вы ввели следующие числа:")
 for num in final_list:
     print(num)

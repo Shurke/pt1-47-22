@@ -10,23 +10,23 @@
 значение должно отображаться на новой строке.
 """
 
-list0 = []
+list_input = []
 while True:
-    str1 = str(input("Введите число: "))
-    if str1 == "":
+    str_input = str(input("Введите число: "))
+    if str_input == "":
         break
     else:
-        list0.append(int(str1))
-list1 = []
-list2 = []
-list3 = []
-for item in range(len(list0)):
-    if list0[item] < 0:
-        list1.append(list0[item])
-    elif list0[item] == 0:
-        list2.append(list0[item])
+        list_input.append(int(str_input))
+negative_list = []
+zero_list = []
+positive_list = []
+for item in list_input:
+    if item < 0:
+        negative_list.append(item)
+    elif item == 0:
+        zero_list.append(item)
     else:
-        list3.append(list0[item])
-list4 = list1 + list2 + list3
-for elem in list4:
+        positive_list.append(item)
+result_list = negative_list + zero_list + positive_list
+for elem in result_list:
     print(elem)

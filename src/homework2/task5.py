@@ -5,6 +5,6 @@
 """
 
 list1 = [int(elem) for elem in input("Ведите список через пробел: ").split()]
-for item in range(len(list1)):
-    if list1.count(list1[item]) == 1:
-        print(list1[item], end=" ")
+for item in list1:
+    if list1.count(item) == 1:
+        print(item, end=" ")

@@ -7,7 +7,5 @@
 """
 
 list1 = [int(elem) for elem in input("Введите Ваш список ч/з пробел: ").split()]
-for item in range(len(list1)):
-    if list1[item] == 0:
-        list1.append(list1.pop(item))
+list1.sort(key=lambda x: not x)
 print(list1)

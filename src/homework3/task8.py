@@ -9,11 +9,11 @@
 
 def set_gen(num_list):
     output = []
+    print(type(output))
     dict_of_list = {}
     for elem in num_list:
         dict_of_list[elem] = num_list.count(elem)
     for elem, count in dict_of_list.items():
-        print(elem, count)
         if count <= 1:
             output.append(elem)
         else:
@@ -22,7 +22,7 @@ def set_gen(num_list):
     return set(output)
 
 
-INPUT = input('Введите числа через пробел ').split()
+INPUT = input('Введите числа через пробел: ').split()
 INPUT_LIST = []
 
 for ELEM_IND in range(0, len(INPUT)):

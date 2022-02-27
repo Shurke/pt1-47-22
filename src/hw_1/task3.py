@@ -11,4 +11,4 @@ for c in range(len(a)):
         b += a[c]
 print(b)
 # a - introductory sentence
-# b = space
+# b - space

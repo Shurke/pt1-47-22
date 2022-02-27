@@ -15,5 +15,5 @@ for i in string:
             b += 1
 print(a)
 print(b)
-#a - small letters
-#b - big letters
+# a - small letters
+# b - big letters

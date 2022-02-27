@@ -17,4 +17,3 @@ while i < n - 2:
 print(b)
 # a - first number
 # b - second number
-

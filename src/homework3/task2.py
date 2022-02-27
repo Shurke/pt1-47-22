@@ -11,11 +11,11 @@
 """
 
 
-def update_cities_dict(country_str, country_dict):
+def update_cities_dict(country_str: str, country_dict: dict) -> dict:
     """Генератор словаря по строке данных формата СТРАНА город1 город2 город3 ...
 
-    :param country_str: строка данных в формате "СТРАНА город1 город2 город3"
-    :param country_dict: словарь в которые необходимо добавить или обновить значения
+    :param str country_str: строка данных в формате "СТРАНА город1 город2 город3"
+    :param dict country_dict: словарь в которые необходимо добавить или обновить значения
     :returns: словарь {страна: [города..]}
     :rtype: dict
     """
@@ -24,11 +24,12 @@ def update_cities_dict(country_str, country_dict):
     return country_dict
 
 
-def get_country(city_name, country_dict):
+def get_country(city_name: str, country_dict: dict) -> str:
     """Получение названия страны по введенному городу
 
-    :param city_name: имя города для поиска
-    :param country_dict: словарь содержащий соответствия {страна1: [города1], страна2: [города2]}
+    :param str city_name: имя города для поиска
+    :param dict country_dict: словарь содержащий соответствия:
+        {страна1: [города1], страна2: [города2]}
     :returns: страна в которой находится город или None если такого нет
     :rtype: str
     """

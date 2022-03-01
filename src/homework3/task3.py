@@ -4,7 +4,9 @@
 во втором.
 """
 
-list_1 = {int(item) for item in input("Введите 1 список ч/з пробел: ").split()}
-list_2 = {int(item) for item in input("Введите 2 список ч/з пробел: ").split()}
-list_new = list(list_1 ^ list_2)
-print(f"{len(list_new)} различных чисел содержится в двух списках")
+str_1 = input("Введите 1 список ч/з пробел: ").split()
+set_1 = set(str_1)
+str_2 = input("Введите 2 список ч/з пробел: ").split()
+set_2 = set(str_2)
+set_new = set_1 ^ set_2
+print(f"{len(set_new)} различных чисел содержится в двух списках")

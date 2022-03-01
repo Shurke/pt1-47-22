@@ -30,21 +30,21 @@
 """
 
 input_str = input("Введите Ваше сообщение: ").upper()
-dict_1 = {1: [".", ",", "?", "!", ":"],
-          2: ["A", "B", "C"],
-          3: ["D", "E", "F"],
-          4: ["G", "H", "I"],
-          5: ["J", "K", "L"],
-          6: ["M", "N", "O"],
-          7: ["P", "Q", "R", "S"],
-          8: ["T", "U", "V"],
-          9: ["W", "X", "Y", "Z"],
-          0: [" "]
+dict_1 = {"1": [".", ",", "?", "!", ":"],
+          "2": ["A", "B", "C"],
+          "3": ["D", "E", "F"],
+          "4": ["G", "H", "I"],
+          "5": ["J", "K", "L"],
+          "6": ["M", "N", "O"],
+          "7": ["P", "Q", "R", "S"],
+          "8": ["T", "U", "V"],
+          "9": ["W", "X", "Y", "Z"],
+          "0": [" "]
           }
 output = []
 for elem in input_str:
     for key, value in dict_1.items():
         if elem in value:
-            output.append(str(key) * (value.index(elem) + 1))
+            output.append(key * (value.index(elem) + 1))
 
 print(f'Вам нужно набрать следующую последовательность цифр: {"".join(output)}')

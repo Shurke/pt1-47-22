@@ -4,9 +4,9 @@
 Сколько семей живет в доме N? Задачу решать с помощью множеств и их методов.
 """
 
-newspaper = {int(item) for item in range(1, 76)}
-journal = {int(item) for item in range(1, 28)}
-new_jour = {int(item) for item in range(1, 14)}
+newspaper = set(range(75))
+journal = set(range(27))
+new_jour = set(range(13))
 only_newspaper = newspaper - new_jour
 only_journal = journal - new_jour
 print(f"В доме живёт {len(only_newspaper) + len(only_journal) + len(new_jour)}"

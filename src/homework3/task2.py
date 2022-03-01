@@ -27,13 +27,13 @@ Russia
 
 number_of_countries = int(input("Введите количество стран: "))
 dict_of_cities = {}
-for i in range(0, number_of_countries):
+for i in range(number_of_countries):
     input_str_1 = input("Введите страну и города ч/з пробел: ")
     dict_of_cities[input_str_1.split()[0]] = input_str_1.split()[1:]
 
 number_of_cities = int(input("Введите к-во городов, которые нужно найти: "))
 output_list = []
-for elem in range(0, number_of_cities):
+for elem in range(number_of_cities):
     input_str_2 = input("Введите города: ")
     for key, value in dict_of_cities.items():
         if input_str_2 in value:

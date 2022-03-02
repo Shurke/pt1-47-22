@@ -3,21 +3,12 @@
 
 
 def int_list(a):
-    return [int(i) for i in a]
+    return (int(i) for i in a)
 
 
-def sort(a, b):
-    for i in a:
-        if i not in b:
-            end.append(i)
-    return end
-
-
-end = []
 int_list_1 = int_list(list(input('Введите числа: ')))
 int_list_2 = int_list(list(input('Введите числа: ')))
 
-sort_1 = sort(int_list_1, int_list_2)
-sort_2 = sort(int_list_2, int_list_1)  # Можно убрать если только 1 список на уникальность проверять
+difference_in_lists = list(set(int_list_1) - set(int_list_2))
 
-print('Не повторяющиеся числа в списках: ', end)
+print(f'Количество цифр не сожержащихся во втором списке: {len(difference_in_lists)}')

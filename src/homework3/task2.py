@@ -10,9 +10,13 @@
 
 m = {}
 
-for i in range(int(input('Введите количество стран: '))):
+number_of_countries = (int(input('Введите количество стран: ')))
+
+for i in range(number_of_countries):
     country, *cities = input('Введите названия стран и городов через пробел: ').split()
     for city in cities:
         m[city] = country
 
-print(*(m[input('Названия городов: ')] for i in range(int(input('Число городов: ')))), sep="\n")
+number_of_cities = (int(input('Число городов: ')))
+
+print(*(m[input('Названия городов: ')] for i in range(number_of_cities)), sep="\n")

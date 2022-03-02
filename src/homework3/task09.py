@@ -5,10 +5,14 @@
 """
 
 
-newspaper = set(range(1, 76))
-journal = set(range(77, 77 + 27))
-both = len(set(range(1, 14)))
+newspaper_subscriber = 75
+journal_subscriber = 27
+journal_n_newspaper = 13
 
-total = len(newspaper | journal)
+newspaper = set(range(newspaper_subscriber))
+journal = set(range(journal_subscriber))
+both = len(set(range(journal_n_newspaper)))
+
+total = len(newspaper) + len(journal)
 families = total - both
 print(f'Количество семей в доме: {families}')

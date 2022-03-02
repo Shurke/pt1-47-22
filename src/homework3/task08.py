@@ -12,9 +12,11 @@ def set_get(in_data):
     for digit in in_data:
         count = 1
         if in_data.count(digit) > 1:
+            output.append(digit)
             count *= in_data.count(digit)
-            repeated_digit = f'{digit}, {str(digit) * count}'
-            output.append(repeated_digit)
+            for i in range(1, count):
+                repeated_digit = f'{str(digit) * (i + 1)}'
+                output.append(repeated_digit)
         else:
             output.append(digit)
     return set(output)

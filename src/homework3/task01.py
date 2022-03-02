@@ -4,5 +4,5 @@
 """
 
 
-dict = {x: x**3 for x in range(1, 20)}
-print(dict)
+numbers = {x: x ** 3 for x in range(1, 21)}
+print(numbers)

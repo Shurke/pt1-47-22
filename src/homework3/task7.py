@@ -13,14 +13,10 @@ def anagram(w1, w2):
     list1.sort()
     list2.sort()
 
-    pos = 0
-    result = True
+    result = False
 
-    while pos < len(w1) and result:
-        if list1[pos] == list2[pos]:
-            pos += 1
-        else:
-            result = False
+    if list1 == list2:
+        result = True
 
     return result
 

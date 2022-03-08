@@ -9,14 +9,18 @@
 
 def set_gen(numb_list):
 
-    numb_set = set(numb_list)
+    numb_set_1 = set(numb_list)
+    numb_set_2 = set()
 
-    for i in range(len(numb_list)):
-        value = numb_list.count(numb_list[i])
-        numb_set.add(str(numb_list[i]) * value)
+    for value in numb_set_1:
+        numb_set_2.add(value)
+        quant = numb_list.count(value)
+        counter = 1
+        while quant > counter:
+            numb_set_2.add(str(value) * counter)
+            counter += 1
+    return numb_set_2
 
-    return numb_set
 
-
-list_of_numb = input('Введите список натуральных чисел: ').split()
-print(f'Результат множества после изменений: {set_gen(list_of_numb)}')
+list_of_numb_1 = input('Введите список натуральных чисел: ').split()
+print(f'Результат множества после изменений: {set_gen(list_of_numb_1)}')

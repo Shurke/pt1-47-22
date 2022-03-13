@@ -3,9 +3,9 @@
 чисел содержится одновременно как в первом списке, так и во втором.
 """
 
-FIRST_lst = set(input('Введите первый список числе через пробел: ').split())
-SECOND_lst = set(input('Введите второй список числе через пробел: ').split())
+FIRST_LST = set(input('Введите первый список числе через пробел: ').split())
+SECOND_LST = set(input('Введите второй список числе через пробел: ').split())
 SUM_ELEM = 0
-for _ in FIRST_lst.symmetric_difference(SECOND_lst):
+for _ in FIRST_LST.symmetric_difference(SECOND_LST):
     SUM_ELEM += 1
 print(f'Количество различных элементов в списках: {SUM_ELEM} ')

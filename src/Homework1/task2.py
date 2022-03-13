@@ -11,4 +11,4 @@ for p in string.punctuation:
     if p in str_1:
         str_1 = str_1.replace(p, "")
 max_slovo = max(str_1.split(), key=len,)
-print(max_slovo, ": Самое длинное слово в предложении.")
+print(f"Самое длинное слово в предложении: {max_slovo}.")

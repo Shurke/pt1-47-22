@@ -5,6 +5,18 @@
  get_ranges([2, 3, 8, 9]) // "2-3,8-9"
 """
 
-def get_ranges():
-    
-    return
+
+def get_ranges(a):
+    result = []
+    temp = []
+    for i in range(max(a) + 2):
+        if i in a:
+            temp.append(i)
+        else:
+            if temp:
+                if len(temp) == 1:
+                    result.append(temp[0])
+                else:
+                    result.append(f'{temp[0]}-{temp[-1]}')
+                temp.clear()
+    return result

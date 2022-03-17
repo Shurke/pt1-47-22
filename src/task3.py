@@ -15,3 +15,27 @@ func(1, 4)   -->  1111010
 -----
   122  // 122 в двоичном виде 1111010
 """
+
+
+def func_1(x):
+    a = ''
+    while x > 0:
+        a = str(x % 2) + a
+        x = x // 2
+    return a
+
+
+def func(m, n):
+    result = int()
+    temp = int()
+    for i in range(m, n + 1):
+        temp = i
+        a = func_1(i)
+        print(f'{q} в двоичном коде {a}')
+        result += int(a)
+    return result
+
+
+t = func(1, 4)
+y = func_1(t)
+print(f'{t} в двоичном коде {y}')

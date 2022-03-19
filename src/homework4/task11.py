@@ -23,8 +23,8 @@
 """
 
 
-import zipfile
 import heapq
+import zipfile
 
 
 def get_year_dict(period=None):
@@ -104,7 +104,7 @@ def print_generic_name(input_dict):
     if generic_set:
         print(f'Generic names: {", ".join(generic_set)}')
     else:
-        print(f'No generic names.')
+        print('No generic names.')
 
 
 while True:

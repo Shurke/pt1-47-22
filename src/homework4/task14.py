@@ -13,14 +13,14 @@ def decorator_with_limit(func, limit=10):
 
         num_of_try = 0
         exit_flag = False
-        while exit_flag == False and num_of_try < limit:
+        while exit_flag is False and num_of_try < limit:
             try:
                 func(*args, **kwargs)
                 exit_flag = True
             except Exception:
                 num_of_try += 1
 
-        if exit_flag == True:
+        if exit_flag is True:
             print(f'Function executed after {num_of_try + 1} try.')
         else:
             raise BufferError('TooManyErrors')

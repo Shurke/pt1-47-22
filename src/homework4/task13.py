@@ -23,15 +23,15 @@ def word_with_elem(word, sequence):
     try_list = [False for x in range(0, len(word) + 1)]
     try_list[0] = []
 
-    for i in range(1, len(word)+1):
+    for i in range(1, len(word) + 1):
 
         variants = []
 
         for n in range(max(i - 3, 0), i):
 
-            if try_list[n] == False: # variability
+            if try_list[n] is False:  # variability
                 continue
-            potential_element = word[n:i].title() # for search in seq
+            potential_element = word[n:i].title()  # for search in seq
 
             if potential_element in sequence:
                 variants.append(try_list[n] + [potential_element])
@@ -39,7 +39,7 @@ def word_with_elem(word, sequence):
         if variants:
             try_list[i] = min(variants, key=len)
 
-    if try_list[-1] == False:
+    if try_list[-1] is False:
         result = ''
     else:
         result = "".join(try_list[-1])

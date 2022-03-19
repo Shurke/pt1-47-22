@@ -25,7 +25,6 @@ if __name__ == "__main__":
 
         return day.strftime('%j')
 
-
     while True:
         inp_data = input('Пожалуйста, введите день, месяц и год: ')
 

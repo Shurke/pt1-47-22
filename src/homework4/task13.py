@@ -20,9 +20,10 @@ elements.txt.
 
 
 def word_with_elem(word: str, sequence: list) -> str:
-    """Trying to make a /silicon/ from elements in /sequence/ and return SiLiCoN or empty string if
-     this is not possible"""
+    """Trying to make a /silicon/ from elements in /sequence/
 
+    Return SiLiCoN or empty string if this is not possible.
+    """
     try_list = [False for x in range(0, len(word) + 1)]
     try_list[0] = []
 
@@ -52,8 +53,9 @@ def word_with_elem(word: str, sequence: list) -> str:
 
 def get_sequence_dict_from_file(file_name='elements.txt') -> dict:
     """Return dict with sequence {Short_name: Full_name} from file.
-    Default file = elements.txt"""
 
+    Default file = elements.txt
+    """
     with open(file_name, 'r') as opened_file:
         elements_native = opened_file.readlines()
         elements = {}

@@ -18,8 +18,9 @@ cup, 3 tablespoons, 2 teaspoons».
 
 def cooking(numb, name) -> str:
     """Accepts name in (cups, tablespoons, teaspoons) and amount of them.
-    Return string with numbers of cups, tablespoons and teaspoons."""
 
+    Return string with numbers of cups, tablespoons and teaspoons.
+    """
     table_in_cup = 16
     tea_in_table = 3
     tea_in_cup = tea_in_table * table_in_cup

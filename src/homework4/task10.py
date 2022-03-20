@@ -7,8 +7,9 @@
 
 def get_max_word(file_name='words.txt'):
     """Find most longest words in database and print them.
-    Pass into filename (default = words.txt)"""
 
+    Pass into filename (default = words.txt)
+    """
     with open(f'{file_name}', 'r') as opened_file:
         string = opened_file.readline()
         words = []

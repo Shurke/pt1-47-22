@@ -3,7 +3,8 @@
 """
 
 
-def nearest_divisor(inp_num=9):
+def nearest_divisor(inp_num=9) -> str:
+    """Return string with nearest (degree of 2) divisor like 'NUMBER(DIVISOR)'"""
     start_degree = 1
     degree_list = [1]
 

@@ -16,16 +16,31 @@ cup, 3 tablespoons, 2 teaspoons».
 """
 
 
-def cooking(cup=1, table=2, tea=8, factor=7):
-    general_tea = (tea + table * 3 + cup * 16 * 3) * factor
-    num_of_cup = general_tea // 48
-    num_of_table = (general_tea - num_of_cup * 48) // 3
-    num_of_tea = general_tea - num_of_cup * 48 - num_of_table * 3
+def cooking(numb, name) -> str:
+    """Accepts name in (cups, tablespoons, teaspoons) and amount of them.
+    Return string with numbers of cups, tablespoons and teaspoons."""
+
+    table_in_cup = 16
+    tea_in_table = 3
+    tea_in_cup = tea_in_table * table_in_cup
+
+    if name == 'teaspoons':
+        general_tea = numb
+    elif name == 'tablespoons':
+        general_tea = numb * tea_in_table
+    elif name == 'cups':
+        general_tea = numb * tea_in_cup
+    else:
+        return 'Some trouble with type of container. Is it correct?'
+
+    num_of_cup = general_tea // tea_in_cup
+    num_of_table = (general_tea - num_of_cup * tea_in_cup) // tea_in_table
+    num_of_tea = general_tea - num_of_cup * tea_in_cup - num_of_table * tea_in_table
     return f'Necessary {num_of_cup} cup, {num_of_table} tablespoons, {num_of_tea} teaspoons'
 
 
 while True:
-    ingredient_list = [int(i) for i in input('Пожалуйста, введите количество кружек, столовых и'
-                                             ' чайных ложек на 1 рецепт через пробел: ').split()]
-    factor = int(input('Сколько штук готовим за раз? '))
-    print(cooking(ingredient_list[0], ingredient_list[1], ingredient_list[2], factor))
+    container = input('What type of container are you using (cups, tablespoons, teaspoons)? ')
+    number = int(input('What quantity? '))
+
+    print(cooking(numb=number, name=container))

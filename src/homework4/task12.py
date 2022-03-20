@@ -23,18 +23,28 @@
 """
 
 
-def get_arabian(roman_num: str):
+def get_arabian(roman_num: str) -> int:
+    """Trying to translate a Roman number into Arabic.
+    If it doesn't work, it returns 0."""
     numbers = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
     pairs = {'CM': 900, 'CD': 400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV': 4}
     if len(roman_num) == 0:
         return 0
     if len(roman_num) == 1:
         return numbers[roman_num]
-    elif roman_num[:2] in pairs.keys():
+    elif roman_num[:2] in pairs:
         return pairs[roman_num[:2]] + get_arabian(roman_num[2:])
     else:
         return numbers[roman_num[0]] + get_arabian(roman_num[1:])
 
 
-for num in ['XCVII', 'CXLVIII', 'CLXXXVIII', 'MCMDCCXLIV']:
-    print(get_arabian(num))
+if __name__ == '__main__':
+    while True:
+        what_to_do = input('Please type Roman number, leave empty to demo or type exit: ')
+        if what_to_do == 'exit':
+            exit('Closed by user.')
+        elif what_to_do != '':
+            print(f'{what_to_do} = {get_arabian(what_to_do)}')
+        else:
+            for num in ['XCVII', 'CXLVIII', 'CLXXXVIII', 'MCMDCCXLIV']:
+                print(f'{num} = {get_arabian(num)}')

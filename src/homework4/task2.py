@@ -7,7 +7,8 @@
 """
 
 
-def get_ranges(input_list: list):
+def get_lists_of_ranges(input_list: list) -> str:
+    """Collapses list into string with its ranges"""
     range_list_native = [input_list[0]]
     result_list = []
 
@@ -35,4 +36,4 @@ def get_ranges(input_list: list):
 
 
 for sequence in [[0, 1, 2, 3, 4, 7, 8, 10], [4, 7, 10], [2, 3, 8, 9]]:
-    print(get_ranges(sequence))
+    print(get_lists_of_ranges(sequence))

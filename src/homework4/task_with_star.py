@@ -23,82 +23,104 @@
 """
 
 
-def get_array(list_of_variables):
+def get_array_for_truth_table(list_of_variables: tuple or list) -> tuple:
+    """Return tuple with tuples for each string in truth table"""
+
     array = []
     str_list = []
     while sum(str_list) < len(list_of_variables):
         for i in range(26 ** 2):
             get_data = bin(i)[2:]
-            while len(get_data) < len(list_of_variables):
-                get_data = '0' + get_data
+            if len(get_data) < len(list_of_variables):
+                while len(get_data) < len(list_of_variables):
+                    get_data = '0' + get_data
             str_list = []
             for elem in get_data:
                 str_list.append(int(elem))
             if len(str_list) <= len(list_of_variables):
                 array.append(str_list)
+            if sum(str_list) == len(str_list):
+                return tuple(array)
 
-    return array
 
+def get_table(func='AND', seq=('A', 'B')) -> str:
+    """Return string with truth table"""
 
-def get_table(func='AND', seq=['A', 'B']):
-    value_array = get_array(seq)
-    truth_list = []
-    if func == 'AND':
-
-        for string in value_array:
+    def and_func(input_array):
+        """Return truth table for log func AND"""
+        truth_list = []
+        for string in input_array:
             if sum(string) == len(string):
                 truth_list.append(1)
             else:
                 truth_list.append(0)
+        return truth_list
 
-    elif func == 'OR':
-
-        for string in value_array:
+    def or_func(input_array):
+        """Return truth table for log func OR"""
+        truth_list = []
+        for string in input_array:
             if sum(string) >= 1:
                 truth_list.append(1)
             else:
                 truth_list.append(0)
+        return truth_list
 
-    elif func == 'NAND':
-
-        for string in value_array:
+    def nand_func(input_array):
+        """Return truth table for log func NAND"""
+        truth_list = []
+        for string in input_array:
             if 0 in string:
                 truth_list.append(1)
             else:
                 truth_list.append(0)
+        return truth_list
 
-    elif func == 'NOR':
-
-        for string in value_array:
+    def nor_func(input_array):
+        """Return truth table for log func NOR"""
+        truth_list = []
+        for string in input_array:
             if sum(string) == 0:
                 truth_list.append(1)
             else:
                 truth_list.append(0)
+        return truth_list
 
-    elif func == 'XNOR':
-
-        for string in value_array:
+    def xnor_func(input_array):
+        """Return truth table for log func XNOR"""
+        truth_list = []
+        for string in input_array:
             if sum(string) % 2 == 0:
                 truth_list.append(1)
             else:
                 truth_list.append(0)
+        return truth_list
 
-    elif func == 'XOR':
-
-        for string in value_array:
+    def xor_func(input_array):
+        """Return truth table for log func XOR"""
+        truth_list = []
+        for string in input_array:
             if sum(string) % 2 == 1:
                 truth_list.append(1)
             else:
                 truth_list.append(0)
+        return truth_list
 
-    if truth_list:
+    if func in ('AND', 'OR', 'NAND', 'NOR', 'XNOR', 'XOR'):
+
+        value_array = get_array_for_truth_table(seq)
+        func_dict = {'AND': and_func(value_array), 'OR': or_func(value_array),
+                     'NAND': nand_func(value_array), 'NOR': nor_func(value_array),
+                     'XNOR': xnor_func(value_array), 'XOR': xor_func(value_array)}
+        result_truth_list = func_dict[func]
+
         result = ' '.join(seq)
         result += f'\t\t{func}({", ".join(seq)})\n\n'
-        for i in range(len(truth_list)):
+        for i in range(len(result_truth_list)):
             value_array_str = []
             for item in value_array[i]:
                 value_array_str.append(str(item))
-            result += f'{" ".join(value_array_str)}\t\t{truth_list[i]}\n'
+            result += f'{" ".join(value_array_str)}\t\t{result_truth_list[i]}\n'
 
     else:
         result = 'Some trouble with logic function :('
@@ -112,5 +134,5 @@ if what_to_do:
     print(get_table(what_to_do, user_seq))
 
 else:
-    for example_func in ['AND', 'OR', 'NAND', 'NOR', 'XNOR', 'XOR']:
+    for example_func in ('AND', 'OR', 'NAND', 'NOR', 'XNOR', 'XOR'):
         print(get_table(example_func))

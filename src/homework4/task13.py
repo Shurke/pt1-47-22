@@ -19,7 +19,10 @@ elements.txt.
 """
 
 
-def word_with_elem(word, sequence):
+def word_with_elem(word: str, sequence: list) -> str:
+    """Trying to make a /silicon/ from elements in /sequence/ and return SiLiCoN or empty string if
+     this is not possible"""
+
     try_list = [False for x in range(0, len(word) + 1)]
     try_list[0] = []
 
@@ -47,24 +50,38 @@ def word_with_elem(word, sequence):
     return result
 
 
-def get_sequence():
-    with open('elements.txt', 'r') as opened_file:
+def get_sequence_dict_from_file(file_name='elements.txt') -> dict:
+    """Return dict with sequence {Short_name: Full_name} from file.
+    Default file = elements.txt"""
+
+    with open(file_name, 'r') as opened_file:
         elements_native = opened_file.readlines()
         elements = {}
         for string in elements_native:
             string_list = string.split(',')
             elements[string_list[1]] = string_list[2][:-1]
+        elements_native.clear()
     return elements
 
 
-while True:
-    what_to_do = input('Please, type word or p_table for table validation: ')
-    if what_to_do == 'p_table':
-        seq = get_sequence()
-        for value in seq.values():
-            received_word = word_with_elem(value, seq.keys())
-            if received_word != '':
-                print(f'{value} can be written like {received_word}')
+if __name__ == '__main__':
+    while True:
+        what_to_do = input('Please, type word or help: ')
+        if what_to_do == 'help':
+            print('You can type:\n'
+                  'word \t\t--> to enter /word/ and try to convert\n'
+                  'p_table \t--> to see results for all elements in period table\n'
+                  'exit \t\t--> to close the program')
+        elif what_to_do == 'p_table':
+            seq_dict = get_sequence_dict_from_file()
+            for value in seq_dict.values():
+                received_word = word_with_elem(value, list(seq_dict.keys()))
+                if received_word != '':
+                    print(f'{value} can be written like {received_word}')
 
-    else:
-        print(word_with_elem(what_to_do, get_sequence().keys()))
+        elif what_to_do == 'exit':
+            exit('Closed by user')
+
+        else:
+            seq = list(get_sequence_dict_from_file().keys())
+            print(f'Result: {word_with_elem(what_to_do, seq)}')

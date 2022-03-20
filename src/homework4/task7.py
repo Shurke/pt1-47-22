@@ -13,20 +13,18 @@
 """
 
 
-import datetime
-import string
+def ordinal_date(day, month, year):
+    import datetime
+    day = datetime.date(year, month, day)
+
+    return day.strftime('%j')
 
 
 if __name__ == "__main__":
 
-    def ordinal_date(day, month, year):
-
-        day = datetime.date(year, month, day)
-
-        return day.strftime('%j')
-
     while True:
         inp_data = input('Пожалуйста, введите день, месяц и год: ')
+        import string
 
         for char in string.punctuation:
             inp_data.replace(char, ' ')
@@ -35,5 +33,7 @@ if __name__ == "__main__":
         try:
             res = ordinal_date(int(inp_list[0]), int(inp_list[1]), int(inp_list[2]))
             print(f'Порядковый номер дня: {res}')
-        except Exception:
-            print('Что-то пошло не по плану...')
+        except ValueError:
+            print('А теперь попробуйте ввести числа.')
+        except IndexError:
+            print('А теперь попробуйте ввести 3 числа.')

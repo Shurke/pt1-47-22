@@ -4,7 +4,8 @@
 """
 
 
-def nearest_degree(inp_num=9):
+def nearest_degree(inp_num=9) -> str:
+    """Return nearest degree of 2 in str like 'NUM(DEGREE)'"""
     start_degree = 1
     degree_list = [1]
     while degree_list[-1] < inp_num:
@@ -22,5 +23,16 @@ def nearest_degree(inp_num=9):
     return ret
 
 
-for i in [10, 20, 1, 13]:
-    print(nearest_degree(i))
+if __name__ == '__main__':
+    while True:
+        what_to_do = input('Please type number, demo or exit: ')
+
+        if what_to_do == 'exit':
+            exit('Closed by user')
+
+        elif what_to_do == 'demo':
+            for i in [10, 20, 1, 13]:
+                print(nearest_degree(i))
+
+        else:
+            print(nearest_degree(int(what_to_do)))

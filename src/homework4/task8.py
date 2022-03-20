@@ -8,11 +8,9 @@
 """
 
 
-import random
-
-
 if __name__ == "__main__":
     def get_password():
+        import random
         len_of_pass = random.randint(7, 10)
         password_list = []
         for i in range(0, len_of_pass):

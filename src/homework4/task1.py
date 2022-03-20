@@ -5,15 +5,14 @@
 
 
 def get_list_of_result(func):
+    """Logging wrapper"""
 
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
 
-        try:
-            with open('res_of_functions.txt', 'r'):
-                pass
+        import os
 
-        except Exception:
+        if os.path.exists('res_of_functions.txt') is False:
             with open('res_of_functions.txt', 'w'):
                 pass
 

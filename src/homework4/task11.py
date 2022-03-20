@@ -23,92 +23,66 @@
 """
 
 
-def get_year_dict(period=None) -> dict:
-    """Print period and return dict with data for this period"""
-    def get_period_dict() -> dict:
-        """Return prepared data for period"""
-        import zipfile
-        z = zipfile.ZipFile('baby_names.zip', 'r')
-        name_dict = {}
-
-        for file_name in z.namelist():
-            if period != '':
-                period_list = period.split('-')
-                if len(period_list) == 1:
-                    _1_year, _2_year = int(period_list[0]), int(period_list[0])
-                else:
-                    _1_year, _2_year = int(period_list[0]), int(period_list[1])
-            else:
-                _1_year, _2_year = 1900, 2050
-
-            if int(file_name[10:14]) in range(_1_year, _2_year + 1):
-                with z.open(file_name, 'r') as opened_file:
-                    file_content = opened_file.readlines()
-                    name_dict[tuple(file_name[10:16].split('_'))] = file_content
-
-        years_dict = {}
-
-        for year_gender, names in name_dict.items():
-
-            name_dict = {}
-
-            for name in names:
-                name_data = name[:-2].decode().split()
-                name_dict[name_data[0]] = int(name_data[1])
-            gender_dict = {}
-            gender_dict[year_gender[1]] = name_dict
-
-            if year_gender[0] not in years_dict.keys():
-                years_dict[year_gender[0]] = gender_dict
-            else:
-                years_dict[year_gender[0]].update(gender_dict)
-
-        return years_dict
-
-    clear_years_dict = get_period_dict()
+def get_data_from_file(file_name='baby_names.zip', period=''):
+    """Print search period and return dict with data for period or False"""
+    import zipfile
+    z = zipfile.ZipFile(file_name, 'r')
 
     if period == '':
-        time_stamp = 'all time'
+        date_list = tuple(range(1800, 2051))
+        period = 'all time'
+    elif len(period) == 4:
+        date_list = (int(period)),
+    elif len(period) == 9:
+        date_list = tuple(range(int(period[:4]), int(period[5:]) + 1))
     else:
-        time_stamp = f'{period}'
-    result = clear_years_dict
+        print('Some trouble with period')
+        return False
+    print(f'Search data for {period}:')
 
-    print(f'Data for {time_stamp}:')
+    name_in_years_dict = {}
 
-    return result
+    for file_name in z.namelist():
+        if int(file_name[10:14]) in date_list:
+            with z.open(file_name, 'r') as opened_file:
+                file_content = opened_file.readlines()
+                file_dict_with_name_frequency = {}
+                for elem in file_content:
+                    elem_list = elem.decode()[:-2].split()
+                    file_dict_with_name_frequency[elem_list[0]] = int(elem_list[1])
+                name_in_years_dict[tuple(file_name[10:
+                                                   16].split('_'))] = file_dict_with_name_frequency
+
+    return name_in_years_dict
 
 
 def print_popular_name(input_dict: dict):
-    """Print lists with most popular names in period"""
-    g_pop_names = []
-    b_pop_names = []
-    for year, genders_dicts in input_dict.items():
-        for gender, name_dict in genders_dicts.items():
-            import heapq
-            most_popular_in_num = heapq.nlargest(10, name_dict.values())
-            for name, num in name_dict.items():
-                if num in most_popular_in_num:
-                    if gender == 'G':
-                        g_pop_names.append(name)
-                    else:
-                        b_pop_names.append(name)
-    print(f'Most popular boy names is: {", ".join(set(b_pop_names))}')
-    print(f'Most popular girl names is: {", ".join(set(g_pop_names))}')
+    """Print lists with most popular (top 10) names"""
+    g_pop_names = set()
+    b_pop_names = set()
+    for year_gender, names in input_dict.items():
+        import heapq
+        most_popular_in_num = heapq.nlargest(10, names.values())
+        for name, num in names.items():
+            if num in most_popular_in_num:
+                if year_gender[1] == 'G':
+                    g_pop_names.update({name})
+                else:
+                    b_pop_names.update({name})
+    print(f'Most popular boy names is: {", ".join(b_pop_names)}')
+    print(f'Most popular girl names is: {", ".join(g_pop_names)}')
 
 
 def print_generic_name(input_dict: dict):
-    """Print lists with generic names in period"""
-    g_name_list = []
-    b_name_list = []
-    for year, genders_dicts in input_dict.items():
-        for gender, name_dict in genders_dicts.items():
-            for name in name_dict.keys():
-                if gender == 'G':
-                    g_name_list.append(name)
-                else:
-                    b_name_list.append(name)
-    g_name_set = set(g_name_list)
-    b_name_set = set(b_name_list)
+    """Print lists with generic names"""
+    g_name_set = set()
+    b_name_set = set()
+    for year_gender, names in input_dict.items():
+        for name in names.keys():
+            if year_gender[1] == 'G':
+                g_name_set.update({name})
+            else:
+                b_name_set.update({name})
     generic_set = g_name_set.intersection(b_name_set)
     if generic_set:
         print(f'Generic names: {", ".join(generic_set)}')
@@ -122,12 +96,12 @@ if __name__ == '__main__':
                     ' all time, or exit: ')
         if per != 'exit':
             try:
-                y_dict = get_year_dict(per)
+                y_dict = get_data_from_file(period=per)
                 print_popular_name(y_dict)
                 print_generic_name(y_dict)
             except KeyError:
                 print('In my opinion you made a mistake in year.')
-            except ValueError:
+            except (ValueError, AttributeError):
                 print('In my opinion you made a mistake in date.')
             except Exception as exc:  # debug
                 print(type(exc))

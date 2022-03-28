@@ -12,7 +12,7 @@ def get_degree_two(number):
 
     """
     if number <= 0:
-        return "Введенное число немьше или равно 0"
+        return "Введенное число меньше или равно 0"
     number_bin = format(number, "b")
     more = int("0b" + "1" + "0" * len(number_bin), base=2)
     less = int("0b" + "1" + "0" * (len(number_bin) - 1), base=2)

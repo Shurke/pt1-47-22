@@ -21,7 +21,7 @@ func(1, 4)   -->  1111010
 def get_number_bin(m, n):
     if m < 0 or n < m:
         return "Введенные числа не удовлетворяют условию"
-    list_number_bin = [bin(x) for x in range(m, n + 1)]
+    list_number_bin = [format(x, "b") for x in range(m, n + 1)]
     print(f"Числа в двоичной системе счисления от [{m}, {n}]: ", *list_number_bin)
     sum_number_bin = sum(int(format(x, "b")) for x in range(m, n + 1))
     print(f"Сумма двоичных чисел по основанию 10: {sum_number_bin}")

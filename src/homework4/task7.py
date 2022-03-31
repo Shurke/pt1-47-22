@@ -31,21 +31,21 @@ def ordinal_date(date, month, year):
     dict_month = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30, 7: 31, 8: 31, 9: 30,
                   10: 31, 11: 30, 12: 31}
 
-    if __name__ == "__main__":
-        if date > 31 or month > 12:
-            return "Не существует такой даты или месяца"
-        if month == 1:
-            return date
-        res_month = sum(dict_month[x] for x in range(1, month))
-        result = res_month + date
-        if isleap(year):
-            if month == 2:
-                return result
-            return result + 1
-        return result
+    if date > 31 or month > 12:
+        return "Не существует такой даты или месяца"
+    if month == 1:
+        return date
+    res_month = sum(dict_month[x] for x in range(1, month))
+    result = res_month + date
+    if isleap(year):
+        if month == 2:
+            return result
+        return result + 1
+    return result
 
 
-d = int(input("Введите день натуральным числом: "))
-m = int(input("Введите месяц натуральным числом: "))
-y = int(input("Введите год натуральным числом: "))
-print(ordinal_date(d, m, y))
+if __name__ == "__main__":
+    d = int(input("Введите день натуральным числом: "))
+    m = int(input("Введите месяц натуральным числом: "))
+    y = int(input("Введите год натуральным числом: "))
+    print(ordinal_date(d, m, y))

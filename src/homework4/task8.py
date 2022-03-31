@@ -11,11 +11,10 @@ import random
 
 
 def get_password():
-    if __name__ == "__main__":
-        output_numbers = random.sample(range(33, 127),
-                                       *(random.sample(range(7, 11), 1)))
-        res = list(map(chr, output_numbers))
-        return f"Ваш сгенерированный пароль: {''.join(res)}"
+    output_numbers = random.sample(range(33, 127), *(random.sample(range(7, 11), 1)))
+    res = list(map(chr, output_numbers))
+    return f"Ваш сгенерированный пароль: {''.join(res)}"
 
 
-print(get_password())
+if __name__ == "__main__":
+    print(get_password())

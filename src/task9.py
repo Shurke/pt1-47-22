@@ -14,3 +14,23 @@
 Подсказка. Один стакан вмещает 16 столовых ложек, а одна столовая ложка эквивалентна трем чайным
 ложкам.
 """
+
+
+def unit_conversion(number, name):
+    if name == "cup":
+        return f"{number} {name}"
+    elif name == "tablespoons":
+        cup = number // 16
+        table_spoon = number % 16
+        return f"{cup} cup, {table_spoon} tablespoons"
+    elif name == "teaspoons":
+        cup = number // 48
+        table_spoon = (number % 48) // 3
+        tea_spoon = number % 3
+        return f"{cup} cup, {table_spoon} tablespoons, {tea_spoon} teaspoons"
+
+
+container = input("Введите одну из едениц измерения: cup, tablespoons, teaspoons: ")
+number = int(input("Введите количество единиц измерения: "))
+
+print(unit_conversion(number, container))

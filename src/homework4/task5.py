@@ -3,24 +3,25 @@
 """
 
 
+def nearest_divisor(inp_num: int = 9) -> str:
+    """Return string with nearest (degree of 2) divisor like 'NUMBER(DIVISOR)'"""
+    start_degree = 1
+    degree_list = [1]
+
+    while degree_list[-1] < inp_num:
+        degree_list.append(2 ** start_degree)
+        start_degree += 1
+
+    for divisor in degree_list[::-1]:
+        if inp_num % divisor == 0:
+            break
+    if divisor is None:
+        return 'Делителя нет (как так?)'
+    else:
+        return f'{inp_num}({divisor})'
+
+
 def main():
-    def nearest_divisor(inp_num: int = 9) -> str:
-        """Return string with nearest (degree of 2) divisor like 'NUMBER(DIVISOR)'"""
-        start_degree = 1
-        degree_list = [1]
-
-        while degree_list[-1] < inp_num:
-            degree_list.append(2 ** start_degree)
-            start_degree += 1
-
-        for divisor in degree_list[::-1]:
-            if inp_num % divisor == 0:
-                break
-        if divisor is None:
-            return 'Делителя нет (как так?)'
-        else:
-            return f'{inp_num}({divisor})'
-
     while True:
         what_to_do = input('Please type number, demo or exit: ')
 

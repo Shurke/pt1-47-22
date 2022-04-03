@@ -19,49 +19,51 @@ elements.txt.
 """
 
 
+def word_with_elem(word: str, sequence: list) -> str:
+    """Trying to make a /silicon/ from elements in /sequence/
+
+    Return SiLiCoN or empty string if this is not possible.
+
+    :param word: input word to select elements (Silicon -> SiLiCoNe)
+    :param sequence: the sequence from which the word will be composed.
+    :return: Composed word (like a SiLiCoNe)
+    """
+    try_list = [False for x in range(0, len(word) + 1)]
+    try_list[0] = []
+    for i in range(1, len(word) + 1):
+        variants = []
+        for n in range(max(i - 3, 0), i):
+            if try_list[n] is False:  # variability
+                continue
+            potential_element = word[n:i].title()  # for search in seq
+            if potential_element in sequence:
+                variants.append(try_list[n] + [potential_element])
+        if variants:
+            try_list[i] = min(variants, key=len)
+    if try_list[-1] is False:
+        result = ''
+    else:
+        result = "".join(try_list[-1])
+
+    return result
+
+
+def get_chem_elements_from_file(file_name='elements.txt') -> dict:
+    """Return generated dict from file.
+
+    :param file_name: database name, default = elements.txt
+    :return: dict in form {Short_name: Full_name}
+    """
+    with open(file_name, 'r') as opened_file:
+        elements_native = opened_file.readlines()
+        elements = {}
+        for string in elements_native:
+            string_list = string.split(',')
+            elements[string_list[1]] = string_list[2][:-1]
+    return elements
+
+
 def main():
-    def word_with_elem(word: str, sequence: list) -> str:
-        """Trying to make a /silicon/ from elements in /sequence/
-
-        Return SiLiCoN or empty string if this is not possible.
-
-        :param word: input word to select elements (Silicon -> SiLiCoNe)
-        :param sequence: the sequence from which the word will be composed.
-        :return: Composed word (like a SiLiCoNe)
-        """
-        try_list = [False for x in range(0, len(word) + 1)]
-        try_list[0] = []
-        for i in range(1, len(word) + 1):
-            variants = []
-            for n in range(max(i - 3, 0), i):
-                if try_list[n] is False:  # variability
-                    continue
-                potential_element = word[n:i].title()  # for search in seq
-                if potential_element in sequence:
-                    variants.append(try_list[n] + [potential_element])
-            if variants:
-                try_list[i] = min(variants, key=len)
-        if try_list[-1] is False:
-            result = ''
-        else:
-            result = "".join(try_list[-1])
-
-        return result
-
-    def get_chem_elements_from_file(file_name='elements.txt') -> dict:
-        """Return generated dict from file.
-
-        :param file_name: database name, default = elements.txt
-        :return: dict in form {Short_name: Full_name}
-        """
-        with open(file_name, 'r') as opened_file:
-            elements_native = opened_file.readlines()
-            elements = {}
-            for string in elements_native:
-                string_list = string.split(',')
-                elements[string_list[1]] = string_list[2][:-1]
-        return elements
-
     while True:
         what_to_do = input('Please, type word or help: ')
         if what_to_do == 'help':

@@ -9,16 +9,17 @@
 """
 
 
+def binary_pyramid(m: int = 1, n: int = 4) -> str:
+    """Return binary pyramid in range from /m/ to /n/"""
+    pyramid_sum = 0
+
+    for num in range(m, n + 1):
+        pyramid_sum += int(str(bin(num))[2:])
+
+    return str(bin(pyramid_sum))[2:]
+
+
 def main():
-    def binary_pyramid(m: int = 1, n: int = 4) -> str:
-        """Return binary pyramid in range from /m/ to /n/"""
-        pyramid_sum = 0
-
-        for num in range(m, n + 1):
-            pyramid_sum += int(str(bin(num))[2:])
-
-        return str(bin(pyramid_sum))[2:]
-
     while True:
         what_to_do = input('Please type m & n separate by space or exit: ')
         if what_to_do == 'exit':

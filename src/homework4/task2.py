@@ -7,7 +7,7 @@
 """
 
 
-def get_lists_of_ranges(input_list: list) -> str:
+def get_string_with_ranges(input_list: list) -> str:
     """Collapses list into string with its ranges
 
     :param input_list: sorted list with numbers
@@ -33,5 +33,22 @@ def get_lists_of_ranges(input_list: list) -> str:
     return result
 
 
-for sequence in [[0, 1, 2, 3, 4, 7, 8, 10], [4, 7, 10], [2, 3, 8, 9]]:
-    print(get_lists_of_ranges(sequence))
+def main():
+    while True:
+        input_str = input('Type sequence, exit or leave empty to demo: ')
+        if input_str == '':
+            for sequence in [[0, 1, 2, 3, 4, 7, 8, 10], [4, 7, 10], [2, 3, 8, 9]]:
+                print(f'{sequence} --> {get_string_with_ranges(sequence)}')
+        elif input_str == 'exit':
+            exit('Closed by user')
+        else:
+            if input_str.replace(' ', '').isdigit():
+                input_seq = list(int(i) for i in input_str.split())
+                input_seq.sort()
+                print(get_string_with_ranges(input_seq))
+            else:
+                print('Some trouble with input data.')
+
+
+if __name__ == '__main__':
+    main()

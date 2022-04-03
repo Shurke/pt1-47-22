@@ -8,8 +8,7 @@ import os
 
 
 def write_log_of_result(func):
-    """
-    Logging wrapper
+    """Logging wrapper
 
     Writes the results of function to a file res_of_functions.txt
 

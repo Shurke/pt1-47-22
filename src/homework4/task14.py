@@ -34,5 +34,6 @@ def decorator_with_limit(limit=10):
     return decorator
 
 
-print(decorator_with_limit(5)(sum)([3, 4]))
-print(decorator_with_limit(5)(sum)(['frd', 4]))
+if __name__ == '__main__':
+    print(decorator_with_limit(5)(sum)([3, 4]))
+    print(decorator_with_limit(5)(sum)(['frd', 4]))

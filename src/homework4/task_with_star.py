@@ -43,76 +43,80 @@ def get_array_for_truth_table(list_of_variables: tuple or list) -> tuple:
                 return tuple(array)
 
 
+def and_func(input_array):
+    """Return truth table for log func AND"""
+    truth_list = []
+    for string in input_array:
+        if sum(string) == len(string):
+            truth_list.append(1)
+        else:
+            truth_list.append(0)
+    return truth_list
+
+
+def or_func(input_array):
+    """Return truth table for log func OR"""
+    truth_list = []
+    for string in input_array:
+        if sum(string) >= 1:
+            truth_list.append(1)
+        else:
+            truth_list.append(0)
+    return truth_list
+
+
+def nand_func(input_array):
+    """Return truth table for log func NAND"""
+    truth_list = []
+    for string in input_array:
+        if 0 in string:
+            truth_list.append(1)
+        else:
+            truth_list.append(0)
+    return truth_list
+
+
+def nor_func(input_array):
+    """Return truth table for log func NOR"""
+    truth_list = []
+    for string in input_array:
+        if sum(string) == 0:
+            truth_list.append(1)
+        else:
+            truth_list.append(0)
+    return truth_list
+
+
+def xnor_func(input_array):
+    """Return truth table for log func XNOR"""
+    truth_list = []
+    for string in input_array:
+        if sum(string) % 2 == 0:
+            truth_list.append(1)
+        else:
+            truth_list.append(0)
+    return truth_list
+
+
+def xor_func(input_array):
+    """Return truth table for log func XOR"""
+    truth_list = []
+    for string in input_array:
+        if sum(string) % 2 == 1:
+            truth_list.append(1)
+        else:
+            truth_list.append(0)
+    return truth_list
+
+
 def get_table(func='AND', seq=('A', 'B')) -> str:
     """Return string with truth table"""
 
-    def and_func(input_array):
-        """Return truth table for log func AND"""
-        truth_list = []
-        for string in input_array:
-            if sum(string) == len(string):
-                truth_list.append(1)
-            else:
-                truth_list.append(0)
-        return truth_list
-
-    def or_func(input_array):
-        """Return truth table for log func OR"""
-        truth_list = []
-        for string in input_array:
-            if sum(string) >= 1:
-                truth_list.append(1)
-            else:
-                truth_list.append(0)
-        return truth_list
-
-    def nand_func(input_array):
-        """Return truth table for log func NAND"""
-        truth_list = []
-        for string in input_array:
-            if 0 in string:
-                truth_list.append(1)
-            else:
-                truth_list.append(0)
-        return truth_list
-
-    def nor_func(input_array):
-        """Return truth table for log func NOR"""
-        truth_list = []
-        for string in input_array:
-            if sum(string) == 0:
-                truth_list.append(1)
-            else:
-                truth_list.append(0)
-        return truth_list
-
-    def xnor_func(input_array):
-        """Return truth table for log func XNOR"""
-        truth_list = []
-        for string in input_array:
-            if sum(string) % 2 == 0:
-                truth_list.append(1)
-            else:
-                truth_list.append(0)
-        return truth_list
-
-    def xor_func(input_array):
-        """Return truth table for log func XOR"""
-        truth_list = []
-        for string in input_array:
-            if sum(string) % 2 == 1:
-                truth_list.append(1)
-            else:
-                truth_list.append(0)
-        return truth_list
-
-    if func in ('AND', 'OR', 'NAND', 'NOR', 'XNOR', 'XOR'):
+    if func in func_dict:
 
         value_array = get_array_for_truth_table(seq)
-        func_dict = {'AND': and_func(value_array), 'OR': or_func(value_array),
-                     'NAND': nand_func(value_array), 'NOR': nor_func(value_array),
-                     'XNOR': xnor_func(value_array), 'XOR': xor_func(value_array)}
-        result_truth_list = func_dict[func]
+
+        result_truth_list = func_dict[func](value_array)
 
         result = ' '.join(seq)
         result += f'\t\t{func}({", ".join(seq)})\n\n'
@@ -128,11 +132,30 @@ def get_table(func='AND', seq=('A', 'B')) -> str:
     return result
 
 
-what_to_do = input('Type logic function or press enter for demo: ')
-if what_to_do:
-    user_seq = input('Type the variables separated by space: ').split()
-    print(get_table(what_to_do, user_seq))
+def main():
+    while True:
+        what_to_do = input('Type logic function or press enter for demo: ')
+        if what_to_do:
+            input_tuple = what_to_do.split(', ')
+            if input_tuple[0][1:-1] in func_dict:
+                ans = get_table(input_tuple[0][1:-1], input_tuple[1:])
+            else:
+                ans = 'Mistakes in input data. Example: "AND", A, B'
+            print(ans)
 
-else:
-    for example_func in ('AND', 'OR', 'NAND', 'NOR', 'XNOR', 'XOR'):
-        print(get_table(example_func))
+        else:
+            for example_func in ('AND', 'OR', 'NAND', 'NOR', 'XNOR', 'XOR'):
+                print(get_table(example_func))
+
+
+func_dict = {
+    'AND': and_func,
+    'OR': or_func,
+    'NAND': nand_func,
+    'NOR': nor_func,
+    'XNOR': xnor_func,
+    'XOR': xor_func
+}
+
+if __name__ == '__main__':
+    main()

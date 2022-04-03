@@ -23,24 +23,25 @@
 """
 
 
+def get_arabian(roman_num: str) -> int:
+    """Converts a Roman number to Arabic
+
+    :param roman_num: input string with Roman number
+    :return: Arabic number corresponding to a Roman number, or 0 if input not a Roman
+    """
+    numbers = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
+    pairs = {'CM': 900, 'CD': 400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV': 4}
+    if len(roman_num) == 0:
+        return 0
+    if len(roman_num) == 1:
+        return numbers[roman_num]
+    elif roman_num[:2] in pairs:
+        return pairs[roman_num[:2]] + get_arabian(roman_num[2:])
+    else:
+        return numbers[roman_num[0]] + get_arabian(roman_num[1:])
+
+
 def main():
-    def get_arabian(roman_num: str) -> int:
-        """Converts a Roman number to Arabic
-
-        :param roman_num: input string with Roman number
-        :return: Arabic number corresponding to a Roman number, or 0 if input not a Roman
-        """
-        numbers = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
-        pairs = {'CM': 900, 'CD': 400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV': 4}
-        if len(roman_num) == 0:
-            return 0
-        if len(roman_num) == 1:
-            return numbers[roman_num]
-        elif roman_num[:2] in pairs:
-            return pairs[roman_num[:2]] + get_arabian(roman_num[2:])
-        else:
-            return numbers[roman_num[0]] + get_arabian(roman_num[1:])
-
     while True:
         what_to_do = input('Please type Roman number, leave empty to demo or type exit: ')
         if what_to_do == 'exit':

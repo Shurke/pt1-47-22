@@ -32,4 +32,5 @@ def print_max_word_from_file(file_name='words.txt'):
     print(f'The longest words: {", ".join(words_len[max(words_len)])}')
 
 
-print_max_word_from_file()
+if __name__ == "__main__":
+    print_max_word_from_file()

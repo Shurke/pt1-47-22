@@ -16,30 +16,31 @@ cup, 3 tablespoons, 2 teaspoons».
 """
 
 
+def cooking(numb, name) -> str:
+    """Accepts name in (cups, tablespoons, teaspoons) and amount of them.
+
+    Return string with numbers of cups, tablespoons and teaspoons.
+    """
+    table_in_cup = 16
+    tea_in_table = 3
+    tea_in_cup = tea_in_table * table_in_cup
+
+    if name == 'teaspoons':
+        general_tea = numb
+    elif name == 'tablespoons':
+        general_tea = numb * tea_in_table
+    elif name == 'cups':
+        general_tea = numb * tea_in_cup
+    else:
+        return 'Some trouble with type of container. Is it correct?'
+
+    num_of_cup = general_tea // tea_in_cup
+    num_of_table = (general_tea - num_of_cup * tea_in_cup) // tea_in_table
+    num_of_tea = general_tea - num_of_cup * tea_in_cup - num_of_table * tea_in_table
+    return f'Necessary {num_of_cup} cup, {num_of_table} tablespoons, {num_of_tea} teaspoons'
+
+
 def main():
-    def cooking(numb, name) -> str:
-        """Accepts name in (cups, tablespoons, teaspoons) and amount of them.
-
-        Return string with numbers of cups, tablespoons and teaspoons.
-        """
-        table_in_cup = 16
-        tea_in_table = 3
-        tea_in_cup = tea_in_table * table_in_cup
-
-        if name == 'teaspoons':
-            general_tea = numb
-        elif name == 'tablespoons':
-            general_tea = numb * tea_in_table
-        elif name == 'cups':
-            general_tea = numb * tea_in_cup
-        else:
-            return 'Some trouble with type of container. Is it correct?'
-
-        num_of_cup = general_tea // tea_in_cup
-        num_of_table = (general_tea - num_of_cup * tea_in_cup) // tea_in_table
-        num_of_tea = general_tea - num_of_cup * tea_in_cup - num_of_table * tea_in_table
-        return f'Necessary {num_of_cup} cup, {num_of_table} tablespoons, {num_of_tea} teaspoons'
-
     while True:
         input_str = input('Please enter data for conversion (example - 59 teaspoons): ')
         input_list = input_str.split()
@@ -52,6 +53,7 @@ def main():
                 ans = 'Some mistake in input data'
         else:
             ans = 'Use example: 59 teaspoons'
+        print(ans)
 
 
 if __name__ == "__main__":

@@ -17,11 +17,12 @@ import datetime
 import string
 
 
-def main():
-    def ordinal_date(day, month, year):
-        day = datetime.date(year, month, day)
-        return day.strftime('%j')
+def ordinal_date(day, month, year):
+    day = datetime.date(year, month, day)
+    return day.strftime('%j')
 
+
+def main():
     while True:
         inp_data = input('Пожалуйста, введите день, месяц и год: ')
 

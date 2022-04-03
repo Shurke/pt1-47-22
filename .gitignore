@@ -91,6 +91,7 @@ env.bak/
 venv.bak/
 src/homework4/*.txt
 src/homework4/*.zip
+src/rss_reader/
 
 # Spyder project settings
 .spyderproject

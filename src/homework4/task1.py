@@ -4,15 +4,23 @@
 """
 
 
-def get_list_of_result(func):
-    """Logging wrapper"""
+import os
+
+
+def write_log_of_result(func):
+    """
+    Logging wrapper
+
+    Writes the results of function to a file res_of_functions.txt
+
+    :param func: *args and **kwargs for func
+    :return: result of func
+    """
 
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
 
-        import os
-
-        if os.path.exists('res_of_functions.txt') is False:
+        if not os.path.exists('res_of_functions.txt'):
             with open('res_of_functions.txt', 'w'):
                 pass
 
@@ -25,10 +33,8 @@ def get_list_of_result(func):
 
 
 def used_func(string):
-
     result = string * 2
-
     return result
 
 
-print(get_list_of_result(used_func)('Some___text'))
+print(write_log_of_result(used_func)('Some___text'))

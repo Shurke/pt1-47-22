@@ -7,7 +7,7 @@
 """
 
 
-class CustomError(Exception):
+class TooManyErrors(Exception):
     def __init__(self, text):
         self.txt = text
 
@@ -18,7 +18,7 @@ def decorator_with_limit(limit=10):
         def wrapper(*args, **kwargs):
             num_of_try = 0
             exit_flag = False
-            while exit_flag is False and num_of_try < limit:
+            while not exit_flag and num_of_try < limit:
                 try:
                     result = func(*args, **kwargs)
                     exit_flag = True
@@ -28,7 +28,7 @@ def decorator_with_limit(limit=10):
             if exit_flag is True:
                 print(f'Function executed after {num_of_try + 1} try.')
             else:
-                raise CustomError('TooManyErrors')
+                raise TooManyErrors(f'Function not executed after {limit} times')
             return result
         return wrapper
     return decorator

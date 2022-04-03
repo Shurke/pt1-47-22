@@ -6,19 +6,24 @@
 """
 
 
-def cost_of_trip(trip_length=4.42) -> str:
-    """Counts the cost of the trip"""
-    import math
-    num_of_points = math.ceil(trip_length * 10)
-    start_cost = 4
-    cost_per_100m = 0.25
-    return f'Стоимость поездки: {(num_of_points * cost_per_100m) + start_cost} BYN'
+import math
 
 
-if __name__ == '__main__':
+def main():
+    def cost_of_trip(trip_length: float = 4.42) -> str:
+        """Counts the cost of the trip"""
+        num_of_points = math.ceil(trip_length * 10)
+        start_cost = 4
+        cost_per_100m = 0.25
+        return f'Стоимость поездки: {(num_of_points * cost_per_100m) + start_cost} BYN'
+
     while True:
         trip = input('Пожалуйста, укажите протяжённость поездки в километрах (например, 4,299: ')
         try:
             print(cost_of_trip(float(trip.replace(',', '.'))))
         except ValueError:
             print('Пожалуйста, укажите число!')
+
+
+if __name__ == '__main__':
+    main()

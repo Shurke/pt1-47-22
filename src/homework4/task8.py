@@ -8,15 +8,19 @@
 """
 
 
-if __name__ == "__main__":
-    def get_password():
-        import random
-        len_of_pass = random.randint(7, 10)
-        password_list = []
-        for i in range(0, len_of_pass):
-            password_list.append(chr(random.randint(33, 126)))
-        password = ''.join(password_list)
-        return password
+import random
 
+
+def get_password():
+
+    len_of_pass = random.randint(7, 10)
+    password_list = []
+    for i in range(0, len_of_pass):
+        password_list.append(chr(random.randint(33, 126)))
+    password = ''.join(password_list)
+    return password
+
+
+if __name__ == "__main__":
     for i in range(0, 20):
         print(f'Generated password: {get_password()}')

@@ -89,6 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+rss reader.md
 
 # Spyder project settings
 .spyderproject

@@ -22,7 +22,7 @@ def result_dec(func):
 
 @result_dec
 def test_func(something):
-    test = something + something
+    test = something + ' ' + something
 
     return test
 

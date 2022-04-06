@@ -6,7 +6,7 @@
 
 def result_dec(func):
     """
-
+    save the function call to file
     :param func: arguments for func
     :return: results to file
     """

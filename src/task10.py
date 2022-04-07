@@ -3,3 +3,16 @@
 файле. В качестве результата программа должна выводить на экран длину самого длинного слова и все
 слова такой длины. Для работы используйте файл words.txt.
 """
+
+
+import string
+
+a = open("words.txt", "r").read().translate(str.maketrans('', '', string.punctuation)).split(' ')
+b = 0
+for i in a:
+    if len(i) >= b:
+        b = len(i)
+
+c = [i for i in a if len(i) == b]
+
+print(f'Самое длинное слово состоит из {b} букв. Самые длинные слова в фаиле: {c}')

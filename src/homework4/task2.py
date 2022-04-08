@@ -34,12 +34,12 @@ def get_ranges(sort_list):
 
 
 def user_lst():
-    input_list = input('Введите через пробел список целых чисел: ').split()
-    temporary_list = []
+    input_list = input('Enter a list of integers, separated by space: ').split()
+    temporary_user_list = []
     for i in input_list:
         if input_list.count(i) == 1:
-            temporary_list.append(i)
-    return list(sorted(map(int, temporary_list)))
+            temporary_user_list.append(i)
+    return list(sorted(map(int, temporary_user_list)))
 
 
 print(get_ranges(user_lst()))

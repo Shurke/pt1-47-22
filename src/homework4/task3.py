@@ -34,6 +34,6 @@ def pyramid_bin(m, n):
     return binary_sum
 
 
-number_1 = int(input('Введите число большее либо равное 0: '))
-number_2 = int(input('Введите число большее либо равное предыдущему числу: '))
+number_1 = int(input('Enter a number greater or equal to 0: '))
+number_2 = int(input('Enter a number greater or equal to the previous number: '))
 print(pyramid_bin(number_1, number_2))

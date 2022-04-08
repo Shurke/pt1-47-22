@@ -19,8 +19,8 @@ def two_degree(user_numb):
         elif 2 ** deg >= res_deg and abs(user_numb - 2 ** deg) >= abs(user_numb - 2 ** (deg + 1)):
             res_deg = 2 ** (deg + 1)
 
-    return f'Ближайшая степень двойки к введенному числу: {res_deg}'
+    return f'The nearest degree of two to the entered number: {res_deg}'
 
 
-numb = int(input('Введите число для получения ближайшей степени двойки: '))
+numb = int(input('Enter a number to get the nearest degree of two: '))
 print(two_degree(numb))

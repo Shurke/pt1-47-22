@@ -18,7 +18,7 @@ def tax_cost(distance):
     distance_rate = 0.25
     cost = basic_rate + distance_rate * 10 * distance
 
-    return f'The cost of your trip is {cost}'
+    return f'The cost of your trip is {cost} BYN'
 
 
 distance_trip = float(input('Enter the distance in km: '))

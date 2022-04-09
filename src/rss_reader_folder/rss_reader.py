@@ -1,3 +1,10 @@
+import requests
+import xmltodict
+
+
+__rs_version__ = '0.1'
+
+
 def get_args():
     """
 
@@ -13,46 +20,30 @@ def get_args():
     parser.add_argument('source', type=str, help='RSS URL')
 
     # optional args
-    parser.add_argument('--version', help='Print version info', action='version', version='Version 0.1')
+    parser.add_argument('--version', help='Print version info', action='version',
+                        version=f'Version {__rs_version__}')
     parser.add_argument('--json', help='Print result as JSON in stdout', action='store_true')
     parser.add_argument('--verbose', help='Outputs verbose status messages', action='store_true')
     parser.add_argument('--limit', type=int, help='Limit news topics if this parameter provided')
 
-    args = parser.parse_args()
+    console_args = parser.parse_args()
     try:
-        if args.version or args.h:
-            print(args)
+        if console_args.version or console_args.h:
+            print(console_args)
     except AttributeError:
-        return args
+        return console_args
 
 
-def get_news_dict(url: str, limit: int, verbose: bool, is_json: bool):
+def get_news_dict(url: str, limit: int, verbose: bool):
 
-    import os
-    try:
-        import requests
-    except ImportError:
-        if verbose:
-            print('Module "requests" not found. It will install automatically.')
-        os.system('python -m pip install requests')
-        import requests
     resp = requests.get(url)
     resp.encoding = 'utf-8'
     if str(resp) == '<Response [200]>':
         if verbose:
             print(f'Data received from {url}')
-        try:
-            import xmltodict
-        except ImportError:
-            if verbose:
-                print('Module "xmltodict" not found. It will install automatically.')
-            os.system('python -m pip install xmltodict')
-            import xmltodict
         resp_dict = xmltodict.parse(resp.text)
 
-        # print(resp_dict)
-
-        general_news_dict = {}
+        general_news_dict = dict()
         general_news_dict['Feed'] = resp_dict['rss']['channel']['title']
 
         recorded_news = 0
@@ -61,7 +52,7 @@ def get_news_dict(url: str, limit: int, verbose: bool, is_json: bool):
 
         for item in resp_dict['rss']['channel']['item']:  # parse individual news
             if recorded_news < limit:
-                news_dict = {}
+                news_dict = dict()
                 news_dict['Title'] = item["title"]
                 news_dict['Link'] = item["link"]
                 news_dict['Date'] = item["pubDate"]
@@ -91,21 +82,26 @@ def get_news_dict(url: str, limit: int, verbose: bool, is_json: bool):
         exit('No response')
 
 
-ARGS = get_args()
+def main():
+    cons_args = get_args()
 
-NEWS_DICT = get_news_dict(ARGS.source, ARGS.limit, ARGS.verbose, ARGS.json)
+    news_dict = get_news_dict(cons_args.source, cons_args.limit, cons_args.verbose)
 
-if ARGS.json:
-    import json
-    print(json.dumps(NEWS_DICT, indent=4))
-    if ARGS.verbose:
-        print('JSON sent.')
-else:
-    print(f'\nFeed: {NEWS_DICT["Feed"]}\n')
+    if cons_args.json:
+        import json
+        print(json.dumps(news_dict, indent=4))
+        if cons_args.verbose:
+            print('JSON sent.')
+    else:
+        print(f'\nFeed: {news_dict["Feed"]}\n')
 
-    del NEWS_DICT['Feed']
+        del news_dict['Feed']
 
-    for pub, pub_info in NEWS_DICT.items():
-        for name, content in pub_info.items():
-            print(f'{name}: {content}')
-        print()
+        for pub, pub_info in news_dict.items():
+            for name, content in pub_info.items():
+                print(f'{name}: {content}')
+            print()
+
+
+if __name__ == '__main__':
+    main()

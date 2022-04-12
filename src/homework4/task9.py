@@ -36,6 +36,7 @@ def kitchen(numb, tool):
     return numb, tool
 
 
-quantity_ingredients = int(input('Enter the amount of ingredients: '))
-items_for_cooking = input('Enter the type of tool for cooking (cup, tablespoons or teaspoons): ')
-print(kitchen(quantity_ingredients, items_for_cooking))
+quant_ingredients, cook_type = (input('Enter the amount of ingredients '
+                                      'and type of tool for cooking '
+                                      '(cup, tablespoons or teaspoons): ')).split()
+print(kitchen(int(quant_ingredients), cook_type))

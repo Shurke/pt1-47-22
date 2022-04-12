@@ -19,7 +19,7 @@ def longest_word(file_name):
         if len(word) >= max_len_word:
             max_len_word = len(word)
             all_longest_word.append(word)
-            for words in all_longest_word:
+            for words in all_longest_word[:-1]:
                 if len(words) < max_len_word:
                     all_longest_word.remove(words)
 

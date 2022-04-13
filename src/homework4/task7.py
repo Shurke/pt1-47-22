@@ -19,7 +19,7 @@ def ordinal_date(day, month, year):
     :param day: day from user
     :param month: month from user
     :param year: year from user
-    :return:
+    :return: the sequence number
     """
     if year % 400 == 0 or year % 4 == 0 and year % 100 != 0:
         month_days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
@@ -32,7 +32,6 @@ def ordinal_date(day, month, year):
     return f'Number of the day {temporary_month_sum + day}'
 
 
-user_day = int(input('Enter the day you wish: '))
-user_month = int(input('Enter the month you wish: '))
-user_year = int(input('Enter the year you wish: '))
-print(ordinal_date(user_day, user_month, user_year))
+user_day, user_month, user_year = (input('Enter the day, month and year you wish '
+                                         'separated by space: ')).split()
+print(ordinal_date(int(user_day), int(user_month), int(user_year)))

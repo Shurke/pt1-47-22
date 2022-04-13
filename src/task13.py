@@ -17,3 +17,30 @@ Silver может быть представлен как SiLvEr
 Для решения задачи используйте набором данных с химическими элементами, который находится в файле
 elements.txt.
 """
+
+
+def decompose(word,elements):
+    progress = [False for x in range(len(word)+1)]
+    progress[0] = []
+
+    for i in range(1, len(word)+1):
+        possibles = list()
+        for j in range(max(i-3,0), i):
+            if progress[j] == False:
+                continue
+            alchemical = word[j:i].title()
+            if alchemical in elements:
+                possibles.append(progress[j] + [alchemical])
+
+        if possibles:
+            progress[i] = min(possibles, key=len)
+
+    if progress[-1] == False:
+        result = 'Не возможно собрать данное слово из элементов таблицы Менделеева!'
+        return result
+    return "".join(progress[-1])
+
+
+elements = open('elements.txt', 'r').read().split()
+word = input('Введите слово: ')
+print(f'Введенное слово собранное из названий химических элементов: {decompose(word, elements)}')

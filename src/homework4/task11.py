@@ -21,8 +21,9 @@
 программы не передал никаких данных, то необходимо вывести все данные за все
 время.
 """
-import zipfile
+
 import shutil
+import zipfile
 
 
 def open_file(year, name):

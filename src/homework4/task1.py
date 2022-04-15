@@ -22,5 +22,6 @@ def get_counter(a, b):
     add = a + b
     return add
 
+
 number_1, number_2 = input("Введите два числа: ").split()
 print(get_counter(int(number_1), int(number_2)))

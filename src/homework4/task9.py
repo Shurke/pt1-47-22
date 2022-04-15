@@ -28,23 +28,25 @@ def unit_conversion(number, name):
     задействованием минимального количества действий и предметов
 
     """
-    if name != "cup" and name != "tablespoons" and name != "teaspoons":
+    if name != "cups" and name != "tablespoons" and name != "teaspoons":
         return "Введенный тип неверный"
     if number <= 0:
         return "Введенное количество должно быть больше нуля"
-    if name == "cup":
+    if name == "cups":
         return f"{number} {name}"
     elif name == "tablespoons":
         cup = number // 16
         tablespoon = number % 16
-        return f"{cup} cup, {tablespoon} tablespoon"
+        return f"{cup} cups, {tablespoon} tablespoons"
     elif name == "teaspoons":
         cup = number // 48
         tablespoon = (number % 48) // 3
         teaspoon = number % 3
-        return f"{cup} cup, {tablespoon} tablespoons, {teaspoon} teaspoons"
+        return f"{cup} cups, {tablespoon} tablespoons, {teaspoon} teaspoons"
 
 
-number_input = int(input("Введите количество единиц измерения: "))
-type_input = input("Введите один из типов: cup, tablespoons или teaspoons: ")
-print(unit_conversion(number_input, type_input))
+if __name__ == "__main__":
+    str_input = input("Введите объём ингредиентов, например, 59 tablespoons: ").split()
+    number_input = int(str_input[0])
+    type_input = str_input[1]
+    print(unit_conversion(number_input, type_input))

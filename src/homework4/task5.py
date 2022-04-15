@@ -12,7 +12,7 @@ def get_max_divisor(number):
 
     """
     if number <= 0:
-        return "Введенное число немьше или равно 0"
+        return "Введенное число меньше или равно 0"
     number_bin = format(number, "b")
     n = len(number_bin)
     while number % int("0b" + "1" + "0" * (n - 1), base=2) != 0:

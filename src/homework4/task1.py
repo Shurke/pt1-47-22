@@ -2,25 +2,25 @@
 Создайте декоратор, который хранит результаты вызовов функции (за все время
 вызовов, не только текущий запуск программы)
 """
+from functools import wraps
 
 
 def decor_record(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         result = (func(*args, **kwargs))
-        with open('result_func.txt', 'a', encoding='utf-8') as file:
+        with open('result_func.txt', 'a+', encoding='utf-8') as file:
             file.write(f'{result}\n')
-        with open('result_func.txt', 'r', encoding='utf-8') as file:
-            output_file = file.readlines()
-            file = [x.strip() for x in output_file]
-            print(f"Все результаты вызовов функции: {file}")
         return result
     return wrapper
 
 
 @decor_record
-def get_counter(param):
-    add = param + param
+def get_counter(a, b):
+    """Складывает два числа"""
+
+    add = a + b
     return add
 
-
-print(get_counter("hbgf"))
+number_1, number_2 = input("Введите два числа: ").split()
+print(get_counter(int(number_1), int(number_2)))

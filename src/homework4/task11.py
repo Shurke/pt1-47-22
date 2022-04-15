@@ -22,30 +22,36 @@
 время.
 """
 import zipfile
+import shutil
 
 
 def open_file(year, name):
-    with open(f'BabyNames/{year}_{name}Names.txt') as t:
-        list_input = t.readlines()
-    list_input = [line.rstrip() for line in list_input]
-    list_res = [x.split(" ") for x in list_input]
+    """Открывает файл, читает строки, преобразовывает в список"""
+
+    try:
+        with open(f'BabyNames/{year}_{name}Names.txt') as t:
+            list_res = []
+            for i in t.readlines():
+                list_res.append(i.rstrip().split())
+    except FileNotFoundError:
+        raise "Файл не найден"
     return list_res
 
 
-def get_one_year(year, name):
-    list_open = open_file(year, name)
-    dict_top = {x[0]: x[1] for x in list_open[:10]}
-    list_top = [x for x in dict_top]
-    return list_top
-
-
 def get_dict_top(year, name):
+    """Преобразовывает слисок в словарь, состоящий из 10 элементов, где ключ -
+
+    имя, a значение - количество названных детей этим именем
+
+    """
     list_open = open_file(year, name)
     dict_top = {x[0]: x[1] for x in list_open[:10]}
     return dict_top
 
 
 def get_general(year):
+    """Формирует список универсальных имён"""
+
     list_boy = open_file(year, "Boys")
     dict_boy = {x[0]: x[1] for x in list_boy}
     set_boy = set(dict_boy)
@@ -57,63 +63,93 @@ def get_general(year):
 
 
 def get_list_top(year, name):
-    res_dict = {}
-    for item in range(int(year.split("-")[0]), int(year.split("-")[1]) + 1):
-        res_new = get_dict_top(item, name)
-        for i in res_new:
-            if i not in res_dict or i in res_dict and res_dict[i] < res_new[i]:
-                res_dict[i] = res_new[i]
-            else:
-                continue
-    sorted_tuple = sorted(res_dict.items(), key=lambda x: x[1], reverse=True)
-    dict_top = {x[0]: x[1] for x in sorted_tuple[:10]}
-    result_top = [x for x in dict_top]
-    return result_top
+    """Формирует список из топ-10 имён за все года"""
+
+    if len(year) == 4:
+        dict_top = get_dict_top(year, name)
+        result_top = [x for x in dict_top]
+        return result_top
+    else:
+        res_dict = {}
+        for item in range(int(year.split("-")[0]), int(year.split("-")[1]) + 1):
+            res_new = get_dict_top(item, name)
+            for i in res_new:
+                if i not in res_dict or i in res_dict and res_dict[i] < res_new[i]:
+                    res_dict[i] = res_new[i]
+                else:
+                    continue
+        sorted_tuple = sorted(res_dict.items(), key=lambda x: x[1],
+                              reverse=True)
+        dict_top = {x[0]: x[1] for x in sorted_tuple[:10]}
+        result_top = [x for x in dict_top]
+        return result_top
 
 
-def get_some_year_top(year):
+def get_list_top_without_general(year):
+    """Удаляет универсальные имена в списках топ-10 для мальчиков и девочек"""
+
     result_boy_top = get_list_top(year, "Boys")
     result_girl_top = get_list_top(year, "Girls")
-    res_general = []
-    for item in range(int(year.split("-")[0]), int(year.split("-")[1]) + 1):
-        res_general.append(get_general(item))
-
+    if len(year) == 4:
+        res_general_list = get_general(year)
+    else:
+        res_general = []
+        for item in range(int(year.split("-")[0]), int(year.split("-")[1]) + 1):
+            res_general.append(get_general(item))
+        res_general_list = list(set(sum(res_general, list())))
     boy_top_without_general = list(set(result_boy_top) - set(result_girl_top))
     girl_top_without_general = list(set(result_girl_top) - set(result_boy_top))
-    res_general_list = list(set(sum(res_general, list())))
     return get_output(year, boy_top_without_general,
                       girl_top_without_general,
                       res_general_list)
 
 
 def get_output(year, boy, girl, general):
-    return (f"Топ-10 имён для мальчиков в {year}: {boy}\n"
-            f"Топ-10 имён для девочек в {year}: {girl}\n"
-            f"Универсальные имена в {year}: {general}")
+    """Выполняет вывод, удаляет разархивированный файл"""
+
+    shutil.rmtree('BabyNames')
+    print(f"Топ-10 имён для мальчиков в {year}: {boy}")
+    print(f"Топ-10 имён для девочек в {year}: {girl}")
+    if general:
+        return f"Универсальные имена в {year}: {general}"
+    else:
+        return f"Универсальных имён в {year} нет"
 
 
 def get_name_top_10(year):
+    """Осуществляет поиск наиболее популярных имен для мальчиков и девочек"""
+
     with zipfile.ZipFile('baby_names.zip', 'r') as file:
         file.extractall()
 
-    if len(year) == 4:
-        if int(year) in range(1900, 2013):
-            return get_output(year, get_one_year(year, "Boys"),
-                              get_one_year(year, "Girls"), get_general(year))
-        else:
-            return "Нет данных по этому году"
-    elif len(year) == 9:
-        if int(year.split("-")[0]) and int(
-                year.split("-")[1]) in range(1900, 2013):
-            return get_some_year_top(year)
-        else:
-            return "Нет данных по этим годам"
-    elif year == "":
-        return get_some_year_top("1900-2012")
+    if year == "":
+        return get_list_top_without_general("1900-2012")
+    return get_list_top_without_general(year)
+
+
+def main():
+    """Проверяет, удовлетворяет ли введённый год условиям"""
+
+    year_input = input(
+        "Введите год в диапазоне [1900-2012], например, 1996 или 1900-1995: ")
+    start_date = 0
+    end_date = 0
+    year_one = 0
+    if len(year_input) == 4:
+        year_one = int(year_input) in range(1900, 2013)
+    elif len(year_input) == 9:
+        start_date, end_date = year_input.split("-")
+    elif year_input == "":
+        start_date, end_date = 1900, 2012
     else:
-        return "Введены неверные года"
+        return print("Введены неверные года")
+    is_valid_start_date = int(start_date) in range(1900, 2013)
+    is_valid_end_date = int(end_date) in range(1900, 2013)
+    if is_valid_start_date and is_valid_end_date or year_one:
+        return print(get_name_top_10(year_input))
+    else:
+        return print("По данным годам нет информации")
 
 
-year_input = input(
-    "Введите год в диапазоне [1900-2012], например, 1996 или 1900-1995: ")
-print(get_name_top_10(year_input))
+if __name__ == "__main__":
+    main()

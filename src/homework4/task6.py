@@ -14,7 +14,9 @@ def pay_taxi(distance):
     :return: Итоговая сумма оплаты
 
     """
-    res = 400 + 25 * distance * 10
+    tariff_base = 400
+    tariff_100m = 250
+    res = tariff_base + distance * tariff_100m
     ruble = int(res // 100)
     penny = int(res % 100)
     return f"Плата за такси составляет {ruble} рублей, {penny} копеек"

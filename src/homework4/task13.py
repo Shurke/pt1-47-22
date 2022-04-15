@@ -22,6 +22,24 @@ Silver может быть представлен как SiLvEr
 """
 
 
+def get_output(string_input, func):
+    """Выводит на экран сообщение о возможности или невозможности выразить слово
+
+    через обозначения химических элементов
+
+    :param string_input: Введенное слово пользователем
+    :param func: Результат функции replace_elements
+    :return: Сообщение о возможности или невозможности выразить слово
+
+    """
+    result = func
+    if result is None:
+        return f"Ваше слово {string_input} невозможно выразить через обозначения" \
+               f"химических элементов"
+    else:
+        return f"Ваше слово {string_input} может быть представлено как {result}"
+
+
 def replace_elements(str_input, elements):
     """Определяет можно ли выразить слово через обозначения химических элементов
 
@@ -30,6 +48,7 @@ def replace_elements(str_input, elements):
     :return: Слово, представленное через обозначения химических элементов
 
     """
+
     for size in (3, 2, 1):
         starting = str_input[:size].capitalize()
         if starting not in elements:
@@ -41,13 +60,18 @@ def replace_elements(str_input, elements):
             return starting + ending
 
 
-try:
-    with open('elements.txt') as t:
-        str_in = t.read().split()
-except FileNotFoundError:
-    print("Ошибка при работе с файлом")
-list_split = [x.split(",") for x in str_in]
-list_elements = [x[1] for x in list_split]
+def main():
+    try:
+        with open('elements.txt') as t:
+            str_in = t.read().split()
+    except FileNotFoundError:
+        print("Файл не найден")
+    list_split = [x.split(",") for x in str_in]
+    list_elements = [x[1] for x in list_split]
+    string_input = input("Введите слово: ")
+    output = replace_elements(string_input, list_elements)
+    print(get_output(string_input, output))
 
-string_input = input("Введите слово: ")
-print(replace_elements(string_input, list_elements))
+
+if __name__ == "__main__":
+    main()

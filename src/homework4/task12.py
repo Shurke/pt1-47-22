@@ -23,10 +23,10 @@
 """
 
 
-def get_translate(str_input):
+def get_translate(number_roman):
     """Преобразовывает число, введенное римскими цифрами, в десятичный эквивалент
 
-    :param str_input: Число, введенное римскими цифрами
+    :param number_roman: Число, введенное римскими цифрами
     :return: Число в десятичной системе счисления
 
     """
@@ -34,17 +34,19 @@ def get_translate(str_input):
     dict_value = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500,
                   "M": 1000}
 
-    res = 0
+    number_decimal = 0
     i = 0
-    if len(str_input) == 1:
-        res += dict_value[str_input[0]]
-        return res
-    if dict_value[str_input[0]] >= dict_value[str_input[1]]:
-        res += dict_value[str_input[0]]
+    if len(number_roman) == 1:
+        number_decimal += dict_value[number_roman[0]]
+        return number_decimal
+    if dict_value[number_roman[0]] >= dict_value[number_roman[1]]:
+        number_decimal += dict_value[number_roman[0]]
     else:
-        res -= dict_value[str_input[0]]
+        number_decimal -= dict_value[number_roman[0]]
     i += 1
-    return res + get_translate(str_input[i:])
+    return number_decimal + get_translate(number_roman[i:])
 
 
-print(get_translate("MCMLXIX"))
+if __name__ == "__main__":
+    number_roman_input = input("Введите число римскими цифрами: ")
+    print(get_translate(number_roman_input))

@@ -8,38 +8,39 @@ TooManyErrors.
 декоратора.
 """
 
+from functools import wraps
+import random
+
 
 class TooManyErrors(ValueError):
     pass
 
 
-def decor_limit(num_dec):
+def decor_limit(max_tries):
     def decorator(func):
-        def wrapper():
-            counter = 0
-            while counter < num_dec:
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            for n in range(1, max_tries + 1):
                 try:
-                    result = func()
-                    return result
+                    return func(*args, **kwargs)
                 except ValueError:
-                    counter += 1
-            raise TooManyErrors("Превышено количество попыток")
+                    if n == max_tries:
+                        raise TooManyErrors("Превышено количество попыток")
         return wrapper
     return decorator
 
 
-par_decor = int(input("Введите количество перезапусков: "))
-
-
-@decor_limit(par_decor)
+@decor_limit(max_tries=5)
 def get_test():
-    p = par_decor
-    try:
-        while p != 0:
-            print(p)
-            p -= 1
-    finally:
-        raise ValueError
+    """Генерерует число от 0 до 10
+
+    :return: Возвращает 0 или 1
+    """
+    number = random.randint(0, 11)
+    if number > 1:
+        raise IOError
+    else:
+        return number
 
 
-get_test()
+print(get_test())

@@ -11,6 +11,11 @@ import random
 
 
 def get_password():
+    """Генерирует случайный пароль 7-10 символов из диапазона от 33 до 126 в таблице ASCII
+
+    :return: Сгенерированный пароль
+
+    """
     output_numbers = random.sample(range(33, 127), *(random.sample(range(7, 11), 1)))
     res = list(map(chr, output_numbers))
     return f"Ваш сгенерированный пароль: {''.join(res)}"

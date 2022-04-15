@@ -19,14 +19,22 @@ func(1, 4)   -->  1111010
 
 
 def get_number_bin(m, n):
+    """Переводит числа от m до n (включительно) в двоичные числа.
+
+    Складыввает полученные двоичные числа по основанию 10.
+    Переводит результат сложения в двоичное число.
+
+    :param m: Первое число больше либо равно 0
+    :param n: Второе число большее первого
+    :return: Результат действий функции
+
+    """
     if m < 0 or n < m:
         return "Введенные числа не удовлетворяют условию"
     list_number_bin = [format(x, "b") for x in range(m, n + 1)]
-    print(f"Числа в двоичной системе счисления от [{m}, {n}]: ", *list_number_bin)
     sum_number_bin = sum(int(x) for x in list_number_bin)
-    print(f"Сумма двоичных чисел по основанию 10: {sum_number_bin}")
     result = format(sum_number_bin, "b")
-    return f"Сумма в двоичном виде: {result}"
+    return f"Результат действий функции: {result}"
 
 
 number_input_1 = int(input("Введите первое число большее либо равное 0: "))

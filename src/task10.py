@@ -4,15 +4,17 @@
 слова такой длины. Для работы используйте файл words.txt.
 """
 
+def long_word():
+    a = open("words.txt", "r").read().split('\n')
+    b = 0
+    for i in a:
+        if len(i) >= b:
+            b = len(i)
 
-import string
+    c = [i for i in a if len(i) == b]
 
-a = open("words.txt", "r").read().translate(str.maketrans('', '', string.punctuation)).split(' ')
-b = 0
-for i in a:
-    if len(i) >= b:
-        b = len(i)
+    print(f'Самое длинное слово состоит из {b} букв. Самые длинные слова в фаиле: {", ".join(c)}')
 
-c = [i for i in a if len(i) == b]
 
-print(f'Самое длинное слово состоит из {b} букв. Самые длинные слова в фаиле: {c}')
+if __name__ == '__main__':
+    long_word()

@@ -30,7 +30,7 @@ def count(numb):
     counter = 0
     for elem in range(numb + 1):
         if elem > counter:
-            counter += 1
+            counter += ''
     return counter
 
 

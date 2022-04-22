@@ -6,13 +6,12 @@
 они анаграммами, и выводить на экран ответ."""
 
 
-def anagramm_check(x, y):
-    if x == y[::-1]:
-        return "Эти слова - анаграммы"
+def anagramm_check(x: set, y: set):
+    if x & y == x and y:
+        print("Эти слова - анаграммы.")
 
 
-word1 = input().lower()
-word2 = input().lower()
+word1 = set(input("Первое слово: ").lower())
+word2 = set(input("Второе слово: ").lower())
 
-result = anagramm_check(word1, word2)
-print(result)
+anagramm_check(word1, word2)

@@ -6,4 +6,4 @@ list1 = set(input().split())
 list2 = set(input().split())
 
 dif_lists = list1 ^ list2
-print(f"Число различных чисел:{len(dif_lists)}")
+print(f"Число различных чисел: {len(dif_lists)}")

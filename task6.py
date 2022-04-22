@@ -6,8 +6,8 @@
 
 import string
 
-sentence = input("Введите предложение:")
+sentence = input("Введите предложение: ")
 for i in string.punctuation:
     sentence = sentence.replace(i, " ")
 sentence = set(sentence.split())
-print(f"Число слов:{len(sentence)}")
+print(f"Число слов: {len(sentence)}")

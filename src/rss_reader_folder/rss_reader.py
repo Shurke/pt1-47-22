@@ -1,3 +1,11 @@
+"""
+Welcome to a simple console rss-reader. Use the -h flag to start using the application. You can also
+package the application using the console's "python setup.py sdist bdist_wheel" and then install it
+in your virtual environment with "python setup.py install" - after that you can use the "rss_reader"
+entry point anywhere :)
+"""
+
+
 import os
 import datetime
 from pathlib import Path
@@ -36,18 +44,24 @@ from borb.pdf.page.page import Page
 from borb.pdf.pdf import PDF
 from decimal import Decimal
 from borb.pdf.canvas.font.simple_font.true_type_font import TrueTypeFont
+from colorama import init, Fore
 
 
 __rss_version__ = '0.1'
+init(autoreset=True)
 
 
-def get_args():
+def print_verb(message):
+    """Verbose message"""
+    print(Fore.RED + message)
+
+
+def get_args() -> argparse.Namespace:
+    """That functions parse args from command line and checks for use of the --version or --help
+    flag.
+
+    :return: console_args - Namespace with args, or print them in console and exit().
     """
-
-
-    :return: start arguments
-    """
-
     parser = argparse.ArgumentParser(description='Pure Python command-line RSS reader.')
 
     # positional args
@@ -72,13 +86,20 @@ def get_args():
         return console_args
 
 
-def get_news_dict(url: str, limit: int, verbose: bool):
+def get_news_dict(url: str, limit: int, verbose: bool) -> dict:
+    """Pars RSS-feed from 'url' with 'limit' of results.
+
+    :param url: RSS-feed source url
+    :param limit: limit of news
+    :param verbose: post here True if you want more details
+    :return: dict with news
+    """
 
     resp = requests.get(url)
     resp.encoding = 'utf-8'
     if str(resp) == '<Response [200]>':
         if verbose:
-            print(f'Data received from {url}')
+            print_verb(f'Data received from {url}')
         resp_dict = xmltodict.parse(resp.text)
 
         general_news_dict = dict()
@@ -96,30 +117,30 @@ def get_news_dict(url: str, limit: int, verbose: bool):
                 try:
                     news_dict['Text'] = item["text"]
                     if verbose:
-                        print('Add text to this publish.')
+                        print_verb('Add text to this publish.')
                 except KeyError:
                     if verbose:
-                        print('This publish has no text.')
+                        print_verb('This publish has no text.')
                 news_dict['Link'] = item["link"]
                 news_dict['Date'] = item["pubDate"]
                 if verbose:
-                    print(f'Add title, link and pubDate to publish:\n{news_dict["Title"]}')
+                    print_verb(f'Add title, link and pubDate to publish:\n{news_dict["Title"]}')
                 try:
                     news_dict['Inline picture'] = item["media:content"]["@url"]
                     if verbose:
-                        print('Add image_link to this publish.')
+                        print_verb('Add image_link to this publish.')
                 except KeyError:
                     if verbose:
-                        print('This publish has no Inline picture.')
+                        print_verb('This publish has no Inline picture.')
 
                 recorded_news += 1
 
                 general_news_dict[f'pub_{recorded_news}'] = news_dict
                 if verbose:
-                    print(f'Add pub_{recorded_news} to dict')
+                    print_verb(f'Add pub_{recorded_news} to dict')
 
         if verbose:
-            print('Dictionary formed.')
+            print_verb('Dictionary formed.')
 
         return general_news_dict
 
@@ -129,35 +150,43 @@ def get_news_dict(url: str, limit: int, verbose: bool):
 
 
 def print_json_news(news_dict: dict, is_verb: bool):
+    """Print json-object from news_dict"""
     print(json.dumps(news_dict, indent=4))
     if is_verb:
-        print('JSON sent!')
+        print_verb('JSON sent!')
 
 
 def print_news(news_dict: dict, is_verb: bool):
-    print(f'\nFeed: {news_dict["Feed"]}\n')
+    """Print news from news_dict"""
+    print(f'\n{Fore.GREEN}Feed: {Fore.YELLOW + news_dict["Feed"]}\n')
 
     for pub, pub_info in news_dict.items():
         if pub not in ('Feed', 'Source'):
             for name, content in pub_info.items():
-                print(f'{name}: {content}')
+                print(f'{Fore.GREEN + name}: {Fore.BLUE + content}')
             print()
 
     if is_verb:
-        print('All news sent!')
+        print_verb('All news sent!')
 
 
 def write_news(news_dict: dict, is_verb: bool):
+    """Passive function that caches news after it has been parsed.
+
+    :param news_dict: use get_news_dict to get a news_dict
+    :param is_verb: post here True if you want more details
+    :return:
+    """
     if not os.path.exists('cached news'):
         os.mkdir('cached news')
         if is_verb:
-            print('Added directory "cached news"')
+            print_verb('Added directory "cached news"')
     source_list = os.listdir('cached news')
     source = news_dict['Source'].split('://')[1].split('/')[0]
     if source not in source_list:
         os.mkdir(f'cached news/{source}')
         if is_verb:
-            print(f'Added directory "cached news/{source}"')
+            print_verb(f'Added directory "cached news/{source}"')
 
     for pub, pub_info in news_dict.items():
         if pub not in ('Feed', 'Source'):
@@ -167,13 +196,24 @@ def write_news(news_dict: dict, is_verb: bool):
                 with open(f'cached news/{source}/{news_file_name}', 'w') as opened_file:
                     opened_file.write(json.dumps(pub_info, indent=4))
                 if is_verb:
-                    print(f'News {news_file_name} successfully recorded!')
+                    print_verb(f'News {news_file_name} successfully recorded!')
             elif is_verb:
-                print(f'News {news_file_name} is already recorded!')
+                print_verb(f'News {news_file_name} is already recorded!')
 
 
 def read_news(source: str, date: str, limit: int or bool,
               is_verb: bool, is_json: bool, is_html: bool, is_pdf: bool):
+    """That function emulates the work of the get_news_dict function, getting data from the cache
+
+    :param source: if 'None' - use all sources in cached data
+    :param date: in format YYYYMMDD
+    :param limit: if you don't nee ALL news from this date
+    :param is_verb: post here True if you want more details
+    :param is_json: post here True if you want to claim json-object
+    :param is_html: post here True if you want to convert into html-file
+    :param is_pdf: post here True if you want to convert into html-file
+    :return:
+    """
     if limit is None:
         limit = 2147483647
     source_list = []
@@ -200,10 +240,12 @@ def read_news(source: str, date: str, limit: int or bool,
 
     news_dict_manager(news_dict_from_source, is_json, is_verb, is_html, is_pdf)
     if is_verb:
-        print(f'Printed cached news for {date}')
+        print_verb(f'Printed cached news for {date}')
 
 
 def convert_to_html(news_dict: dict, is_verb: bool):
+    """Converts and writes news html-file"""
+    # This function is not recommended for reading by persons with an unstable psyche.
     string_to_write = f'<!DOCTYPE html>\n' \
                       f'<html lang="en">\n' \
                       f'<head>\n' \
@@ -228,11 +270,11 @@ def convert_to_html(news_dict: dict, is_verb: bool):
     if not os.path.exists('conversions'):
         os.mkdir('conversions')
         if is_verb:
-            print('Added directory "conversions"')
+            print_verb('Added directory "conversions"')
     if not os.path.exists('conversions/html'):
         os.mkdir('conversions/html')
         if is_verb:
-            print('Added directory "conversions/html"')
+            print_verb('Added directory "conversions/html"')
 
     html_file_name = str(datetime.datetime.now()).replace("-",
                                                           "").replace(" ",
@@ -241,10 +283,12 @@ def convert_to_html(news_dict: dict, is_verb: bool):
         opened_file.write(''.join(list_to_write))
 
     if is_verb:
-        print('HTML-file was successfully written')
+        print_verb('HTML-file was successfully written')
 
 
 def convert_to_pdf(news_dict: dict, is_verb: bool):
+    """Converts and writes news pdf-file"""
+    # This function is not recommended for reading by persons with an unstable psyche.
     heading_color = HexColor("0b3954")
     text_color = HexColor("070071")
     doc = Document()
@@ -268,11 +312,11 @@ def convert_to_pdf(news_dict: dict, is_verb: bool):
     if not os.path.exists('conversions'):
         os.mkdir('conversions')
         if is_verb:
-            print('Added directory "conversions"')
+            print_verb('Added directory "conversions"')
     if not os.path.exists('conversions/pdf'):
         os.mkdir('conversions/pdf')
         if is_verb:
-            print('Added directory "conversions/pdf"')
+            print_verb('Added directory "conversions/pdf"')
 
     pdf_file_name = str(datetime.datetime.now()).replace("-",
                                                          "").replace(" ",
@@ -281,10 +325,19 @@ def convert_to_pdf(news_dict: dict, is_verb: bool):
         PDF.dumps(opened_file, doc)
 
     if is_verb:
-        print('PDF-file was successfully written')
+        print_verb('PDF-file was successfully written')
 
 
 def news_dict_manager(news_dict: dict, is_json: bool, is_verb: bool, is_html: bool, is_pdf: bool):
+    """Simple what_to_do manager.
+
+    :param news_dict: use get_news_dict() to get news_dict
+    :param is_verb: post here True if you want more details
+    :param is_json: post here True if you want to claim json-object
+    :param is_html: post here True if you want to convert into html-file
+    :param is_pdf: post here True if you want to convert into html-file
+    :return:
+    """
     if is_json:
         print_json_news(news_dict, is_verb)
     if is_html:
@@ -296,6 +349,7 @@ def news_dict_manager(news_dict: dict, is_json: bool, is_verb: bool, is_html: bo
 
 
 def main():
+    """main function. Run it if you want to get started."""
     cons_args = get_args()
 
     if cons_args.date:
@@ -304,7 +358,7 @@ def main():
 
     else:
         if cons_args.source == 'None':
-            print('error: the following arguments are required: source')
+            print('\033[95merror: the following arguments are required: \033[31msource\033[0m')
         else:
             news_dict = get_news_dict(cons_args.source[0], cons_args.limit, cons_args.verbose)
             write_news(news_dict, cons_args.verbose)

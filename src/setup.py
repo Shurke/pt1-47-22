@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
-from rss_reader_folder.rss_reader import __rs_version__
+from rss_reader_folder.rss_reader import __rss_version__
 
 
 setup(
     name='rssReader',
-    version=__rs_version__,
+    version=__rss_version__,
     packages=find_packages(include=['rssReader']),
     include_package_data=True,
     entry_points={

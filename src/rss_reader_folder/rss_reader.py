@@ -6,8 +6,8 @@ entry point anywhere :)
 """
 
 
-import os
 import datetime
+import os
 from pathlib import Path
 
 try:
@@ -31,20 +31,20 @@ except ImportError:
     os.system('pip install json')
     import json
 try:
-    import borb
+    from borb.pdf.canvas.color.color import HexColor
 except ImportError:
     os.system('pip install borb')
-    import borb
+    from borb.pdf.canvas.color.color import HexColor
 
-from borb.pdf.canvas.color.color import HexColor
+from borb.pdf.canvas.font.simple_font.true_type_font import TrueTypeFont
 from borb.pdf.canvas.layout.page_layout.multi_column_layout import SingleColumnLayout
 from borb.pdf.canvas.layout.text.paragraph import Paragraph
 from borb.pdf.document.document import Document
 from borb.pdf.page.page import Page
 from borb.pdf.pdf import PDF
+from colorama import Fore
+from colorama import init
 from decimal import Decimal
-from borb.pdf.canvas.font.simple_font.true_type_font import TrueTypeFont
-from colorama import init, Fore
 
 
 __rss_version__ = '0.1'
@@ -56,9 +56,10 @@ def print_verb(message):
     print(Fore.RED + message)
 
 
-def get_args() -> argparse.Namespace:
-    """That functions parse args from command line and checks for use of the --version or --help
-    flag.
+def get_args():
+    """That functions parse args from command line.
+
+    Also checks for use of the --version or --help flag.
 
     :return: console_args - Namespace with args, or print them in console and exit().
     """
@@ -83,10 +84,11 @@ def get_args() -> argparse.Namespace:
         if console_args.version or console_args.h:
             print(console_args)
     except AttributeError:
-        return console_args
+        pass
+    return console_args
 
 
-def get_news_dict(url: str, limit: int, verbose: bool) -> dict:
+def get_news_dict(url: str, limit: int, verbose: bool):
     """Pars RSS-feed from 'url' with 'limit' of results.
 
     :param url: RSS-feed source url
@@ -97,12 +99,12 @@ def get_news_dict(url: str, limit: int, verbose: bool) -> dict:
 
     resp = requests.get(url)
     resp.encoding = 'utf-8'
+    general_news_dict = {}
     if str(resp) == '<Response [200]>':
         if verbose:
             print_verb(f'Data received from {url}')
         resp_dict = xmltodict.parse(resp.text)
 
-        general_news_dict = dict()
         general_news_dict['Feed'] = resp_dict['rss']['channel']['title']
         general_news_dict['Source'] = url
 
@@ -112,7 +114,7 @@ def get_news_dict(url: str, limit: int, verbose: bool) -> dict:
 
         for item in resp_dict['rss']['channel']['item']:  # parse individual news
             if recorded_news < limit:
-                news_dict = dict()
+                news_dict = {}
                 news_dict['Title'] = str(item["title"]).encode().decode()
                 try:
                     news_dict['Text'] = item["text"]
@@ -141,12 +143,9 @@ def get_news_dict(url: str, limit: int, verbose: bool) -> dict:
 
         if verbose:
             print_verb('Dictionary formed.')
-
-        return general_news_dict
-
     else:
         print(f'{url} did not respond to the request. Check url or try later.')
-        exit('No response')
+    return general_news_dict
 
 
 def print_json_news(news_dict: dict, is_verb: bool):
@@ -193,7 +192,8 @@ def write_news(news_dict: dict, is_verb: bool):
             news_file_name = f'{pub_info["Title"][0:9].replace(":", "")}...' \
                              f' {pub_info["Date"].replace(":", "").replace("-", "")}.txt'
             if news_file_name not in os.listdir(f'cached news/{source}'):
-                with open(f'cached news/{source}/{news_file_name}', 'w') as opened_file:
+                with open(f'cached news/{source}/{news_file_name}',
+                          'w', encoding='utf-8') as opened_file:
                     opened_file.write(json.dumps(pub_info, indent=4))
                 if is_verb:
                     print_verb(f'News {news_file_name} successfully recorded!')
@@ -227,14 +227,15 @@ def read_news(source: str, date: str, limit: int or bool,
     read_news_count = 0
     news_dict_from_source['Feed'] = f'cached news for {date}'
 
-    for source in source_list:
+    for loc_source in source_list:
         if read_news_count < limit:
 
-            for news_name in os.listdir(f'cached news/{source}'):
+            for news_name in os.listdir(f'cached news/{loc_source}'):
                 if read_news_count < limit:
                     if news_name[13:21] == date:
                         read_news_count += 1
-                        with open(f'cached news/{source}/{news_name}') as opened_file:
+                        with open(f'cached news/{loc_source}/{news_name}', 'r',
+                                  encoding='utf-8') as opened_file:
                             news_json = json.load(opened_file)
                             news_dict_from_source[f'pub_{read_news_count}'] = news_json
 
@@ -246,17 +247,17 @@ def read_news(source: str, date: str, limit: int or bool,
 def convert_to_html(news_dict: dict, is_verb: bool):
     """Converts and writes news html-file"""
     # This function is not recommended for reading by persons with an unstable psyche.
-    string_to_write = f'<!DOCTYPE html>\n' \
-                      f'<html lang="en">\n' \
-                      f'<head>\n' \
-                      f'  <meta charset="UTF-8">\n' \
-                      f'  <meta http-equiv="X-UA-Compatible" content="IE=edge">\n' \
-                      f'  <meta name="viewport" content="width=device-width,' \
-                      f' initial-scale=1.0">\n' \
-                      f'  <title>HTML-conversion</title>\n' \
-                      f'</head>\n' \
-                      f'\n' \
-                      f'<body>\n'
+    string_to_write = '<!DOCTYPE html>\n' \
+                      '<html lang="en">\n' \
+                      '<head>\n' \
+                      '  <meta charset="UTF-8">\n' \
+                      '  <meta http-equiv="X-UA-Compatible" content="IE=edge">\n' \
+                      '  <meta name="viewport" content="width=device-width,' \
+                      ' initial-scale=1.0">\n' \
+                      '  <title>HTML-conversion</title>\n' \
+                      '</head>\n' \
+                      '\n' \
+                      '<body>\n'
     list_to_write = [string_to_write]
     list_to_write.append(f'Feed: {news_dict["Feed"]}<br><br>')
     for pub, pub_info in news_dict.items():
@@ -265,7 +266,7 @@ def convert_to_html(news_dict: dict, is_verb: bool):
                 list_to_write.append(f'{title}: {content}<br>')
             list_to_write.append('<br>')
 
-    list_to_write.append(f'</body>\n\n</html>')
+    list_to_write.append('</body>\n\n</html>')
 
     if not os.path.exists('conversions'):
         os.mkdir('conversions')
@@ -279,7 +280,7 @@ def convert_to_html(news_dict: dict, is_verb: bool):
     html_file_name = str(datetime.datetime.now()).replace("-",
                                                           "").replace(" ",
                                                                       "T").replace(":", "")[0:15]
-    with open(f'conversions/html/{html_file_name}.html', 'w') as opened_file:
+    with open(f'conversions/html/{html_file_name}.html', 'w', encoding='utf-8') as opened_file:
         opened_file.write(''.join(list_to_write))
 
     if is_verb:
@@ -362,7 +363,7 @@ def main():
         else:
             news_dict = get_news_dict(cons_args.source[0], cons_args.limit, cons_args.verbose)
             write_news(news_dict, cons_args.verbose)
-            news_dict_manager(news_dict, cons_args.json, cons_args.verbose,  cons_args.to_html,
+            news_dict_manager(news_dict, cons_args.json, cons_args.verbose, cons_args.to_html,
                               cons_args.to_pdf)
 
     exit()

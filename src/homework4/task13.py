@@ -21,6 +21,7 @@ Silver может быть представлен как SiLvEr
 
 def chemistry_output(word_from_user, func_from_chem):
     """Output message about the possibility or impossibility to
+
     change the word with the chemical elements
 
     :param word_from_user: word from user

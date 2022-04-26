@@ -1,4 +1,5 @@
-"""Каждый химический элемент из таблицы Менделеева характеризуется своим обозначением, состоящим из
+"""
+Каждый химический элемент из таблицы Менделеева характеризуется своим обозначением, состоящим из
 одного, двух или трех символов. Есть такая игра – пытаться выразить то или иное слово через
 химические элементы. Например, слово silicon может быть записано при помощи следующих химических
 элементов: Si, Li, C, O и N. В то же время слово hydrogen не может быть составлено из названий
@@ -14,15 +15,18 @@
 Например, одна из строчек может выглядеть так:
 Silver может быть представлен как SiLvEr
 Для решения задачи используйте набором данных с химическими элементами, который находится
-в файле elements.txt."""
+в файле elements.txt.
+"""
 
 
 def chemistry_output(word_from_user, func_from_chem):
-    """Output a message about the possibility or impossibility to change the word through the
-    chemical elements
+    """Output message about the possibility or impossibility to
+    change the word with the chemical elements
+
     :param word_from_user: word from user
     :param func_from_chem: result of function chemistry_word
-    :return: possibility or impossibility to change the word"""
+    :return: possibility or impossibility to change the word
+    """
     result = func_from_chem
     if result is None:
         return f'The word {word_from_user} cannot be converted with chemical elements'
@@ -32,9 +36,11 @@ def chemistry_output(word_from_user, func_from_chem):
 
 def chemistry_word(word, chem_list):
     """determines if words can be expressed with the use of chemical elements
+
     :param word: word to check
     :param chem_list: list of symbols that can be used in this case
-    :return: string of used characters"""
+    :return: string of used characters
+    """
 
     for item in range(3, 0, -1):
         start_word = word[:item]
@@ -49,7 +55,9 @@ def chemistry_word(word, chem_list):
 
 def mendeleev_list():
     """file processing with chemical elements
-    :return: list with elements"""
+
+    :return: list with elements
+    """
     mendeleev_elements = []
     with open('elements.txt', 'r') as elements:
         for elem in elements.read().split():

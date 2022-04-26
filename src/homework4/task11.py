@@ -1,4 +1,5 @@
-"""Набор данных, содержащий детские имена, состоит более чем из 200 файлов, в каждом из которых, помимо
+"""
+Набор данных, содержащий детские имена, состоит более чем из 200 файлов, в каждом из которых, помимо
 сотни имен, указано количество названных тем или иным именем детей. При этом файлы отсортированы по
 убыванию популярности имен. Для каждого года присутствует по два файла: в одном перечислены мужские
 имена, в другом – женские. Совокупный набор данных содержит информацию для всех лет, начиная с
@@ -14,16 +15,19 @@
 Предусмотреть возможность работать с каким-то ограниченным периодом времени или с конкретным годом.
 Например, ваша программа должна корректно вывести данные, если пользователь ввел “1990-1995” или
 просто “1996”. Если пользователем на вход программы не передал никаких данных, то необходимо вывести
-все данные за все время."""
+все данные за все время.
+"""
 
 import zipfile
 
 
 def open_file(year, file='baby_names.zip'):
     """Open file and create a dict with boys and girls data
+
     :param year: list from func get_years
     :param file: datafile
-    :return: dict with boys and girls names in input years"""
+    :return: dict with boys and girls names in input years
+    """
     boys_years_dict = {}
     girls_years_dict = {}
     year_for_func = [int(elem) for elem in year]
@@ -51,10 +55,12 @@ def open_file(year, file='baby_names.zip'):
 
 def get_top_names(boy_dict, girl_dict):
     """Print the most popular (top 10) names from open file and universal name in range input years
+
     :param : list from func get_years
     :param boy_dict: dict with boys from open_file
     :param girl_dict: dict with girls from open_file
-    :return: set with top-10 boys, set with top-10 girls, set with universal names"""
+    :return: set with top-10 boys, set with top-10 girls, set with universal names
+    """
 
     boy_top_set = set()
     girl_top_set = set()
@@ -85,11 +91,14 @@ def get_top_names(boy_dict, girl_dict):
 
 def output(years, universal_names, boys, girls):
     """Output of the top 10 boys' and girls' names in the given years.
+
     Output of universal names in the given years
+
     :param years: list from func get_years
     :param universal_names: universal_set from get_top_names
     :param boys: set with top-10 boys names from get_top_names
-    :param girls: set with top-10 girls names from get_top_names"""
+    :param girls: set with top-10 girls names from get_top_names
+    """
     if universal_names:
         if len(years) == 1:
             print(f'Universal names in this {years[0]} year were {", ".join(universal_names)} ')
@@ -108,9 +117,11 @@ def output(years, universal_names, boys, girls):
 
 
 def get_years(year):
-    """convert string from user to necessary view
+    """Convert string from user to necessary view
+
     :param year: string with years from user
-    :return: list with years"""
+    :return: list with years
+    """
     correct_year = []
     if year == '':
         for years in range(1900, 2013):

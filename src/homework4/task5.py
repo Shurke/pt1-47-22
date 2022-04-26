@@ -1,11 +1,15 @@
-"""Вводится число. Найти его максимальный делитель, являющийся степенью двойки.
-10(2) 16(16), 12(4)"""
+"""
+Вводится число. Найти его максимальный делитель, являющийся степенью двойки.
+10(2) 16(16), 12(4)
+"""
 
 
 def maximum_divisor(user_numb):
     """conversion to binary and then finding the maximal divisor, which is a degree of two
+
     :param user_numb: value from user
-    :return: max divisor"""
+    :return: max divisor
+    """
     binary = str((bin(user_numb)))[2:]
     divisor = 1
     for degree in range(1, len(binary)):

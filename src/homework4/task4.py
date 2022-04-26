@@ -1,15 +1,11 @@
-"""
-Написать программу которая находит ближайшую степень двойки к введенному числу.
-10(8), 20(16), 1(1), 13(16)
-"""
+"""Написать программу которая находит ближайшую степень двойки к введенному числу.
+10(8), 20(16), 1(1), 13(16)"""
 
 
 def two_degree(user_numb):
-    """
-    conversion to binary and then finding the nearest degree
+    """conversion to binary and then finding the nearest degree
     :param user_numb: value from user
-    :return: nearest degree of two
-    """
+    :return: nearest degree of two"""
     binary = str((bin(user_numb)))[2:]
 
     res_deg = 1

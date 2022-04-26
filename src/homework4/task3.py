@@ -1,5 +1,4 @@
-"""
-Двоичная пирамида.
+"""Двоичная пирамида.
 На вход функции передаются два целых числа m и n, такие что 0 ≤ m ≤ n.
 Функция выполняет следующие действия:
 Перевести числа от m до n (включительно) в двоичные числа.
@@ -14,17 +13,14 @@ func(1, 4)   -->  1111010
 +  11  // 3 в двоичном виде 11
 + 100  // 4 в двоичном виде 100
 -----
-  122  // 122 в двоичном виде 1111010
-"""
+  122  // 122 в двоичном виде 1111010 """
 
 
 def pyramid_bin(m, n):
-    """
-    string with the sum of the binary
+    """string with the sum of the binary
     :param m: value 1 from user
     :param n: value 2 from user
-    :return: sum of the binary
-    """
+    :return: sum of the binary"""
 
     pyramid_sum = 0
     for elem in range(m, n + 1):

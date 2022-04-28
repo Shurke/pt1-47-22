@@ -100,7 +100,7 @@ def get_news_dict(url: str, limit: int, verbose: bool):
     resp = requests.get(url)
     resp.encoding = 'utf-8'
     general_news_dict = {}
-    if str(resp) == '<Response [200]>':
+    if resp.status_code == 200:
         if verbose:
             print_verb(f'Data received from {url}')
         resp_dict = xmltodict.parse(resp.text)
@@ -201,17 +201,13 @@ def write_news(news_dict: dict, is_verb: bool):
                 print_verb(f'News {news_file_name} is already recorded!')
 
 
-def read_news(source: str, date: str, limit: int or bool,
-              is_verb: bool, is_json: bool, is_html: bool, is_pdf: bool):
+def read_news(source: list or str, date: str, limit: int or bool, is_verb: bool):
     """That function emulates the work of the get_news_dict function, getting data from the cache
 
     :param source: if 'None' - use all sources in cached data
     :param date: in format YYYYMMDD
     :param limit: if you don't nee ALL news from this date
     :param is_verb: post here True if you want more details
-    :param is_json: post here True if you want to claim json-object
-    :param is_html: post here True if you want to convert into html-file
-    :param is_pdf: post here True if you want to convert into html-file
     :return:
     """
     if limit is None:
@@ -221,11 +217,11 @@ def read_news(source: str, date: str, limit: int or bool,
         for item in os.listdir('cached news'):
             source_list.append(item)
     else:
-        source_list.append(source)
+        source_list.append(source[0].split('://')[1].split('/')[0])
 
-    news_dict_from_source = {}
+    cached_news_dict = {}
     read_news_count = 0
-    news_dict_from_source['Feed'] = f'cached news for {date}'
+    cached_news_dict['Feed'] = f'cached news for {date}'
 
     for loc_source in source_list:
         if read_news_count < limit:
@@ -237,11 +233,11 @@ def read_news(source: str, date: str, limit: int or bool,
                         with open(f'cached news/{loc_source}/{news_name}', 'r',
                                   encoding='utf-8') as opened_file:
                             news_json = json.load(opened_file)
-                            news_dict_from_source[f'pub_{read_news_count}'] = news_json
+                            cached_news_dict[f'pub_{read_news_count}'] = news_json
 
-    news_dict_manager(news_dict_from_source, is_json, is_verb, is_html, is_pdf)
     if is_verb:
         print_verb(f'Printed cached news for {date}')
+    return cached_news_dict
 
 
 def convert_to_html(news_dict: dict, is_verb: bool):
@@ -354,8 +350,9 @@ def main():
     cons_args = get_args()
 
     if cons_args.date:
-        read_news(cons_args.source, cons_args.date, cons_args.limit,
-                  cons_args.verbose, cons_args.json, cons_args.to_html, cons_args.to_pdf)
+        news_dict = read_news(cons_args.source, cons_args.date, cons_args.limit, cons_args.verbose,)
+        news_dict_manager(news_dict, cons_args.json, cons_args.verbose, cons_args.to_html,
+                          cons_args.to_pdf)
 
     else:
         if cons_args.source == 'None':
@@ -365,8 +362,6 @@ def main():
             write_news(news_dict, cons_args.verbose)
             news_dict_manager(news_dict, cons_args.json, cons_args.verbose, cons_args.to_html,
                               cons_args.to_pdf)
-
-    exit()
 
 
 if __name__ == '__main__':

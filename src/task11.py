@@ -58,7 +58,7 @@ def years(year):
     else:
         year = year.split("-")
         if len(year) == 2:
-            for num_of_year in range(int(year[0]), int(year[1])+1):
+            for num_of_year in range(int(year[0]), int(year[1]) + 1):
                 if num_of_year in range(1900, 2013):
                     top_10_names(num_of_year)
                 else:

@@ -14,4 +14,3 @@ def result_add(func):
         a.append(result)
         return result
     return wriper
-

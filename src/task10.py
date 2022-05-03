@@ -4,6 +4,7 @@
 слова такой длины. Для работы используйте файл words.txt.
 """
 
+
 def long_word():
     a = open("words.txt", "r").read().split('\n')
     b = 0

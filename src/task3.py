@@ -27,11 +27,9 @@ def func_1(x):
 
 def func(m, n):
     result = int()
-    temp = int()
     for i in range(m, n + 1):
-        temp = i
         a = func_1(i)
-        print(f'{q} в двоичном коде {a}')
+        print(f'{i} в двоичном коде {a}')
         result += int(a)
     return result
 

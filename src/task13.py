@@ -19,13 +19,13 @@ elements.txt.
 """
 
 
-def decompose(word,list_elements):
-    progress = [False for x in range(len(word)+1)]
+def decompose(word, list_elements):
+    progress = [False for x in range(len(word) + 1)]
     progress[0] = []
 
-    for i in range(1, len(word)+1):
+    for i in range(1, len(word) + 1):
         possibles = list()
-        for j in range(max(i-3, 0), i):
+        for j in range(max(i - 3, 0), i):
             if progress[j] == False:
                 continue
             alchemical = word[j:i].title()
@@ -41,7 +41,13 @@ def decompose(word,list_elements):
     return "".join(progress[-1])
 
 
-elements = open('elements.txt', 'r').read().split('\n')
-list_elements = [i.split(',')[1] for i in elements]
-word = input('Введите слово: ')
-print(f'Введенное слово из названий химических элементов: {decompose(word, list_elements)}')
+def main():
+    elements = open('elements.txt', 'r').read().split('\n')
+    list_elements = [i.split(',')[1] for i in elements]
+    print(list_elements)
+    word = input('Введите слово: ')
+    print(f'Введенное слово из названий химических элементов: {decompose(word, list_elements)}')
+
+
+if __name__ == '__main__':
+    main()

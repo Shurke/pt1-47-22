@@ -12,22 +12,26 @@
  импортирована в виде модуля в другой файл.
 """
 
-if __name__ == '__main__':
+
+def ordinal_date(day, month, year):
+
+    dict_days = {1: 0, 2: 31, 3: 59, 4: 90, 5: 120, 6: 151, 7: 181, 8: 212, 9: 243, 10: 273,
+                 11: 304, 12: 334}
+    result = dict_days[month] + day
+    if year % 4 == 0 != year % 100 or year % 400 == 0:
+        if month > 2:
+            result += 1
+
+    return result
+
+
+def main():
 
     day = int(input('Введите день месяца: '))
     month = int(input('Введите месяц: '))
     year = int(input('Введите год: '))
+    print(f'Порядковый номер введенного дня: {ordinal_date(day, month, year)}')
 
 
-    def ordinal_date(day, month, year):
-        dict_days = {1: 0, 2: 31, 3: 59, 4: 90, 5: 120, 6: 151, 7: 181, 8: 212, 9: 243, 10: 273,
-                     11: 304, 12: 334} #Словарь с количеством дней относительно месяца
-        result = dict_days[month] + day
-        if year % 4 == 0 != year % 100 or year % 400 == 0: #Выясняем високосный ли год
-            if month > 2: # Проверка, нужна ли поправка на 1 день
-                result += 1
-
-        return result
-
-
-    ordinal_date(day, month, year)
+if __name__ == '__main__':
+    main()

@@ -33,9 +33,6 @@ def count(count=10):
     return try_repeat
 
 
-
-
-
 @count()
 def exception_func():
     a = int(input('Vvod 1'))

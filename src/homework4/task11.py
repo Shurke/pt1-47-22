@@ -18,8 +18,9 @@
 то необходимо вывести все данные за все время.
 """
 
-import zipfile
+
 import glob
+import zipfile
 
 
 def read_zip() -> list:

@@ -44,8 +44,6 @@ def find_top_by_one_year(files: list, years: str) -> tuple:
     """
     boys = []
     girls = []
-    top_boys = []
-    top_girls = []
     universal_names = []
     find_year = []
 
@@ -67,11 +65,8 @@ def find_top_by_one_year(files: list, years: str) -> tuple:
         if girl not in universal_names:
             girls.append(girl)
 
-    count = 0
-    while count != 20:
-        top_boys.append(boys[count])
-        top_girls.append(girls[count])
-        count += 2
+    top_boys = boys[0:10]
+    top_girls = girls[0:10]
 
     if len(universal_names) == 0:
         print('Универсальных имён нет')
@@ -89,15 +84,12 @@ def find_top_by_range_of_year(files: list, years: str) -> tuple:
     :return: Возвращает кортеж из двух вложенных списков, а точнее список топ-10 имён для
     мальчиков и девочек
     """
-    print(files, type(years))
     boys = []
     girls = []
     boys_temp = []
     girls_temp = []
     dict_boys = {}
     dict_girls = {}
-    top_boys = []
-    top_girls = []
     universal_names = []
 
     years = years.replace('-', ' ').split()
@@ -138,9 +130,10 @@ def find_top_by_range_of_year(files: list, years: str) -> tuple:
         sorted_girls[v] = dict_girls[v]
 
     boys_temp.clear()
-    girls_temp.clear()
     for k in sorted_boys:
         boys_temp.append(k)
+
+    girls_temp.clear()
     for k in sorted_girls:
         girls_temp.append(k)
 
@@ -156,11 +149,8 @@ def find_top_by_range_of_year(files: list, years: str) -> tuple:
         if girl not in universal_names:
             girls.append(girl)
 
-    count = 0
-    while count != 10:
-        top_boys.append(boys[count])
-        top_girls.append(girls[count])
-        count += 1
+    top_boys = boys[0:10]
+    top_girls = girls[0:10]
 
     if len(universal_names) == 0:
         print('Универсальных имён нет')

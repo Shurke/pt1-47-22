@@ -5,13 +5,10 @@
 
 def decorator(func):
     def wrapper(*args, **kwargs):
-
         result = func(*args, **kwargs)
         with open('function_results.txt', 'a') as file:
             file.write(f'{result}\n')
-
         return result
-
     return wrapper
 
 

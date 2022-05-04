@@ -2,15 +2,23 @@
  текущий запуск программы)
 """
 
-a = []
 
+def decorator(func):
+    def wrapper(*args, **kwargs):
 
-def result_add(func):
-    def wriper():
-        print('Начало декоратора')
-        result = func()
-        print("Конец декоратора")
-        global a
-        a.append(result)
+        result = func(*args, **kwargs)
+        with open('function_results.txt', 'a') as file:
+            file.write(f'{result}\n')
+
         return result
-    return wriper
+
+    return wrapper
+
+
+@decorator
+def one(a, b):
+    i = [x for x in range(a ** b) if x % 2 == 0]
+    return i
+
+
+print(one(10, 4))

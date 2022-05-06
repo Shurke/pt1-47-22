@@ -11,12 +11,13 @@
 import random
 
 
+def password_generator():
+    """Функция генерирует пароль из символов диапазона от 33 до 126 в таблице ASCII"""
+    len_password = random.randrange(7, 11)
+    res = [chr(random.randrange(33, 127)) for i in range(len_password)]
+    result = ''.join(res)
+    return result
+
+
 if __name__ == '__main__':
-    def Password_Generator():
-        len_password = random.randrange(7, 11)
-        res = [chr(random.randrange(33, 127)) for i in range(len_password)]
-        result = ''.join(res)
-        return (f'Сгенерированный пароль: {result}')
-
-
-print(Password_Generator())
+    print(f'Сгенерированный пароль: {password_generator()}')

@@ -4,16 +4,16 @@
 
 
 number = int(input('Введиче число для нахождения ближайшей степени двойки: '))
-last_result = 1
+LAST_RESULT = 1
 
 
-while number >= 2**last_result:
-    previous = last_result
-    last_result += 1
+while number >= 2**LAST_RESULT:
+    PREVIOUS = LAST_RESULT
+    LAST_RESULT += 1
 
 if number == 1:
     print('Ближайшую степень двойки к введенному числу', number)
-elif number - (2**previous) > (2**last_result) - number:
-    print('Ближайшую степень двойки к введенному числу', (2**last_result))
+elif number - (2 ** PREVIOUS) > (2 ** LAST_RESULT) - number:
+    print('Ближайшую степень двойки к введенному числу', (2 ** LAST_RESULT))
 else:
-    print('Ближайшую степень двойки к введенному числу', (2**previous))
+    print('Ближайшую степень двойки к введенному числу', (2 ** PREVIOUS))

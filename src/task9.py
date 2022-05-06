@@ -17,6 +17,8 @@
 
 
 def unit_conversion(number, name):
+    """Функция пересчитывает заданный обьем ингридиентов с использованием минимально возможных
+    замеров"""
     if name == "cup":
         return f"{number} {name}"
     elif name == "tablespoons":
@@ -30,7 +32,7 @@ def unit_conversion(number, name):
         return f"{cup} cup, {table_spoon} tablespoons, {tea_spoon} teaspoons"
 
 
-container = input("Введите одну из едениц измерения: cup, tablespoons, teaspoons: ")
-number = int(input("Введите количество единиц измерения: "))
+input_container = input("Введите одну из едениц измерения: cup, tablespoons, teaspoons: ")
+input_number = int(input("Введите количество единиц измерения: "))
 
-print(unit_conversion(number, container))
+print(unit_conversion(input_number, input_container))

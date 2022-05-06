@@ -6,11 +6,12 @@
 """
 
 
-def get_ranges(a):
+def get_ranges(list_numbers):
+    """Функция получая список чисел сворачивает его в интервалы"""
     result = []
     temp = []
-    for i in range(max(a) + 2):
-        if i in a:
+    for i in range(max(list_numbers) + 2):
+        if i in list_numbers:
             temp.append(i)
         else:
             if temp:

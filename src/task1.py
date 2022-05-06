@@ -4,6 +4,7 @@
 
 
 def decorator(func):
+    """ Декоратор записывающий все результаты вызова задекорированной функции"""
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         with open('function_results.txt', 'a') as file:
@@ -13,8 +14,9 @@ def decorator(func):
 
 
 @decorator
-def one(a, b):
-    i = [x for x in range(a ** b) if x % 2 == 0]
+def one(number, degree):
+    """Функция создает спискок с четными числами до 10000"""
+    i = [x for x in range(number ** degree) if x % 2 == 0]
     return i
 
 

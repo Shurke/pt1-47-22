@@ -17,23 +17,26 @@ func(1, 4)   -->  1111010
 """
 
 
-def func_1(x):
-    a = ''
-    while x > 0:
-        a = str(x % 2) + a
-        x = x // 2
-    return a
+def func_1(number_to_binary):
+    """Функция переводит входящее число в  двоичное"""
+    string_of_numbers = ''
+    while number_to_binary > 0:
+        string_of_numbers = str(number_to_binary % 2) + string_of_numbers
+        number_to_binary = number_to_binary // 2
+    return string_of_numbers
 
 
-def func(m, n):
+def func(number_1, number_2):
+    """Функция передает числа из интервала полученных чисел на перевод в двоичне и складывает
+    полученные результаты"""
     result = int()
-    for i in range(m, n + 1):
-        a = func_1(i)
-        print(f'{i} в двоичном коде {a}')
-        result += int(a)
+    for i in range(number_1, number_2 + 1):
+        number_to_binary = func_1(i)
+        print(f'{i} в двоичном коде {number_to_binary}')
+        result += int(number_to_binary)
     return result
 
 
-t = func(1, 4)
-y = func_1(t)
-print(f'{t} в двоичном коде {y}')
+numbers = func(1, 4)
+number_result = func_1(numbers)
+print(f'{numbers} в двоичном коде {number_result}')

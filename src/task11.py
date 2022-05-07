@@ -24,10 +24,10 @@ import zipfile
 def top_10_names(year):
     """Функция возвращает спииски топ 10 имен мальчиков девочек и универсальные имена при наличии"""
     with zipfile.ZipFile('baby_names.zip', 'r') as catallog_of_baby_names:
-        boys = catallog_of_baby_names.open(f"BabyNames/{int(year)}_BoysNames.txt")
-        girls = catallog_of_baby_names.open(f"BabyNames/{int(year)}_GirlsNames.txt")
-    list_boys = [name.decode().split(None, 1)[0] for name in boys]
-    list_girls = [name.decode().split(None, 1)[0] for name in girls]
+        with catallog_of_baby_names.open(f"BabyNames/{int(year)}_BoysNames.txt") as boys:
+            list_boys = [name.decode().split(None, 1)[0] for name in boys]
+        with catallog_of_baby_names.open(f"BabyNames/{int(year)}_GirlsNames.txt") as girls:
+            list_girls = [name.decode().split(None, 1)[0] for name in girls]
     boys_and_girls = [name for name in list_boys if name in list_girls]
     top10_boys = []
     top10_girls = []

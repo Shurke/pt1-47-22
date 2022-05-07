@@ -7,21 +7,22 @@
 
 
 class TooManyErrors(Exception):
+    """Класс исключений"""
     pass
 
 
-def count(count):
+def count(limit_try):
     """Декоратор с ограничением запуска вложенной функции"""
     def try_repeat(func):
         def wrapper(*args, **kwargs):
             try:
                 func(*args, **kwargs)
             except Exception:
-                if count > wrapper.count_try:
+                if limit_try > wrapper.count_try:
                     wrapper.count_try += 1
                     print(f'Использовано попыток {wrapper.count_try} из {count}')
                     return wrapper(*args, **kwargs)
-                if count == wrapper.count_try:
+                else:
                     raise TooManyErrors('Превышено количество попыток')
             return func
         wrapper.count_try = 0

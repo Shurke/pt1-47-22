@@ -27,13 +27,11 @@ def top_10_names(year):
     :списки имен мальчиков,девочек и если есть в этом году универсльные имена выводит их отдельно
     :year: год по которому нужно создать топ 10 имен
     """
-    catallog_of_baby_names = zipfile.ZipFile('baby_names.zip', 'r')
-    boys = catallog_of_baby_names.open(f"BabyNames/{int(year)}_BoysNames.txt")
-    girls = catallog_of_baby_names.open(f"BabyNames/{int(year)}_GirlsNames.txt")
+    with zipfile.ZipFile('baby_names.zip', 'r') as catallog_of_baby_names:
+        boys = catallog_of_baby_names.open(f"BabyNames/{int(year)}_BoysNames.txt")
+        girls = catallog_of_baby_names.open(f"BabyNames/{int(year)}_GirlsNames.txt")
     list_boys = [name.decode().split(None, 1)[0] for name in boys]
     list_girls = [name.decode().split(None, 1)[0] for name in girls]
-    boys.close()
-    girls.close()
     boys_and_girls = [name for name in list_boys if name in list_girls]
     top10_boys = []
     top10_girls = []

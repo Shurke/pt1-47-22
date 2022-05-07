@@ -23,16 +23,18 @@ def unit_conversion(number, name):
     :name: название еденицы измерения
     """
     if name == "cup":
-        return f"{number} {name}"
+        result = f"{number} {name}"
     if name == "tablespoons":
         cup = number // 16
         table_spoon = number % 16
-        return f"{cup} cup, {table_spoon} tablespoons"
+        result = f"{cup} cup, {table_spoon} tablespoons"
     if name == "teaspoons":
         cup = number // 48
         table_spoon = (number % 48) // 3
         tea_spoon = number % 3
-        return f"{cup} cup, {table_spoon} tablespoons, {tea_spoon} teaspoons"
+        result = f"{cup} cup, {table_spoon} tablespoons, {tea_spoon} teaspoons"
+
+    return result
 
 
 input_container = input("Введите одну из едениц измерения: cup, tablespoons, teaspoons: ")

@@ -11,6 +11,7 @@ class TooManyErrors(Exception):
 
 
 def count(count):
+    """Декоратор с ограничением запуска вложенной функции"""
     def try_repeat(func):
         def wrapper(*args, **kwargs):
             try:
@@ -20,17 +21,17 @@ def count(count):
                     wrapper.count_try += 1
                     print(f'Использовано попыток {wrapper.count_try} из {count}')
                     return wrapper(*args, **kwargs)
-                else:
+                if count == wrapper.count_try:
                     raise TooManyErrors('Превышено количество попыток')
-            else:
-                return func
+            return func
         wrapper.count_try = 0
         return wrapper
     return try_repeat
 
 
-@count(count=10)
+@count(count=4)
 def exception_func():
+    """Тестовая функция"""
     num_1 = int(input('Vvod 1'))
     num_2 = int(input('Vvod 2'))
     summ = num_1 + num_2

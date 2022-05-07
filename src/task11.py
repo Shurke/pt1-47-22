@@ -22,11 +22,7 @@ import zipfile
 
 
 def top_10_names(year):
-    """Функция возвращает спииски топ 10 имен
-
-    :списки имен мальчиков,девочек и если есть в этом году универсльные имена выводит их отдельно
-    :year: год по которому нужно создать топ 10 имен
-    """
+    """Функция возвращает спииски топ 10 имен мальчиков девочек и универсальные имена при наличии"""
     with zipfile.ZipFile('baby_names.zip', 'r') as catallog_of_baby_names:
         boys = catallog_of_baby_names.open(f"BabyNames/{int(year)}_BoysNames.txt")
         girls = catallog_of_baby_names.open(f"BabyNames/{int(year)}_GirlsNames.txt")

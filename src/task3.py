@@ -19,7 +19,7 @@ def singleton_wrapper(cls):
     return getinstance
 
 
-class SingletonClass(object):
+class SingletonClass:
     """Single threaded singleton class"""
 
     __instance = None
@@ -29,3 +29,13 @@ class SingletonClass(object):
             cls.__instance = super(SingletonClass, cls).__new__(cls)
             cls.name = name
         return cls.__instance
+
+    @staticmethod
+    def some_business_method():
+        """Method docstring(pylint)"""
+        return 'You are very cool!'
+
+    @staticmethod
+    def some_other_business_method():
+        """Method docstring(pylint)"""
+        return 'You are very cool!'

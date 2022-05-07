@@ -9,6 +9,7 @@
 
 
 class KgToPounds:
+    """Class docstring (pylint warning)"""
 
     def __init__(self, kg):
         self.__kg = kg

@@ -20,23 +20,23 @@ class RealString(str):
     [Optional] added '==' comparison
     """
 
-    def __init__(self, string):
-        self.string = string
-
     def __gt__(self, other):
-        if isinstance(other, RealString) or isinstance(other, str):
-            return len(self) > len(other)
+        if isinstance(other, (RealString, str)):
+            result = len(self) > len(other)
         else:
-            return NotImplemented
+            result = NotImplemented
+        return result
 
     def __lt__(self, other):
-        if isinstance(other, RealString) or isinstance(other, str):
-            return len(self) < len(other)
+        if isinstance(other, (RealString, str)):
+            result = len(self) < len(other)
         else:
-            return NotImplemented
+            result = NotImplemented
+        return result
 
     def __eq__(self, other):  # not required to complete the technical task
-        if isinstance(other, RealString) or isinstance(other, str):
-            return len(self) == len(other)
+        if isinstance(other, (RealString, str)):
+            result = len(self) == len(other)
         else:
-            return NotImplemented
+            result = NotImplemented
+        return result

@@ -12,6 +12,10 @@
 
 
 class DefaultList(list):
+    """Custom class inherited from built-in class 'list'
+
+    When accessing a non-existent index, returns the default value
+    """
 
     def __init__(self, seq=(), default=None):
         self.default = default
@@ -19,6 +23,7 @@ class DefaultList(list):
 
     def __getitem__(self, item):
         if item > len(self) - 1 or item < - len(self):
-            return self.default
+            result = self.default
         else:
-            return list(self)[item]
+            result = list(self)[item]
+        return result

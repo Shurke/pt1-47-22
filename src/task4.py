@@ -19,11 +19,12 @@ class Primes(list):
     """Child class from a 'list' that works with prime numbers
 
     first(n) - return the first n prime numbers starting with 2
-    last(n) - returns the last n numbers from the prime list
+    last(n) - return the last n numbers from the prime list
     """
 
     @staticmethod
     def first(right_limit):
+        """Return the first n prime numbers starting with 2"""
 
         def is_prime(num):
             if num % 2 == 0:
@@ -44,4 +45,5 @@ class Primes(list):
         return result_list
 
     def last(self, left_limit):
+        """Return the last n numbers from the prime list"""
         return self[-left_limit:]

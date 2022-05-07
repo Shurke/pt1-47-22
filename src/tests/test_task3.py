@@ -4,8 +4,8 @@ Unittest for task3.py
 
 
 import ddt
-import unittest
 from src import task3
+import unittest
 
 
 @ddt.ddt
@@ -26,10 +26,20 @@ class TestTask2(unittest.TestCase):
         """Test class-wrapper singleton_wrapper"""
 
         @task3.singleton_wrapper
-        class CustomTestClass(object):
+        class CustomTestClass:
 
             def __init__(self, name):
                 self.name = name
+
+            @staticmethod
+            def some_business_method():
+                """Method docstring(pylint)"""
+                return 'You are very cool!'
+
+            @staticmethod
+            def some_other_business_method():
+                """Method docstring(pylint)"""
+                return 'You are very cool!'
 
         object_1 = CustomTestClass('MyName')
         object_2 = CustomTestClass('NotMyName')

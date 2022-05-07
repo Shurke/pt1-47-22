@@ -4,8 +4,8 @@ Unittest for task1.py
 
 
 import ddt
-import unittest
 from src import task1
+import unittest
 
 
 @ddt.ddt

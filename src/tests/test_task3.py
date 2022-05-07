@@ -13,7 +13,6 @@ class TestTask2(unittest.TestCase):
     """Test cases for RealString"""
 
     def setUp(self) -> None:
-
         self.task = task3.SingletonClass
 
     def test_class(self):

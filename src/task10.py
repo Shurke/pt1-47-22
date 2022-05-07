@@ -7,7 +7,7 @@
 
 def long_word():
     """Функция создает список из самых длинных слов в фаиле"""
-    with open('words.txt', 'r') as file:
+    with open('words.txt', 'r', encoding="UTF-8") as file:
         list_word = file.read().split('\n')
     len_word = 0
     for i in list_word:

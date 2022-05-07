@@ -37,6 +37,6 @@ def func(number_1, number_2):
     return result
 
 
-numbers = func(1, 4)
-number_result = func_1(numbers)
-print(f'{numbers} в двоичном коде {number_result}')
+NUMBERS = func(1, 4)
+NUMBER_RESULT = func_1(NUMBERS)
+print(f'{NUMBERS} в двоичном коде {NUMBER_RESULT}')

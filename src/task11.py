@@ -22,7 +22,9 @@ import zipfile
 
 
 def top_10_names(year):
-    catallog_of_baby_names = zipfile.ZipFile("baby_names.zip", "r")
+    """Функция создает спииски топ 10 имен мальчиков,девочек и если есть в этом году универсльные
+    имена выводит их отдельно из архива относительно года"""
+    catallog_of_baby_names = zipfile.ZipFile('baby_names.zip', 'r')
     boys = catallog_of_baby_names.open(f"BabyNames/{int(year)}_BoysNames.txt")
     girls = catallog_of_baby_names.open(f"BabyNames/{int(year)}_GirlsNames.txt")
     list_boys = [name.decode().split(None, 1)[0] for name in boys]
@@ -52,6 +54,7 @@ def top_10_names(year):
 
 
 def years(year):
+    """Функция выводит передает номер года относительно введенных пользователем"""
     if year == "":
         for num_of_year in range(1900, 2013):
             top_10_names(num_of_year)

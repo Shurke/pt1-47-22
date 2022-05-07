@@ -7,7 +7,7 @@ def decorator(func):
     """ Декоратор записывающий все результаты вызова задекорированной функции"""
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        with open('function_results.txt', 'a') as file:
+        with open('function_results.txt', 'a', encoding="UTF-8") as file:
             file.write(f'{result}\n')
         return result
     return wrapper

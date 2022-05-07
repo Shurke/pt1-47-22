@@ -21,11 +21,11 @@ def unit_conversion(number, name):
     замеров"""
     if name == "cup":
         return f"{number} {name}"
-    elif name == "tablespoons":
+    if name == "tablespoons":
         cup = number // 16
         table_spoon = number % 16
         return f"{cup} cup, {table_spoon} tablespoons"
-    elif name == "teaspoons":
+    if name == "teaspoons":
         cup = number // 48
         table_spoon = (number % 48) // 3
         tea_spoon = number % 3

@@ -20,13 +20,14 @@ elements.txt.
 
 
 def decompose(word, list_elements):
+    """Функция собирает слово из обозначения химических элементов"""
     progress = [False for x in range(len(word) + 1)]
     progress[0] = []
 
     for i in range(1, len(word) + 1):
-        possibles = list()
+        possibles = []
         for j in range(max(i - 3, 0), i):
-            if progress[j] == False:
+            if progress[j] is False:
                 continue
             alchemical = word[j:i].title()
             if alchemical in list_elements:
@@ -35,19 +36,21 @@ def decompose(word, list_elements):
         if possibles:
             progress[i] = min(possibles, key=len)
 
-    if progress[-1] == False:
+    if progress[-1] is False:
         result = 'Не возможно собрать данное слово из элементов таблицы Менделеева!'
         return result
     return "".join(progress[-1])
 
 
 def main():
-    elements = open('elements.txt', 'r').read().split('\n')
-    list_elements = [i.split(',')[1] for i in elements]
-    print(list_elements)
+    """Функция создает список из элементов в фаиле и запрашивает ввод слова которое нужно собрать
+    из эллементов списка"""
+    with open('elements.txt', 'r', encoding='UTF-8') as elements:
+        list_elements = [i.split(',')[1] for i in elements]
     word = input('Введите слово: ')
     print(f'Введенное слово из названий химических элементов: {decompose(word, list_elements)}')
 
 
 if __name__ == '__main__':
     main()
+

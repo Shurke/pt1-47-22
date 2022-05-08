@@ -66,6 +66,11 @@ def mendeleev_list():
     return mendeleev_elements
 
 
-user_word = input('Enter the word which you would like to convert: ').lower()
-convert_for_chemistry = chemistry_word(user_word, mendeleev_list())
-print(chemistry_output(user_word, convert_for_chemistry))
+def main():
+    user_word = input('Enter the word which you would like to convert: ').lower()
+    convert_for_chemistry = chemistry_word(user_word, mendeleev_list())
+    print(chemistry_output(user_word, convert_for_chemistry))
+
+
+if __name__ == '__main__':
+    main()

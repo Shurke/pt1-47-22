@@ -20,5 +20,6 @@ def tax_cost(distance):
     return f'The cost of your trip is {cost} BYN'
 
 
-distance_trip = float(input('Enter the distance in km: '))
-print(tax_cost(distance_trip))
+if __name__ == '__main__':
+    distance_trip = float(input('Enter the distance in km: '))
+    print(tax_cost(distance_trip))

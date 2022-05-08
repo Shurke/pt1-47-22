@@ -25,13 +25,13 @@ def ordinal_date(day, month, year):
         month_days = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     else:
         month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    temporary_month_sum = 0
-    for elem in range(month - 1):
-        temporary_month_sum += month_days[elem]
 
-    return f'Number of the day {temporary_month_sum + day}'
+    sequence_numb = sum(month_days[:(month - 1)]) + day
+
+    return f'Number of the day {sequence_numb}'
 
 
-user_day, user_month, user_year = (input('Enter the day, month and year you wish '
-                                         'separated by space: ')).split()
-print(ordinal_date(int(user_day), int(user_month), int(user_year)))
+if __name__ == '__main__':
+    user_day, user_month, user_year = (input('Enter the day, month and year you wish '
+                                             'separated by space: ')).split()
+    print(ordinal_date(int(user_day), int(user_month), int(user_year)))

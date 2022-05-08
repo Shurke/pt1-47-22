@@ -28,37 +28,27 @@ def open_file(year, file='baby_names.zip'):
     :param file: datafile
     :return: dict with boys and girls names in input years
     """
-    boys_years_dict = {}
-    girls_years_dict = {}
+    boys_and_girls_dict = {}
     year_for_func = [int(elem) for elem in year]
-    for years in year_for_func:
-        try:
-            with zipfile.ZipFile(file, 'r') as database:
-                boys = database.open(f'BabyNames/{years}_BoysNames.txt')
-                boys_dict = {}
-                for boy_name in boys:
-                    boys_lst = boy_name.decode().rstrip().split()
-                    boys_dict[boys_lst[0]] = int(boys_lst[1])
-                boys_years_dict[years] = boys_dict
-                girls = database.open(f'BabyNames/{years}_GirlsNames.txt')
-                girls_dict = {}
-                for girl_name in girls:
-                    girls_lst = girl_name.decode().rstrip().split()
-                    girls_dict[girls_lst[0]] = int(girls_lst[1])
-                girls_years_dict[years] = girls_dict
-                boys.close()
-                girls.close()
-        except FileNotFoundError:
-            print('File error')
-    return boys_years_dict, girls_years_dict
+    try:
+        with zipfile.ZipFile(file, 'r') as database:
+            for file in database.namelist():
+                if int(file[10:14]) in year_for_func:
+                    boys_and_girls = database.open(file, 'r').readlines()
+                    data_dict = {}
+                    for elem in boys_and_girls:
+                        data_lst = elem.decode().rstrip().split()
+                        data_dict[data_lst[0]] = int(data_lst[1])
+                    boys_and_girls_dict[tuple(file[10:19].split('_'))] = data_dict
+    except FileNotFoundError:
+        print('File error')
+    return boys_and_girls_dict
 
 
-def get_top_names(boy_dict, girl_dict):
+def get_top_names(dict_years_names):
     """Print the most popular (top 10) names from open file and universal name in range input years
 
-    :param : list from func get_years
-    :param boy_dict: dict with boys from open_file
-    :param girl_dict: dict with girls from open_file
+    :param dict_years_names: dict with boys and girls from open_file
     :return: set with top-10 boys, set with top-10 girls, set with universal names
     """
 
@@ -66,25 +56,24 @@ def get_top_names(boy_dict, girl_dict):
     girl_top_set = set()
     b_unique_set = set()
     g_unique_set = set()
-    for b_year, b_names in boy_dict.items():
-        for b_name in b_names.keys():
-            b_unique_set.add(b_name)
-    for g_year, g_names in girl_dict.items():
-        for g_name in g_names.keys():
-            g_unique_set.add(g_name)
+
+    for year_gender, names in dict_years_names.items():
+        for name in names.keys():
+            if year_gender[1] == 'Boys':
+                b_unique_set.add(name)
+            else:
+                g_unique_set.add(name)
+
     universal_set = b_unique_set & g_unique_set
 
-    for b_year, b_names in boy_dict.items():
-        b = list(b_names.keys())[:10]
-        for b_temp_name in b_names.keys():
-            if b_temp_name in set(b) and b_temp_name not in universal_set:
-                boy_top_set.add(b_temp_name)
-
-    for g_year, g_names in girl_dict.items():
-        g = list(g_names.keys())[:10]
-        for g_temp_name in g_names.keys():
-            if g_temp_name in set(g) and g_temp_name not in universal_set:
-                girl_top_set.add(g_temp_name)
+    for year_gender, names in dict_years_names.items():
+        top_lst = list(names.keys())[:10]
+        for top_name, year in names.items():
+            if top_name in set(top_lst) and top_name not in universal_set:
+                if year_gender[1] == 'Boys':
+                    boy_top_set.add(top_name)
+                else:
+                    girl_top_set.add(top_name)
 
     return universal_set, boy_top_set, girl_top_set
 
@@ -130,16 +119,16 @@ def get_years(year):
         year = year.split('-')
         if len(year) == 2:
             for years in range(int(year[0]), int(year[1]) + 1):
-                if years in range(1900, 2013):
+                if int(year[0]) >= 1900 and int(year[1]) <= 2012:
                     correct_year.append(years)
                 else:
-                    print(f'This {year} period are not in database')
+                    print(f'This {", ".join(year)} period are not in database')
                     raise ValueError
         elif len(year) == 1:
-            if int(year[0]) in range(1900, 2013):
+            if 1900 <= int(year[0]) <= 2012:
                 correct_year.append(year[0])
             else:
-                print(f'This {year} period is not in database')
+                print(f'This {", ".join(year)} period is not in database')
                 raise ValueError
     return correct_year
 
@@ -148,7 +137,7 @@ def main():
     years_from_user = input('Enter the prefer year in range 1900-2012 like "1990-1995" or "1996": ')
     convert_year = get_years(years_from_user)
     names_dict = open_file(convert_year, file='baby_names.zip')
-    names = get_top_names(names_dict[0], names_dict[1])
+    names = get_top_names(names_dict)
     output(convert_year, names[0], names[1], names[2])
 
 

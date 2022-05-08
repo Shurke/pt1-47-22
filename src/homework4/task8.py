@@ -24,4 +24,5 @@ def get_password():
     return password
 
 
-print(f'Random password: {get_password()}')
+if __name__ == '__main__':
+    print(f'Random password: {get_password()}')

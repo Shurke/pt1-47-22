@@ -13,6 +13,11 @@ class TooManyErrors(Exception):
 
 
 def parametrized_dec(numb_try):
+    """
+    Calls the function until it is complete without exceptions
+
+    :param numb_try: number of attempts to restart the function
+    """
     def my_decorator(func):
         def wrapper(*args, **kwargs):
             try:
@@ -21,6 +26,7 @@ def parametrized_dec(numb_try):
                 for quant_try in range(1, numb_try + 1):
                     if quant_try == numb_try:
                         raise TooManyErrors(f'Number of attempts exceeded: {numb_try} ')
+                return func(*args, **kwargs)
         return wrapper
     return my_decorator
 
@@ -34,4 +40,5 @@ def count(numb):
     return counter
 
 
-print(count(6))
+if __name__ == '__main__':
+    print(count(6))

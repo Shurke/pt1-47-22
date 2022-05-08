@@ -11,20 +11,16 @@ def longest_word(file_name):
     :param file_name: file from user
     :return: the length of the longest word and all words of that length
     """
-    with open(file_name, 'r') as user_file:
-        open_file = user_file.read().split()
-    max_len_word = 0
-    all_longest_word = []
-    for word in open_file:
-        if len(word) >= max_len_word:
-            max_len_word = len(word)
-            all_longest_word.append(word)
-            for words in all_longest_word[:-1]:
-                if len(words) < max_len_word:
-                    all_longest_word.remove(words)
+    with open(file_name, 'r') as open_file:
+        reading_file = open_file.read().split()
+    words_dict = {reading_file[i]: len(reading_file[i]) for i in range(len(reading_file))}
+    max_len_word = max(words_dict.values())
+    longest_words = {word: word_len for word, word_len in words_dict.items()
+                     if word_len == max_len_word}
 
     return f'The length of the longest word in file is {max_len_word} and all words of that' \
-           f' length are {", ".join(all_longest_word)}'
+           f' length are {", ".join(longest_words)}'
 
 
-print(longest_word('words.txt'))
+if __name__ == '__main__':
+    print(longest_word('words.txt'))

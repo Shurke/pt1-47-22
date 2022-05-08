@@ -21,10 +21,11 @@ def result_dec(func):
 
 
 @result_dec
-def test_func(something):
+def user_func(something):
     test = something + ' ' + something
 
     return test
 
 
-print(test_func('hello!'))
+if __name__ == '__main__':
+    print(user_func('hello!'))

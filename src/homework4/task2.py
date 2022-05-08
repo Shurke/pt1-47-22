@@ -30,10 +30,10 @@ def get_ranges(sort_list):
         else:
             result_list.append(f'{item[0]}')
 
-    return result_list
+    return ','.join(result_list)
 
 
-def user_lst():
+def main():
     input_list = input('Enter a list of integers, separated by space: ').split()
     temporary_user_list = []
     for i in input_list:
@@ -42,4 +42,5 @@ def user_lst():
     return list(sorted(map(int, temporary_user_list)))
 
 
-print(get_ranges(user_lst()))
+if __name__ == '__main__':
+    print(get_ranges(main()))

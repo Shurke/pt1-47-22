@@ -42,5 +42,6 @@ def convert_roman(roman_num):
     return temporary_decimal + convert_roman(roman_num[1:])
 
 
-user_numb = input('Enter roman numerals for convert to decimal numeral: ')
-print(f'Decimal numeral: {convert_roman(user_numb)}')
+if __name__ == '__main__':
+    user_numb = input('Enter roman numerals for convert to decimal numeral: ')
+    print(f'Decimal numeral: {convert_roman(user_numb)}')

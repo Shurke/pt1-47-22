@@ -21,5 +21,6 @@ def maximum_divisor(user_numb):
     return f'Max divisor: {divisor}'
 
 
-numb = int(input('Enter a number to get the max divisor: '))
-print(maximum_divisor(numb))
+if __name__ == '__main__':
+    numb = int(input('Enter a number to get the max divisor: '))
+    print(maximum_divisor(numb))

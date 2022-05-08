@@ -22,5 +22,6 @@ def two_degree(user_numb):
     return f'The nearest degree of two to the entered number: {res_deg}'
 
 
-numb = int(input('Enter a number to get the nearest degree of two: '))
-print(two_degree(numb))
+if __name__ == '__main__':
+    numb = int(input('Enter a number to get the nearest degree of two: '))
+    print(two_degree(numb))

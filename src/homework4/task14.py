@@ -13,8 +13,7 @@ class TooManyErrors(Exception):
 
 
 def parametrized_dec(numb_try):
-    """
-    Calls the function until it is complete without exceptions
+    """Calls the function until it is complete without exceptions
 
     :param numb_try: number of attempts to restart the function
     """

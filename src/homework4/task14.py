@@ -17,15 +17,15 @@ def parametrized_dec(numb_try):
 
     :param numb_try: number of attempts to restart the function
     """
+
     def my_decorator(func):
         def wrapper(*args, **kwargs):
-            try:
-                return func(*args, **kwargs)
-            except Exception:
-                for quant_try in range(1, numb_try + 1):
+            for quant_try in range(1, numb_try + 1):
+                try:
+                    return func(*args, **kwargs)
+                except Exception:
                     if quant_try == numb_try:
                         raise TooManyErrors(f'Number of attempts exceeded: {numb_try} ')
-                return func(*args, **kwargs)
         return wrapper
     return my_decorator
 

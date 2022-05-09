@@ -137,8 +137,8 @@ def main():
     years_from_user = input('Enter the prefer year in range 1900-2012 like "1990-1995" or "1996": ')
     convert_year = get_years(years_from_user)
     names_dict = open_file(convert_year, file='baby_names.zip')
-    names = get_top_names(names_dict)
-    output(convert_year, names[0], names[1], names[2])
+    universal_names, boy_top_names, girl_top_names = get_top_names(names_dict)
+    output(convert_year, universal_names, boy_top_names, girl_top_names)
 
 
 if __name__ == '__main__':

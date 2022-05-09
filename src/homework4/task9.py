@@ -33,7 +33,6 @@ def kitchen(numb, tool):
         tablespoon = (numb % 48) // 3
         teaspoon = numb % 3
         return f'{cup} cup, {tablespoon} tablespoons, {teaspoon} teaspoons'
-    return numb, tool
 
 
 if __name__ == '__main__':

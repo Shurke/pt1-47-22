@@ -8,7 +8,6 @@
 
 class TooManyErrors(Exception):
     """Класс исключений"""
-    pass
 
 
 def count(limit_try):
@@ -20,9 +19,9 @@ def count(limit_try):
             except Exception:
                 if limit_try > wrapper.count_try:
                     wrapper.count_try += 1
-                    print(f'Использовано попыток {wrapper.count_try} из {count}')
+                    print(f'Использовано попыток {wrapper.count_try} из {limit_try}')
                     return wrapper(*args, **kwargs)
-                else:
+                if limit_try == wrapper.count_try:
                     raise TooManyErrors('Превышено количество попыток')
             return func
         wrapper.count_try = 0
@@ -30,7 +29,7 @@ def count(limit_try):
     return try_repeat
 
 
-@count(count=4)
+@count(limit_try=10)
 def exception_func():
     """Тестовая функция"""
     num_1 = int(input('Vvod 1'))

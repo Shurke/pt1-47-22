@@ -11,7 +11,7 @@ from setuptools import setup
 setup(
     name='rssReader',
     version=__rss_version__,
-    packages=find_packages(include=['rssReader']),
+    packages=find_packages(include=['rssReader']),  # include all packages in this package
     include_package_data=True,
     entry_points={
         'console_scripts':

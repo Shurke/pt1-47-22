@@ -15,35 +15,17 @@ class TestRssCustom(unittest.TestCase):
 
 # output test
     @ddt.data(
-        ('message', ),
-        ('404', )
+        ({'line_1': 'data_1', 'line_2': {'line_2_1': 'data_2_1', 'line_2_2': 'data_2_2'}}, )
     )
     @ddt.unpack
-    def test_print_verb(self, message):
-        """Test output with print_verb() from rss_reader.py, message: {0}"""
-        console_text = print_wrapper(rss_reader.print_verb)(message)[0]
-        self.assertEqual(console_text, f'\x1b[31m{message}\n')
-
-    @ddt.data(
-        ({'line_1': 'data_1', 'line_2': {'line_2_1': 'data_2_1', 'line_2_2': 'data_2_2'}}, False),
-        ({'line_1': 'data_1', 'line_2': {'line_2_1': 'data_2_1', 'line_2_2': 'data_2_2'}}, True)
-    )
-    @ddt.unpack
-    def test_print_json_news(self, inp_dict, verb):
-        """Test output with print_json_news() from rss_reader.py, dict: {0}, verb: {1}"""
-        console_text = print_wrapper(rss_reader.print_json_news)(inp_dict, verb)[0]
+    def test_print_json_news(self, inp_dict):
+        """Test output with print_json_news() from rss_reader.py, dict: {0}"""
+        console_text = print_wrapper(rss_reader.print_json_news)(inp_dict)[0]
         console_line_list = console_text.split('\n')
         self.assertEqual(console_line_list[0], '{')
         self.assertEqual(console_line_list[2], '    "line_2": {')
-        if verb:
-            self.assertEqual(console_line_list[-2], '\x1b[31mJSON sent!')
 
-    @ddt.data(
-        (True, ),
-        (False, )
-    )
-    @ddt.unpack
-    def test_print_news(self, verb):
+    def test_print_news(self):
         """Test output with print_news() from rss_reader.py"""
         input_dict = {
             'Feed': 'feed',
@@ -52,11 +34,9 @@ class TestRssCustom(unittest.TestCase):
                 'name_2': 'text_2'
             }
         }
-        console_text = print_wrapper(rss_reader.print_news)(input_dict, verb)[0]
-        if verb:
-            file_name = 'test_data/test_print_news_verb.txt'
-        else:
-            file_name = 'test_data/test_print_news.txt'
+        console_text = print_wrapper(rss_reader.print_news)(input_dict)[0]
+
+        file_name = 'test_data/test_print_news.txt'
         with open(file_name, 'r', encoding='utf-8') as opened_file:
             control_str = opened_file.read()
         self.assertEqual(console_text, control_str)

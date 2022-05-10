@@ -1,0 +1,6 @@
+
+[32mFeed: [33mfeed
+
+[32mname_1: [34mtext_1
+[32mname_2: [34mtext_2
+

@@ -1,0 +1,2 @@
+recursive-include rss_reader_folder *.py
+include timesnewromanpsmt.ttf

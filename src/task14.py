@@ -16,7 +16,7 @@ def count(limit_try):
         def wrapper(*args, **kwargs):
             try:
                 func(*args, **kwargs)
-            except Exception:
+            except ValueError:
                 if limit_try > wrapper.count_try:
                     wrapper.count_try += 1
                     print(f'Использовано попыток {wrapper.count_try} из {limit_try}')

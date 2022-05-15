@@ -22,7 +22,7 @@ def count(limit_try):
                     print(f'Использовано попыток {wrapper.count_try} из {limit_try}')
                     return wrapper(*args, **kwargs)
                 if limit_try == wrapper.count_try:
-                    raise TooManyErrors('Превышено количество попыток')
+                    raise TooManyErrors('Превышено количество попыток') from None
             return func
         wrapper.count_try = 0
         return wrapper

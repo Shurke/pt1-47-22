@@ -33,7 +33,7 @@ def unit_conversion(number, name):
     return result
 
 
-input_container = input("Введите одну из едениц измерения: cup, tablespoons, teaspoons: ")
-input_number = int(input("Введите количество единиц измерения: "))
+input_number, input_container = (input('Введите количество единиц измерения и еденицу измерения'
+                                       '(cup, tablespoons, teaspoons):')).split()
 
-print(unit_conversion(input_number, input_container))
+print(unit_conversion(int(input_number), input_container))

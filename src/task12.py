@@ -22,15 +22,14 @@
 
 def roman_numer(number):
     """Функция переводит римские цифры в десятичные"""
-    roman_numeral = (('M', 1000), ('CM', 900), ('D', 500), ('CD', 400), ('C', 100), ('XC', 90),
-                     ('L', 50), ('XL', 40), ('X', 10), ('IX', 9), ('V', 5), ('IV', 4), ('I', 1))
-    result = 0
-    index = 0
-    for numeral, integer in roman_numeral:
-        while number[index:index + len(numeral)] == numeral:
-            result += integer
-            index += len(numeral)
-    return result
+    roman_numeral = {"M": 1000, "D": 500, "C": 100, "L": 50, "X": 10, "V": 5, "I": 1}
+    if number in roman_numeral:
+        return roman_numeral[number]
+    first, second = map(roman_numer, number[:2])
+    if first < second:
+        return second - first + roman_numer(number[2:])
+    else:
+        return first + roman_numer(number[1:])
 
 
 if __name__ == '__main__':

@@ -16,8 +16,8 @@ def decorator(func):
 @decorator
 def one(number, degree):
     """Функция создает спискок с четными числами до 10000"""
-    i = [x for x in range(number ** degree) if x % 2 == 0]
-    return i
+    result = [x for x in range(number ** degree) if x % 2 == 0]
+    return result
 
 
 print(one(10, 4))

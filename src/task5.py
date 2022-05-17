@@ -3,11 +3,15 @@
 """
 
 
-number = int(input('Введите число: '))
+def maximum_divisor(number):
+    list_exp = [i**2 for i in range(1, (number + 1)) if i**2 <= number]
+    for result in range(number, -1, -1):
+        if number % result == 0:
+            if list_exp.count(result) == 1:
+                break
+    print(f'Максимальный делитель введенного числа являющийся степенью двойки: {result}')
 
-list_exp = [i**2 for i in range(1, (number + 1)) if i**2 <= number]
-for i in range(number, -1, -1):
-    if number % i == 0:
-        if list_exp.count(i) == 1:
-            break
-print(f'Максимальный делитель введенного числа являющийся степенью двойки: {i}')
+
+input_number = int(input('Введите число: '))
+if __name__ == '__main__':
+    maximum_divisor(input_number)

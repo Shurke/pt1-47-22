@@ -17,7 +17,7 @@ func(1, 4)   -->  1111010
 """
 
 
-def func_1(number_to_binary):
+def integer_to_binary(number_to_binary):
     """Функция переводит входящее число в  двоичное"""
     string_of_numbers = ''
     while number_to_binary > 0:
@@ -26,16 +26,16 @@ def func_1(number_to_binary):
     return string_of_numbers
 
 
-def func(number_1, number_2):
+def interval_processing(number_1, number_2):
     """Функция передает числа из интервала полученных чисел на перевод в двоичне и складывает"""
     result = int()
     for i in range(number_1, number_2 + 1):
-        number_to_binary = func_1(i)
+        number_to_binary = integer_to_binary(i)
         print(f'{i} в двоичном коде {number_to_binary}')
         result += int(number_to_binary)
     return result
 
 
-NUMBERS = func(1, 4)
-NUMBER_RESULT = func_1(NUMBERS)
+NUMBERS = interval_processing(1, 4)
+NUMBER_RESULT = integer_to_binary(NUMBERS)
 print(f'{NUMBERS} в двоичном коде {NUMBER_RESULT}')

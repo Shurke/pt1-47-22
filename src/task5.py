@@ -4,6 +4,7 @@
 
 
 def maximum_divisor(number):
+    """Функция ищет максимальный делитель, являющийся степенью двойки для введенного числа"""
     list_exp = [i**2 for i in range(1, (number + 1)) if i**2 <= number]
     for result in range(number, -1, -1):
         if number % result == 0:

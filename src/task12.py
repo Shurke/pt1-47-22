@@ -28,7 +28,7 @@ def roman_numer(number):
     first, second = map(roman_numer, number[:2])
     if first < second:
         return second - first + roman_numer(number[2:])
-    if first > second:
+    else:
         return first + roman_numer(number[1:])
 
 

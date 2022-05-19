@@ -10,7 +10,7 @@
 
 class KgToPounds:
     """
-
+    Class takes a kg
     """
 
     def __init__(self, kg):

@@ -9,6 +9,7 @@
 
 def tax_cost(distance):
     """trip cost calculation
+
     :param distance: distance from user
     :return: cost ride
     """

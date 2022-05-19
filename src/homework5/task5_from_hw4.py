@@ -6,6 +6,7 @@
 
 def maximum_divisor(user_numb):
     """conversion to binary and then finding the maximal divisor, which is a degree of two
+
     :param user_numb: value from user
     :return: max divisor
     """

@@ -22,6 +22,7 @@ Silver может быть представлен как SiLvEr
 def chemistry_output(word_from_user, func_from_chem):
     """Output message about the possibility or impossibility to
     change the word with the chemical elements
+
     :param word_from_user: word from user
     :param func_from_chem: result of function chemistry_word
     :return: possibility or impossibility to change the word
@@ -35,6 +36,7 @@ def chemistry_output(word_from_user, func_from_chem):
 
 def chemistry_word(word, chem_list):
     """determines if words can be expressed with the use of chemical elements
+
     :param word: word to check
     :param chem_list: list of symbols that can be used in this case
     :return: string of used characters
@@ -53,6 +55,7 @@ def chemistry_word(word, chem_list):
 
 def mendeleev_list():
     """file processing with chemical elements
+
     :return: list with elements
     """
     mendeleev_elements = []

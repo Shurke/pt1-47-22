@@ -17,6 +17,7 @@
 
 def kitchen(numb, tool):
     """A function that counts the use of the minimum possible tools
+
     :param numb: numb of ingredients
     :param tool: tools
     :return: line with a minimum numb of actions and items

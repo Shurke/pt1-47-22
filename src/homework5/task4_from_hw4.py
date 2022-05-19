@@ -6,6 +6,7 @@
 
 def two_degree(user_numb):
     """conversion to binary and then finding the nearest degree
+
     :param user_numb: value from user
     :return: nearest degree of two
     """

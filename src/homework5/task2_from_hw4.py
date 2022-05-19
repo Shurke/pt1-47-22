@@ -9,6 +9,7 @@
 
 def get_ranges(sort_list):
     """list minimization
+
     :param sort_list: sorted list from function user_lst
     :return: modified list
     """

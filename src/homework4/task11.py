@@ -36,7 +36,7 @@ def read_zip() -> list:
 
 
 def find_top_by_gender(names: list) -> list:
-    """
+    """Находит претендентов топ имён мальчиков или девочек
 
     :param names: Принимает список имён
     :return: Возвращает преобразованный список имён

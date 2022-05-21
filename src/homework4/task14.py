@@ -7,17 +7,17 @@
 """
 
 
-class TooManyErrors(ValueError):
+class TooManyErrors(Exception):
     pass
 
 
 def decor_limit(limit):
     def decorator(func):
         def wrapper(*args, **kwargs):
-            for n in range(1, limit + 1):
+            for n in range(limit):
                 try:
                     return func(*args, **kwargs)
-                except ValueError:
+                except Exception:
                     if n == limit:
                         raise TooManyErrors("Превышено количество попыток")
         return wrapper

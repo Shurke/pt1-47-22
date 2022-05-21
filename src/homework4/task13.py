@@ -28,7 +28,7 @@ def check_word(word: str, list_of_elements: list) -> str:
     :return: Возвращает слово, если его можно выразить через таблицу. Если нельзя - None
     """
     for i in (3, 2, 1):
-        start_word = word[:i]
+        start_word = word[:i].capitalize()
         if start_word not in list_of_elements:
             continue
         if len(word) == i:
@@ -39,18 +39,17 @@ def check_word(word: str, list_of_elements: list) -> str:
 
 
 def main():
-    word = input('Введите слово на английском: ').lower()
+    word = input('Введите слово на английском: ')
 
     with open('elements.txt', 'rt') as file:
-        elements = file.read().lower().split(",")
-
+        elements = file.read().split(",")
     list_of_elements = elements[1::2]
     new_word = check_word(word, list_of_elements)
 
     if new_word is None:
-        print('Введённое слово невозможно выразить через таблицу элементов Менделеева')
+        print('Введённое слово невозможно представить через таблицу элементов Менделеева')
     else:
-        print(f'Слово {new_word} можно выразить через таблицу элементов Менделеева')
+        print(f'Слово {word} можно представить как {new_word} через таблицу элементов Менделеева')
 
 
 if __name__ in '__main__':

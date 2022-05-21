@@ -4,17 +4,10 @@
 """
 
 
-import os
-
-
 def dec(func):
 
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-
-        if not os.path.exists('task1.txt'):
-            with open('task1.txt', 'w'):
-                pass
 
         with open('task1.txt', 'a') as log:
             log.write(f'Результат вызова функции: {result}\n')

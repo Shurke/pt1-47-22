@@ -35,6 +35,34 @@ def read_zip() -> list:
     return sorted(files)
 
 
+def find_top_by_gender(names: list) -> list:
+    """
+
+    :param names: Принимает список имён
+    :return: Возвращает преобразованный список имён
+    """
+    list_of_names = []
+    dict_names = {}
+
+    for single_list in names:
+        for string in single_list:
+            list_of_names.append(string)
+
+    for i in range(0, len(list_of_names) - 1, 2):
+        dict_names[list_of_names[i]] = int(list_of_names[i + 1])
+
+    sorted_names = {}
+    sorted_keys = sorted(dict_names, key=dict_names.get, reverse=True)
+    for v in sorted_keys:
+        sorted_names[v] = dict_names[v]
+
+    list_of_names.clear()
+    for k in sorted_names:
+        list_of_names.append(k)
+
+    return list_of_names
+
+
 def find_top_by_one_year(files: list, years: str) -> tuple:
     """Находит топ 10 имён из ввёденного года
 
@@ -86,18 +114,15 @@ def find_top_by_range_of_year(files: list, years: str) -> tuple:
     мальчиков и девочек
     """
     boys = []
+    temp_boys = []
     girls = []
-    boys_temp = []
-    girls_temp = []
-    dict_boys = {}
-    dict_girls = {}
+    temp_girls = []
     universal_names = []
 
-    years = years.replace('-', ' ').split()
+    years = years.split('-')
     years = [int(i) for i in years]
-    years = [str(i) for i in range(years[0], years[1] + 1)]
 
-    for year in years:
+    for year in [str(i) for i in range(years[0], years[1] + 1)]:
         for item in files:
             if item.find(year + '_B') == 12:
                 with open(item, 'rt') as file:
@@ -108,50 +133,21 @@ def find_top_by_range_of_year(files: list, years: str) -> tuple:
                     girls_names = file.read().split()
                     girls.append(girls_names)
 
-    for i in boys:
-        for j in i:
-            boys_temp.append(j)
-    for i in girls:
-        for j in i:
-            girls_temp.append(j)
+    boys = find_top_by_gender(boys)
+    girls = find_top_by_gender(girls)
 
-    for i in range(0, len(boys_temp) - 1, 2):
-        dict_boys[boys_temp[i]] = int(boys_temp[i + 1])
-    for i in range(0, len(girls_temp) - 1, 2):
-        dict_girls[girls_temp[i]] = int(girls_temp[i + 1])
-
-    sorted_boys = {}
-    sorted_keys = sorted(dict_boys, key=dict_boys.get, reverse=True)
-    for v in sorted_keys:
-        sorted_boys[v] = dict_boys[v]
-
-    sorted_girls = {}
-    sorted_keys = sorted(dict_girls, key=dict_girls.get, reverse=True)
-    for v in sorted_keys:
-        sorted_girls[v] = dict_girls[v]
-
-    boys_temp.clear()
-    for k in sorted_boys:
-        boys_temp.append(k)
-
-    girls_temp.clear()
-    for k in sorted_girls:
-        girls_temp.append(k)
-
-    boys.clear()
-    for boy in boys_temp:
-        if boy in girls_temp:
+    for boy in boys:
+        if boy in girls:
             universal_names.append(boy)
         else:
-            boys.append(boy)
+            temp_boys.append(boy)
 
-    girls.clear()
-    for girl in girls_temp:
+    for girl in girls:
         if girl not in universal_names:
-            girls.append(girl)
+            temp_girls.append(girl)
 
-    top_boys = boys[0:10]
-    top_girls = girls[0:10]
+    top_boys = temp_boys[:10]
+    top_girls = temp_girls[:10]
 
     if len(universal_names) == 0:
         print('Универсальных имён нет')

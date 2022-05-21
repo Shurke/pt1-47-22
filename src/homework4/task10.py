@@ -6,9 +6,6 @@
 """
 
 
-import os
-
-
 def find_the_longest_word(string_from_file: str) -> list:
     """Находит самое длинное слово из строки
 
@@ -23,25 +20,11 @@ def find_the_longest_word(string_from_file: str) -> list:
 
 
 def main():
-    if not os.path.exists('words.txt'):
-        with open('words.txt', 'w'):
-            pass
+    with open('words.txt', 'rt') as file:
+        string_from_file = file.read()
 
-    switch = input('Выберите одно из действий (1 или 2):\n'
-                   '1 - Сделать дозапись нового слова в файл words.txt\n'
-                   '2 - Найти самое длинное слово из файла words.txt\n'
-                   'Решение: ')
-
-    if switch == '1':
-        user_string = input('Введите любое слово: ')
-        with open('words.txt', 'at') as file:
-            file.write(user_string + ' \n')
-    elif switch == '2':
-        with open('words.txt', 'rt') as file:
-            string_from_file = file.read()
-
-        result = find_the_longest_word(string_from_file)
-        print(f'Самые длинные слова из файла: {result}, их длинна = {len(result[0])}')
+    result = find_the_longest_word(string_from_file)
+    print(f'Самые длинные слова из файла: {result}, их длинна = {len(result[0])}')
 
 
 if __name__ in '__main__':

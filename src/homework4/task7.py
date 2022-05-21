@@ -22,7 +22,6 @@ def ordinal_date(day: int, month: int, year: int) -> int:
     :param year: Год
     :return: Порядковый номер введённого дня
     """
-    leap_year = [year for year in range(1900, 2201, 4)]
     result = 0
     table_of_month = {
         # Номер месяца : количество дней в этом месяце
@@ -44,19 +43,15 @@ def ordinal_date(day: int, month: int, year: int) -> int:
     else:
         month = str(month)
 
-    if year in leap_year:
+    if year % 4 == 0:
         table_of_month['02'] = 29
-        for k, v in table_of_month.items():
-            result += v
-            if k == month:
-                result = result - (v - day)
-                break
-    else:
-        for k, v in table_of_month.items():
-            result += v
-            if k == month:
-                result = result - (v - day)
-                break
+
+    for k, v in table_of_month.items():
+        result += v
+        if k == month:
+            result = result - (v - day)
+            break
+
     return result
 
 

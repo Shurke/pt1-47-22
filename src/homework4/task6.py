@@ -15,13 +15,13 @@ def calc(dist: float) -> float:
     """
     basic = 4
     cost = 0.25
-    price = basic + round(cost * dist, 2)
+    price = basic + round(cost * dist * 10, 2)
     return price
 
 
 def main():
     dist = float(input('Введите расстояние в километрах: '))
-    print(f'Итоговая сумма оплаты такси: {calc(dist * 10)} BYN')
+    print(f'Итоговая сумма оплаты такси: {calc(dist)} BYN')
 
 
 if __name__ in '__main__':

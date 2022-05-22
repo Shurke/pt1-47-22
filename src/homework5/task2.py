@@ -13,6 +13,10 @@
 
 
 class RealString:
+    """
+    Class to compare strings by number of symbols
+
+    """
 
     def __init__(self, word):
         if not isinstance(word, str):

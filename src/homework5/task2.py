@@ -12,24 +12,21 @@
 """
 
 
-class RealString(str):
+class RealString:
 
     def __init__(self, word):
+        if not isinstance(word, str):
+            raise TypeError('You should use string for compare')
         self.word = word
 
+    def __eq__(self, other):
+        if not isinstance(other, (str, RealString)):
+            raise TypeError('You should use a comparison string for the value on the right')
+        sec_str_compare = other if isinstance(other, str) else other.word
+        return len(self.word) == len(sec_str_compare)
+
     def __lt__(self, other):
-        if isinstance(other, str):
-            return len(self) < len(other)
-        else:
-            raise TypeError('Should use string for compare')
-
-    def __gt__(self, other):
-        if isinstance(other, str):
-            return len(self) > len(other)
-        else:
-            raise TypeError('Should use string for compare')
-
-
-c1 = RealString('words')
-c2 = RealString('dwors')
-print(c1 == c2)
+        if not isinstance(other, (str, RealString)):
+            raise TypeError('You should use a comparison string for the value on the right')
+        sec_str_compare = other if isinstance(other, str) else other.word
+        return len(self.word) < len(sec_str_compare)

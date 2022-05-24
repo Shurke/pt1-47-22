@@ -57,8 +57,9 @@ def sorting_reduction(items):
     """Функция сортирует и сокращает список имен для периода времени"""
     result = []
     sort_dict = {x: items.count(x) for x in items}
-    for k, v in sorted(sort_dict.items(), key=lambda x: x[1], reverse=True):
-        result.extend([k])
+    for key, item in sorted(sort_dict.items(), key=lambda x: x[1], reverse=True):
+        if item != 0:
+            result.extend([key])
     return result
 
 
@@ -95,7 +96,7 @@ def years(year):
                     names_boys_and_girls += list_names[2]
                 result_for_period(names_girls, names_boys, names_boys_and_girls, year)
             else:
-                print(f"Вы ввели интервал выходящий за пределы базыданных")
+                print("Вы ввели интервал выходящий за пределы базыданных")
 
         elif len(year) == 1:
             if int(year[0]) in range(1900, 2013):

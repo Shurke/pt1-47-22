@@ -29,6 +29,17 @@ def catalog(year, gender):
     return result
 
 
+def top10_names_gender(list_names, boys_and_girls):
+    """Функция возвращает спииски топ 10 имен"""
+    counter_names = 0
+    top10_names = []
+    while len(top10_names) < 10:
+        if list_names[counter_names] not in boys_and_girls:
+            top10_names.append(list_names[counter_names])
+        counter_names += 1
+    return top10_names
+
+
 def top_10_names(year):
     """Функция возвращает спииски топ 10 имен мальчиков девочек и универсальные имена при наличии"""
     boys = 'BoysNames'
@@ -36,46 +47,69 @@ def top_10_names(year):
     list_boys = catalog(year, boys)
     list_girls = catalog(year, girl)
     boys_and_girls = [name for name in list_boys if name in list_girls]
-    top10_boys = []
-    top10_girls = []
-    counter_boys = 0
-    counter_girls = 0
+    top10_boys = top10_names_gender(list_boys, boys_and_girls)
+    top10_girls = top10_names_gender(list_girls, boys_and_girls)
 
-    while len(top10_boys) < 10:
-        if list_boys[counter_boys] not in boys_and_girls:
-            top10_boys.append(list_boys[counter_boys])
-        counter_boys += 1
-    while len(top10_girls) < 10:
-        if list_girls[counter_girls] not in boys_and_girls:
-            top10_girls.append(list_girls[counter_girls])
-        counter_girls += 1
-    print(f"Топ 10 имен для мальчиков в {year} году: {top10_boys}")
-    print(f"Топ 10 имен для девочек в {year} году: {top10_girls}")
-    if len(boys_and_girls) > 0:
-        print(f"Топ универсальных имен в {year} году: {boys_and_girls}")
-    else:
-        print(f"В {year} году не было универсальных")
+    return top10_boys, top10_girls, boys_and_girls
+
+
+def sorting_reduction(items):
+    """Функция сортирует и сокращает список имен для периода времени"""
+    result = []
+    sort_dict = {x: items.count(x) for x in items}
+    for k, v in sorted(sort_dict.items(), key=lambda x: x[1], reverse=True):
+        result.extend([k])
+    return result
+
+
+def result_for_period(names_girls, names_boys, names_boys_and_girls, year):
+    """Функция выводит результатвы за период времени"""
+    print(f"Топ 10 имен для мальчиков за период {year[0]}-{year[1]}: "
+          f"{sorting_reduction(names_boys)[:10]}")
+    print(f"Топ 10 имен для девочек за период {year[0]}-{year[1]}: "
+          f"{sorting_reduction(names_girls)[:10]}")
+    print(f"Популярные универсальные имена за период {year[0]}-{year[1]}: "
+          f"{sorting_reduction(names_boys_and_girls)}")
 
 
 def years(year):
     """Функция выводит передает номер года относительно введенных пользователем"""
+    names_boys = []
+    names_girls = []
+    names_boys_and_girls = []
     if year == "":
         for num_of_year in range(1900, 2013):
-            top_10_names(num_of_year)
+            list_names = (top_10_names(num_of_year))
+            names_boys += list_names[0]
+            names_girls += list_names[1]
+            names_boys_and_girls += list_names[2]
+        result_for_period(names_girls, names_boys, names_boys_and_girls, year=['1900', '2012'])
     else:
         year = year.split("-")
         if len(year) == 2:
-            for num_of_year in range(int(year[0]), int(year[1]) + 1):
-                if num_of_year in range(1900, 2013):
-                    top_10_names(num_of_year)
-                else:
-                    print(f"О именах в {num_of_year} году нет данных")
+            if int(year[0]) and int(year[1]) in range(1900, 2013):
+                for num_of_year in range(int(year[0]), int(year[1]) + 1):
+                    list_names = (top_10_names(num_of_year))
+                    names_boys += list_names[0]
+                    names_girls += list_names[1]
+                    names_boys_and_girls += list_names[2]
+                result_for_period(names_girls, names_boys, names_boys_and_girls, year)
+            else:
+                print(f"Вы ввели интервал выходящий за пределы базыданных")
+
         elif len(year) == 1:
             if int(year[0]) in range(1900, 2013):
-                top_10_names(year[0])
+                list_names = top_10_names(year[0])
+                print(f"Топ 10 имен для мальчиков в {year} году: {list_names[0]}")
+                print(f"Топ 10 имен для девочек в {year} году: {list_names[1]}")
+                if len(list_names[2]) > 0:
+                    print(f"Топ универсальных имен в {year} году: {list_names[2]}")
+                else:
+                    print(f"В {year} году не было универсальных имен")
             else:
                 print(f"О именах в {year[0]} году нет данных")
 
 
-input_year = input("Введите интересующей вас год: ")
-years(input_year)
+if __name__ == '__main__':
+    input_year = input("Введите интересующей вас год в пределах от 1900 до 2012: ")
+    years(input_year)

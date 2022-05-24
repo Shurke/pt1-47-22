@@ -20,4 +20,5 @@ def one(number, degree):
     return result
 
 
-print(one(10, 4))
+if __name__ == '__main__':
+    print(one(10, 4))

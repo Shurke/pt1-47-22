@@ -36,6 +36,7 @@ def interval_processing(number_1, number_2):
     return result
 
 
-NUMBERS = interval_processing(1, 4)
-NUMBER_RESULT = integer_to_binary(NUMBERS)
-print(f'{NUMBERS} в двоичном коде {NUMBER_RESULT}')
+if __name__ == '__main__':
+    NUMBERS = interval_processing(1, 4)
+    NUMBER_RESULT = integer_to_binary(NUMBERS)
+    print(f'{NUMBERS} в двоичном коде {NUMBER_RESULT}')

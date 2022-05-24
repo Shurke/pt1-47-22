@@ -13,6 +13,6 @@ def maximum_divisor(number):
     print(f'Максимальный делитель введенного числа являющийся степенью двойки: {result}')
 
 
-input_number = int(input('Введите число: '))
 if __name__ == '__main__':
+    input_number = int(input('Введите число: '))
     maximum_divisor(input_number)

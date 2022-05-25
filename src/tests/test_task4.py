@@ -10,24 +10,29 @@ import unittest
 
 @ddt.ddt
 class TestTask2(unittest.TestCase):
-    """Test cases for RealString"""
+    """Test cases for Primes"""
 
     def setUp(self) -> None:
-        self.task = task4.Primes
+        self.primes = task4.Primes
 
     @ddt.data(
-        (1, None, [2]),
-        (2, None, [2, 3]),
-        (5, None, [2, 3, 5, 7, 11]),
+        (1, [2]),
+        (2, [2, 3]),
+        (5, [2, 3, 5, 7, 11]),
+    )
+    @ddt.unpack
+    def test_method_first(self, right_limit, check_list):
+        """Test method first() from class Primes"""
+
+        result_list = self.primes.first(right_limit)
+        self.assertEqual(result_list, check_list)
+
+    @ddt.data(
         (20, 5, [53, 59, 61, 67, 71])
     )
     @ddt.unpack
-    def test_class(self, right_limit, left_limit, check_list):
-        """Test class Primes"""
+    def test_method_last(self, right_limit, left_limit, check_list):
+        """Test method last() from class Primes"""
 
-        if left_limit:
-            result_list = self.task.first(right_limit).last(left_limit)
-        else:
-            result_list = self.task.first(right_limit)
-
+        result_list = self.primes.first(right_limit).last(left_limit)
         self.assertEqual(result_list, check_list)

@@ -13,25 +13,43 @@ class TestTask2(unittest.TestCase):
     """Test cases for RealString"""
 
     def setUp(self) -> None:
-        self.task = task2.RealString
+        self.real_string = task2.RealString
 
     @ddt.data(
-        ('Apple', 'Яблоко', False, 'greater than', False),
-        ('Apple', 'Яблоко', True, 'less than', True),
-        ('NotApple', 'НеЯблоко', False, 'equivalent', True),
+        ('Apple', 'Яблоко', False, True),
+        ('Яблоко', 'Apple', True, False)
     )
     @ddt.unpack
-    def test_compare(self, str_1, str_2, str_2_is_realstring, compare, check):
-        """Test: {0} {3} {1}(RealString={2}), expected result: {4}"""
-        str_1 = self.task(str_1)
+    def test_greater_than(self, str_1, str_2, str_2_is_realstring, check):
+        """Greater than test: {0} greater than {1}(RealString={2}), expected result: {3}"""
+        str_1 = self.real_string(str_1)
         if str_2_is_realstring:
-            str_2 = self.task(str_2)
-        if compare == 'greater than':
-            result = str_1 > str_2
-            self.assertEqual(result, check)
-        elif compare == 'less than':
-            result = str_1 < str_2
-            self.assertEqual(result, check)
-        else:
-            result = str_1 == str_2
-            self.assertEqual(result, check)
+            str_2 = self.real_string(str_2)
+        result = str_1 < str_2
+        self.assertEqual(result, check)
+
+    @ddt.data(
+        ('Apple', 'Яблоко', False, False),
+        ('Яблоко', 'Apple', True, True)
+    )
+    @ddt.unpack
+    def test_less_than(self, str_1, str_2, str_2_is_realstring, check):
+        """Less than test: {0} less than {1}(RealString={2}), expected result: {3}"""
+        str_1 = self.real_string(str_1)
+        if str_2_is_realstring:
+            str_2 = self.real_string(str_2)
+        result = str_1 > str_2
+        self.assertEqual(result, check)
+
+    @ddt.data(
+        ('Note', 'Cash', False, True),
+        ('Яблоко', 'Apple', True, False)
+    )
+    @ddt.unpack
+    def test_equivalent(self, str_1, str_2, str_2_is_realstring, check):
+        """Equivalent test: {0} equivalent {1}(RealString={2}), expected result: {3}"""
+        str_1 = self.real_string(str_1)
+        if str_2_is_realstring:
+            str_2 = self.real_string(str_2)
+        result = str_1 == str_2
+        self.assertEqual(result, check)

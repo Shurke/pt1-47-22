@@ -47,11 +47,7 @@ class Primes(list):
 
     def last(self, last_numb):
         """
-        Return last number from list of prime numbers
+        Return last numbers from list of prime numbers
 
         """
         return self[-last_numb:]
-
-
-print(Primes.first(20))
-print(Primes.first(20).last(5))

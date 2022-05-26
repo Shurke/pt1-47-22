@@ -10,7 +10,7 @@
 
 class KgToPounds:
     """
-    Class takes a kg
+    Class takes kg and convert to pounds using method to_pounds
 
     """
 

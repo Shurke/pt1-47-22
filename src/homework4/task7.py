@@ -38,27 +38,31 @@ def ordinal_date(day: int, month: int, year: int) -> int:
         '11': 30,
         '12': 31
     }
-    if month in range(1, 10):
+    if month <= 10:
         month = '0' + str(month)
     else:
         month = str(month)
 
-    if year % 4 == 0:
+    if year % 4 == 0 and year % 100 != 0:
         table_of_month['02'] = 29
 
-    for k, v in table_of_month.items():
-        result += v
-        if k == month:
-            result = result - (v - day)
+    for key, value in table_of_month.items():
+        result += value
+        if key == month:
+            result = result - (value - day)
             break
 
     return result
 
 
 def main():
-    day = int(input('Введите день: '))
-    month = int(input('Введите месяц: '))
-    year = int(input('Введите год: '))
+    date = input('Введите дату в формате dd/mm/yyyy: ')
+    date = date.split('/')
+
+    day = int(date[0])
+    month = int(date[1])
+    year = int(date[2])
+
     print(f'Порядковый номер введённого дня: {ordinal_date(day, month, year)}')
 
 

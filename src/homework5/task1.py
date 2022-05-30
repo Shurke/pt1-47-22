@@ -18,7 +18,10 @@ class KgToPounds:
         self.__kg = kg
 
     def to_pounds(self):
-        return self.__kg * 2.205
+        if isinstance(self.__kg, (int, float)):
+            return self.__kg * 2.205
+        else:
+            return 'Wrong data'
 
     @property
     def kg(self):

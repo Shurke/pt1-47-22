@@ -19,14 +19,12 @@ class DefaultList(list):
 
     """
     def __init__(self, lst, default_value):
-        super(DefaultList, self).__init__()
-        if isinstance(lst, list):
-            self.lst = lst
+        super(DefaultList, self).__init__(lst)
         if isinstance(default_value, str):
             self.default_value = default_value
 
     def __getitem__(self, item):
-        if item > len(self.lst) - 1 or item < -len(self.lst):
+        if item > len(self) - 1 or item < -len(self):
             return self.default_value
         else:
-            return self.lst[item]
+            return list(self)[item]

@@ -20,8 +20,10 @@ class DefaultList(list):
     """
     def __init__(self, lst, default_value):
         super(DefaultList, self).__init__()
-        self.lst = lst
-        self.default_value = default_value
+        if isinstance(lst, list):
+            self.lst = lst
+        if isinstance(default_value, str):
+            self.default_value = default_value
 
     def __getitem__(self, item):
         if item > len(self.lst) - 1 or item < -len(self.lst):

@@ -21,8 +21,7 @@ def get_ranges(input_data):
             # find the last index that satisfies the determined difference
             i = next(
                 i for i in range(0, list_length)
-                if i + 1 == list_length
-                or ls[i + 1] - ls[i] != 1
+                if i + 1 == list_length or ls[i + 1] - ls[i] != 1
             )
             yield ls[0], ls[i]
 

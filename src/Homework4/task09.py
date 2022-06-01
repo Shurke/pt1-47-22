@@ -22,7 +22,7 @@ def dispenser(unit_type, quantity):
                  f'{quantity%48//3} tablespoons, ' \
                  f'{quantity%3} teaspoons'
     else:
-        result = f'Проверьте введённые данные'
+        result = 'Проверьте введённые данные'
 
     return result
 

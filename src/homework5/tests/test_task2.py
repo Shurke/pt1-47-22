@@ -1,7 +1,7 @@
 """Test module for task2 (RealString) tests"""
 import unittest
 import ddt
-import task2
+from src.homework5 import task2
 
 
 @ddt.ddt

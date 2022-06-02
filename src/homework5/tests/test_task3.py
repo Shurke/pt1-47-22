@@ -20,7 +20,7 @@ class TestSingleton(unittest.TestCase):
         """Test for Singleton class with different elem {0} and {1}"""
         id_first = self.singleton(inst_1)
         id_second = self.singleton(inst_2)
-        self.assertIs(id_first, id_second)
+        self.assertEqual(id_first, id_second)
 
     @ddt.data(
         ((1, 2, 3), (4, 5, 6)),
@@ -31,7 +31,7 @@ class TestSingleton(unittest.TestCase):
         """Test for Singleton class"""
         id_first = ClassTestWrap(inst_1)
         id_second = ClassTestWrap(inst_2)
-        self.assertIs(id_first, id_second)
+        self.assertEqual(id_first, id_second)
 
 
 @task3.singleton

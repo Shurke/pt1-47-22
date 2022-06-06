@@ -1,7 +1,7 @@
 """Test module for task9_from_hw4 (kitchen) tests"""
-import unittest
 import ddt
 from src.homework5 import task9_from_hw4
+import unittest
 
 
 @ddt.ddt

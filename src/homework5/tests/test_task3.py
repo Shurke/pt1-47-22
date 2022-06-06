@@ -1,7 +1,7 @@
 """Test module for task3 (Singleton) tests"""
-import unittest
 import ddt
 from src.homework5 import task3
+import unittest
 
 
 @ddt.ddt

@@ -1,7 +1,7 @@
 """Test module for task4 (Primes) tests"""
-import unittest
 import ddt
 from src.homework5 import task4
+import unittest
 
 
 @ddt.ddt

@@ -9,10 +9,7 @@
 
 
 class KgToPounds:
-    """
-    Class takes kg and convert to pounds using method to_pounds
-
-    """
+    """Class takes kg and convert to pound using method to_pounds"""
 
     def __init__(self, kg):
         self.__kg = kg

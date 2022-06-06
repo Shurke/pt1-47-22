@@ -1,7 +1,7 @@
 """Test module for task5_from_hw4 (maximum_divisor) tests"""
-import unittest
 import ddt
 from src.homework5 import task5_from_hw4
+import unittest
 
 
 @ddt.ddt

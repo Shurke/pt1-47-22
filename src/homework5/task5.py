@@ -13,8 +13,8 @@
 
 
 class DefaultList(list):
-    """
-    Returns the default value entered by the user in case of an error.
+    """Returns the default value entered by the user in case of an error.
+
     If there is no error, returns the list item by the entered index
 
     """

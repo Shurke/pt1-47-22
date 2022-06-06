@@ -1,7 +1,7 @@
 """Test module for task2_from_hw4 (get_ranges) tests"""
-import unittest
 import ddt
 from src.homework5 import task2_from_hw4
+import unittest
 
 
 @ddt.ddt

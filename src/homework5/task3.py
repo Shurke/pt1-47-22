@@ -8,10 +8,8 @@ Singleton — это класс, который позволяет создат�
 
 
 def singleton(cls):
-    """
-    Decorator, which makes the class a single element
+    """Decorator, which makes the class a single element"""
 
-    """
     instance = {}
 
     def getinstance(*args, **kwargs):
@@ -23,10 +21,8 @@ def singleton(cls):
 
 
 class Singleton:
-    """
-    Class that can only create one instance
+    """Class that can only create one instance"""
 
-    """
     __instance = None
 
     def __new__(cls, *args, **kwargs):

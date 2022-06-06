@@ -1,7 +1,7 @@
 """Test module for task5 (DefaultList) tests"""
-import unittest
 import ddt
 from src.homework5 import task5
+import unittest
 
 
 @ddt.ddt

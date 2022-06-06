@@ -1,7 +1,7 @@
 """Test module for task1 (KgToPounds) tests"""
-import unittest
 import ddt
 from src.homework5 import task1
+import unittest
 
 
 @ddt.ddt

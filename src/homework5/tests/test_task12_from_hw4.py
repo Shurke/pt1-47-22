@@ -1,7 +1,7 @@
 """Test module for task12_from_hw4 (convert_roman) tests"""
-import unittest
 import ddt
 from src.homework5 import task12_from_hw4
+import unittest
 
 
 @ddt.ddt

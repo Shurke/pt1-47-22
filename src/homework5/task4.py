@@ -13,22 +13,15 @@ Primes.first(20).last(5)
 
 
 class Primes(list):
-    """
-    A class for generating a list of prime numbers using various methods
-
-    """
+    """A class for generating a list of prime numbers using various methods"""
 
     @staticmethod
     def first(first_numb):
-        """
-        Return the first prime numbers in range numb
+        """Return the first prime numbers in range numb"""
 
-        """
         def is_prime(numb):
-            """
-            Checks if the number is prime
+            """Checks if the number is prime"""
 
-            """
             if numb % 2 == 0:
                 return numb == 2
             divide = 3
@@ -46,8 +39,6 @@ class Primes(list):
         return prime_lst
 
     def last(self, last_numb):
-        """
-        Return last numbers from list of prime numbers
+        """Return last numbers from list of prime numbers"""
 
-        """
         return self[-last_numb:]

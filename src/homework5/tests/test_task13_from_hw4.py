@@ -1,9 +1,9 @@
 """Test module for task13_from_hw4 (chemistry word) tests"""
+import ddt
+from src.homework5 import task13_from_hw4
 import unittest
 from unittest.mock import mock_open
 from unittest.mock import patch
-import ddt
-from src.homework5 import task13_from_hw4
 
 
 @ddt.ddt
@@ -36,7 +36,8 @@ class TestChemistry(unittest.TestCase):
     @ddt.data(
         ('silicon', 'The word silicon can be represented with chemical elements as silicon',
          'silicon', True),
-        ('silicon', 'The word silicon cannot be converted with chemical elements', 'silicon', False),
+        ('silicon', 'The word silicon cannot be converted with chemical elements',
+         'silicon', False),
         ('CupRum', 'The word CupRum cannot be converted with chemical elements', None, True)
     )
     @ddt.unpack

@@ -1,7 +1,7 @@
 """Test module for task4_from_hw4 (two_degree) tests"""
-import unittest
 import ddt
 from src.homework5 import task4_from_hw4
+import unittest
 
 
 @ddt.ddt

@@ -3,7 +3,7 @@
 
 import unittest
 import ddt
-from homework5 import task_2
+from src.homework5 import task_2
 
 
 @ddt.ddt

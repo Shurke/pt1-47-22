@@ -5,7 +5,7 @@ from unittest.mock import patch, mock_open
 
 import ddt
 
-from homework5 import task13_hm4
+from src.homework5 import task13_hm4
 
 
 @ddt.ddt
@@ -36,9 +36,12 @@ class TestReplaceElements(unittest.TestCase):
         self.assertEqual(result, expected_result)
 
     @ddt.data(
-        ("Silver", "SiLvEr", "Ваше слово Silver может быть представлено как SiLvEr"),
-        ("silicon", "SiLiCoN", "Ваше слово silicon может быть представлено как SiLiCoN"),
-        ("hydrogen", None, "Ваше слово hydrogen невозможно выразить через обозначения химических элементов"),
+        ("Silver", "SiLvEr",
+         "Ваше слово Silver может быть представлено как SiLvEr"),
+        ("silicon", "SiLiCoN",
+         "Ваше слово silicon может быть представлено как SiLiCoN"),
+        ("hydrogen", None,
+         "Ваше слово hydrogen невозможно выразить через обозначения химических элементов"),
     )
     @ddt.unpack
     def test_get_output(self, word, ability, expected_result):

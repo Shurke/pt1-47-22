@@ -3,8 +3,8 @@
 import ddt
 from src.homework5 import task13_hm4
 import unittest
-from unittest.mock import patch
 from unittest.mock import mock_open
+from unittest.mock import patch
 
 
 @ddt.ddt

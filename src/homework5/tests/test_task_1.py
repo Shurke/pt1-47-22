@@ -1,9 +1,8 @@
 """Test module for task_1 tests."""
 
-
-import unittest
 import ddt
 from src.homework5 import task_1
+import unittest
 
 
 @ddt.ddt

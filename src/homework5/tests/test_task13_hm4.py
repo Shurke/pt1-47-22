@@ -1,11 +1,9 @@
 """Test module for task13_hm4 tests."""
 
+import ddt
+from src.homework5 import task13_hm4
 import unittest
 from unittest.mock import patch, mock_open
-
-import ddt
-
-from src.homework5 import task13_hm4
 
 
 @ddt.ddt

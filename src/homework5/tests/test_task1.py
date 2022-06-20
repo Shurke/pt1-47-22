@@ -28,11 +28,12 @@ class TestKgToPounds(unittest.TestCase):
         self.assertEqual(result_to_pounds, expected_res)
 
     @ddt.data(
-        (76, 76),
-        (4, 4)
+        (76, 76, True),
+        (4, 4, True),
+        (5, 6, False)
     )
     @ddt.unpack
-    def test_write_kg(self, value, expected_kg):
+    def test_write_kg(self, value, expected_kg, exp_res):
         """Test case for @kg.setter method with kg={0} and expected_kg {1}"""
-        result_kg = self.kg_to_pounds(value).kg
-        self.assertEqual(result_kg, expected_kg)
+        result = expected_kg == self.kg_to_pounds(value).kg
+        self.assertEqual(result, exp_res)

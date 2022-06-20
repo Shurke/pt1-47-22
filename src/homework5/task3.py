@@ -15,7 +15,7 @@ def singleton(cls):
     def getinstance(*args, **kwargs):
         if cls not in instance:
             instance[cls] = cls(*args, **kwargs)
-        return instance
+        return instance[cls]
 
     return getinstance
 

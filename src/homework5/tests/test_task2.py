@@ -18,7 +18,7 @@ class TestRealString(unittest.TestCase):
     @ddt.unpack
     def test_str_eq(self, str_1, str_2, expect):
         """Test case for compare equal strings {0} and {1}"""
-        str_to_compare = self.real_str(str_1).__eq__(str_2)
+        str_to_compare = self.real_str(str_1) == self.real_str(str_2)
         self.assertEqual(str_to_compare, expect)
 
     @ddt.data(

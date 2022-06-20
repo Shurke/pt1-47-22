@@ -31,14 +31,19 @@ class Primes(list):
 
         prime_lst = Primes()
         prime = 2
-        if isinstance(first_numb, int):
+        if isinstance(first_numb, int) and first_numb > 0:
             while len(prime_lst) < first_numb:
                 if is_prime(prime):
                     prime_lst.append(prime)
                 prime += 1
-        return prime_lst
+            return prime_lst
+        else:
+            return 'Wrong data!'
 
     def last(self, last_numb):
         """Return last numbers from list of prime numbers"""
 
-        return self[-last_numb:]
+        if isinstance(last_numb, int) and last_numb > 0:
+            return self[-last_numb:]
+        else:
+            return 'Wrong data!'

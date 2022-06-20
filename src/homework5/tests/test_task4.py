@@ -14,7 +14,9 @@ class TestPrimes(unittest.TestCase):
     @ddt.data(
         (2, [2, 3], True),
         (5, [2, 3, 5, 7, 11], True),
-        (5, [2, 3, 4, 5, 6], False)
+        (5, [2, 3, 4, 5, 6], False),
+        (0, 'Wrong data!', True),
+        (-1, 'Wrong data!', True)
     )
     @ddt.unpack
     def test_first(self, numb, prime_lst, expect):
@@ -25,7 +27,9 @@ class TestPrimes(unittest.TestCase):
     @ddt.data(
         (2, 1, [3], True),
         (20, 5, [53, 59, 61, 67, 71], True),
-        (20, 5, [54, 55, 56, 57, 58], False)
+        (20, 5, [54, 55, 56, 57, 58], False),
+        (2, 0, 'Wrong data!', True),
+        (5, -1, 'Wrong data!', True)
     )
     @ddt.unpack
     def test_last(self, first_numb, last_numb, prime_lst, expect):

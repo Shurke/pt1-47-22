@@ -1,9 +1,9 @@
 """Test module for task_5 tests"""
 
-import ddt
 import collections
-import unittest
+import ddt
 from src.homework5 import task_5
+import unittest
 
 collections.Callable = collections.abc.Callable
 

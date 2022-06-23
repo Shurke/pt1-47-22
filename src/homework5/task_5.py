@@ -22,5 +22,3 @@ class DefaultList(list):
             return self.default_value
         else:
             return super().__getitem__(index)
-
-

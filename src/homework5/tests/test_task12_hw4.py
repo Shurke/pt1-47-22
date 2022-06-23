@@ -1,9 +1,9 @@
 """Test module for task12_hw4 tests"""
 
-import unittest
-from src.homework4 import task12
 import ddt
+import unittest
 import collections
+from src.homework4 import task12
 
 collections.Callable = collections.abc.Callable
 

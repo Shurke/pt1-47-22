@@ -27,14 +27,28 @@ def from_roman(input_number):
     rom_arab_num = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
     two_number = {'CM': 900, 'CD': 400, 'XC': 90, 'XL': 40, 'IX': 9, 'IV': 4}
 
-    if input_number == "":
-        result = 0
-    elif len(input_number) == 1:
-        result = rom_arab_num[input_number]
-    elif input_number[:2] in two_number:
-        result = two_number[input_number[:2]] + from_roman(input_number[2:])
-    else:
-        result = rom_arab_num[input_number[0]] + from_roman(input_number[1:])
+    result = []
+    while input_number:
+
+        if input_number == "":
+            return 0
+        if input_number[:2] in two_number:
+            result.append(two_number[input_number[:2]])
+            if len(input_number[2:]) >= 2 or len(input_number[2:]) >= 1:
+                input_number = input_number[2:]
+                result.append(from_roman(input_number))
+                input_number = ""
+            else:
+                break
+        else:
+            result.append(rom_arab_num[input_number[0]])
+            if len(input_number[1:]) >= 1:
+                input_number = input_number[1:]
+                result.append(from_roman(input_number))
+                input_number = ""
+            else:
+                break
+    result = sum(result)
     return result
 
 

@@ -20,6 +20,7 @@ func(1, 4)   -->  1111010
 
 
 def binary_pyramid(start, finish):
+    """Performs a decimal to binary conversion"""
 
     final_data = 0
 

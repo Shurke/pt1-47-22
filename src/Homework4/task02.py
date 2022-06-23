@@ -8,8 +8,10 @@
 
 
 def get_ranges(input_data):
+    """Receives input data from the user and generates a result string in the specified format"""
 
     def get_list(ls):
+        """Processes data and generates a preliminary result"""
 
         list_length = len(ls)
         while ls:

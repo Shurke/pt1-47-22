@@ -1,5 +1,5 @@
-import unittest
 from task05 import DefaultList
+import unittest
 
 
 class DefaultListTestCase(unittest.TestCase):

@@ -7,7 +7,7 @@ get_kg()  - для вывода текущего значения кг. Из-з�
 
 
 class KgToPounds:
-    """ Converts kilograms to pounds"""
+    """Converts kilograms to pounds"""
 
     def __init__(self, kg):
         self.__kg = kg

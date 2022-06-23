@@ -24,5 +24,3 @@ class DefaultList(list):
             super(DefaultList, self).__getitem__(y)
         except IndexError:
             return self.default_item
-
-

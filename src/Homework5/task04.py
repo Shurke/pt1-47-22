@@ -35,4 +35,3 @@ class Primes:
             return [num for num in self.primes_list[-count_of_nums:]]
         else:
             raise ValueError('Не найден список простых чисел!')
-

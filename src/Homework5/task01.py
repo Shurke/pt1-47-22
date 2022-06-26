@@ -10,6 +10,8 @@ class KgToPounds:
     """Converts kilograms to pounds"""
 
     def __init__(self, kg):
+        if not isinstance(kg, (int, float)):
+            raise ValueError('Килограммы задаются только числами')
         self.__kg = kg
 
     def to_pounds(self):

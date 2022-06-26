@@ -5,13 +5,13 @@
 инициализации экземпляра класса"""
 
 
-def singleton(Cls):
+def singleton(cls):
     singletons = {}
 
     def getinstance(*args, **kwargs):
-        if Cls not in singletons:
-            singletons[Cls] = Cls(*args, **kwargs)
-        return singletons[Cls]
+        if cls not in singletons:
+            singletons[cls] = cls(*args, **kwargs)
+        return singletons[cls]
 
     return getinstance
 

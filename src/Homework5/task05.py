@@ -17,10 +17,10 @@ class DefaultList(list):
     def __init__(self, list_val: list, default_item=None):
         self.list_val = list_val
         self.default_item = default_item
-        super(DefaultList, self).__init__(self.list_val)
+        super().__init__(list_val)
 
     def __getitem__(self, y):
         try:
-            super(DefaultList, self).__getitem__(y)
+            super().__getitem__(y)
         except IndexError:
             return self.default_item

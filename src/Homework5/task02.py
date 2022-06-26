@@ -21,11 +21,9 @@ class RealString:
     def __eq__(self, other):
         if not isinstance(other, RealString):
             other = RealString(other)
-
         return len(self.some_str) == len(other.some_str)
 
     def __lt__(self, other):
         if not isinstance(other, RealString):
             other = RealString(other)
-
         return len(self.some_str) < len(other.some_str)

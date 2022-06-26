@@ -12,7 +12,10 @@ class KgToPounds:
     """Class docstring (pylint warning)"""
 
     def __init__(self, kg):
-        self.__kg = kg
+        if isinstance(kg, (int, float)):
+            self.__kg = kg
+        else:
+            raise ValueError('Килограммы задаются только числами')
 
     def to_pounds(self):
         return self.__kg * 2.205

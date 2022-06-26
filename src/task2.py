@@ -22,21 +22,15 @@ class RealString(str):
 
     def __gt__(self, other):
         if isinstance(other, (RealString, str)):
-            result = len(self) > len(other)
-        else:
-            result = NotImplemented
-        return result
+            return len(self) > len(other)
+        raise TypeError
 
     def __lt__(self, other):
         if isinstance(other, (RealString, str)):
-            result = len(self) < len(other)
-        else:
-            result = NotImplemented
-        return result
+            return len(self) < len(other)
+        raise TypeError
 
     def __eq__(self, other):  # not required to complete the technical task
         if isinstance(other, (RealString, str)):
-            result = len(self) == len(other)
-        else:
-            result = NotImplemented
-        return result
+            return len(self) == len(other)
+        raise TypeError

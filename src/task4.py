@@ -46,4 +46,6 @@ class Primes(list):
 
     def last(self, left_limit):
         """Return the last n numbers from the prime list"""
+        if left_limit <= 0:
+            return []
         return self[-left_limit:]

@@ -1,5 +1,7 @@
 import unittest
-from ddt import ddt, data, unpack
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 from task12 import from_roman
 
 
@@ -13,5 +15,6 @@ class TestSuiteFromRoman(unittest.TestCase):
         """Roman numeral conversion test.
 
         :param num:               roman num
-        :param expected_result:   expected num"""
+        :param expected_result:   expected num
+        """
         self.assertEqual(from_roman(num), expected_result)

@@ -1,5 +1,6 @@
 import unittest
-from ddt import ddt, data
+from ddt import ddt
+from ddt import data
 from task03 import Class1, Class2
 
 
@@ -11,7 +12,8 @@ class TestSuiteSingleton(unittest.TestCase):
     def test_singleton(self, test_class):
         """Test singleton class.
 
-        :param test_class:   class for test"""
+        :param test_class:   class for test
+        """
         x = test_class()
         y = test_class()
         self.assertIs(x, y)

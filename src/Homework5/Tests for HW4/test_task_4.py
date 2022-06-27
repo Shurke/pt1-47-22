@@ -1,5 +1,7 @@
 import unittest
-from ddt import ddt, data, unpack
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 from task04 import get_nearest_power_of_two
 
 

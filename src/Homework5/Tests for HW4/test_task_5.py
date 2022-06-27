@@ -1,5 +1,7 @@
 import unittest
-from ddt import ddt, data, unpack
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 from task05 import max_divisor
 
 

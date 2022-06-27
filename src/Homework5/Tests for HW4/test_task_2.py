@@ -1,5 +1,7 @@
 import unittest
-from ddt import ddt, data, unpack
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 from task02 import get_ranges
 
 
@@ -13,5 +15,6 @@ class TestSuiteGetRanges(unittest.TestCase):
     def test_get_ranges(self, nums_range, expected_result):
         """
         :param nums_range:           List of integers
-        :param expected_result:      Short list"""
+        :param expected_result:      Short list
+        """
         self.assertEqual(get_ranges(nums_range), expected_result)

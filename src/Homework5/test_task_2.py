@@ -1,5 +1,7 @@
 import unittest
-from ddt import ddt, data, unpack
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 from task02 import RealString
 
 
@@ -15,7 +17,8 @@ class TestSuiteRealString(unittest.TestCase):
         """Test real string working.
 
         :param first_str:         first str
-        :param second_str:        second str"""
+        :param second_str:        second str
+        """
         condition_mapping = {'>': self.assertGreater,
                              '==': self.assertEqual}
         real_string = RealString(first_str)

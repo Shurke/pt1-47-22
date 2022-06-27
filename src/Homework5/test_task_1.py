@@ -1,5 +1,7 @@
 import unittest
-from ddt import ddt, data, unpack
+from ddt import ddt
+from ddt import data
+from ddt import unpack
 from task01 import KgToPounds
 
 
@@ -13,7 +15,8 @@ class TestSuiteKgToPounds(unittest.TestCase):
         """Test conversion Kg to pounds.
 
         :param new_kg:            value to conversion
-        :param expected_result:   expected num"""
+        :param expected_result:   expected num
+        """
         default_val = 0
         kg_to_pounds = KgToPounds(default_val)
         self.assertEqual(kg_to_pounds.kg, default_val)
@@ -25,7 +28,8 @@ class TestSuiteKgToPounds(unittest.TestCase):
     def test_handling_invalid_values(self, invalid_val):
         """Test handling invalid values in the KgToPounds.
 
-        :param invalid_val:   value for check"""
+        :param invalid_val:   value for check
+        """
         with self.assertRaises(ValueError):
             kg_to_pounds = KgToPounds(invalid_val)
 

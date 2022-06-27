@@ -7,9 +7,13 @@
 
 class Primes(list):
     """Prime number class with various metadata"""
+
     @staticmethod
     def first(number_first):
         """Return the first number_first numbers"""
+        if number_first <= 0:
+            return "The number must be greater than 0"
+
         def is_prime(num):
             for item in range(2, num // 2 + 1):
                 if num % item == 0:
@@ -26,4 +30,6 @@ class Primes(list):
 
     def last(self, number_last):
         """Return the first number_last numbers"""
+        if number_last <= 0:
+            return "The number must be greater than 0"
         return self[-number_last:]

@@ -9,9 +9,6 @@ import unittest
 class TestDefaultList(unittest.TestCase):
     """Test case for DefaultList"""
 
-    def setUp(self) -> None:
-        self.defaultList = task_5.DefaultList
-
     @ddt.data(
         ([1, 2, 5, 7, 8], 'default', 3, 7),
         ([1, 2, 5, 7, 8], 'default', 10, 'default'),
@@ -20,7 +17,7 @@ class TestDefaultList(unittest.TestCase):
     @ddt.unpack
     def test_index(self, lst, default_value, index, expected_result):
         """Test index method from class DefaultList."""
-        obj = self.defaultList(lst, default_value)
+        obj = task_5.DefaultList(lst, default_value)
         result = obj[index]
         self.assertEqual(result, expected_result)
 
@@ -31,7 +28,7 @@ class TestDefaultList(unittest.TestCase):
     @ddt.unpack
     def test_extend(self, lst, item, expected_result):
         """Test extend method from class DefaultList."""
-        result = self.defaultList(lst)
+        result = task_5.DefaultList(lst)
         result.extend(item)
         self.assertEqual(result, expected_result)
 
@@ -42,7 +39,7 @@ class TestDefaultList(unittest.TestCase):
     @ddt.unpack
     def test_append(self, lst, item, expected_result):
         """Test append method from class DefaultList."""
-        result = self.defaultList(lst)
+        result = task_5.DefaultList(lst)
         result.append(item)
         self.assertEqual(result, expected_result)
 
@@ -53,7 +50,7 @@ class TestDefaultList(unittest.TestCase):
     @ddt.unpack
     def test_insert(self, lst, index, item, expected_result):
         """Test insert method from class DefaultList."""
-        result = self.defaultList(lst)
+        result = task_5.DefaultList(lst)
         result.insert(index, item)
         self.assertEqual(result, expected_result)
 
@@ -64,7 +61,7 @@ class TestDefaultList(unittest.TestCase):
     @ddt.unpack
     def test_remove(self, lst, item, expected_result):
         """Test remove method from class DefaultList."""
-        result = self.defaultList(lst)
+        result = task_5.DefaultList(lst)
         result.remove(item)
         self.assertEqual(result, expected_result)
 
@@ -75,6 +72,6 @@ class TestDefaultList(unittest.TestCase):
     @ddt.unpack
     def test_pop(self, lst, index, expected_result):
         """Test pop method from class DefaultList."""
-        result = self.defaultList(lst)
+        result = task_5.DefaultList(lst)
         result.pop(index)
         self.assertEqual(result, expected_result)

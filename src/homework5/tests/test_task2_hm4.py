@@ -9,9 +9,6 @@ import unittest
 class TestGetRange(unittest.TestCase):
     """Test cases for get_ranges."""
 
-    def setUp(self) -> None:
-        self.ranges = task2_hw4.get_ranges
-
     @ddt.data(
         ([0, 1, 2, 3, 4, 7, 8, 10], "0-4,7-8,10"),
         ([4, 7, 10], "4,7,10"),
@@ -20,5 +17,5 @@ class TestGetRange(unittest.TestCase):
     @ddt.unpack
     def test_get_ranges(self, input_list, expected_result):
         """Test get_ranges with next data {0} --> {1}"""
-        result = self.ranges(input_list)
+        result = task2_hw4.get_ranges(input_list)
         self.assertEqual(result, expected_result)

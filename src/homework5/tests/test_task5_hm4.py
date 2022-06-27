@@ -9,9 +9,6 @@ import unittest
 class TestGetMaxDivisor(unittest.TestCase):
     """Test cases for get_max_divisor."""
 
-    def setUp(self) -> None:
-        self.divide = task5_hm4.get_max_divisor
-
     @ddt.data(
         (10, "10(2)"),
         (16, "16(16)"),
@@ -22,5 +19,5 @@ class TestGetMaxDivisor(unittest.TestCase):
     @ddt.unpack
     def test_get_max_divisor(self, input_number, expected_result):
         """Test get_max_divisor with next data {0} --> {1}"""
-        result = self.divide(input_number)
+        result = task5_hm4.get_max_divisor(input_number)
         self.assertEqual(result, expected_result)

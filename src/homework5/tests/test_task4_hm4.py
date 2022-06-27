@@ -9,9 +9,6 @@ import unittest
 class TestGetDegreeTwo(unittest.TestCase):
     """Test cases for get_degree_two."""
 
-    def setUp(self) -> None:
-        self.degree = task4_hm4.get_degree_two
-
     @ddt.data(
         (10, "10(8)"),
         (20, "20(16)"),
@@ -23,5 +20,5 @@ class TestGetDegreeTwo(unittest.TestCase):
     @ddt.unpack
     def test_get_degree_two(self, input_number, expected_result):
         """Test get_degree_two with next data {0} --> {1}"""
-        result = self.degree(input_number)
+        result = task4_hm4.get_degree_two(input_number)
         self.assertEqual(result, expected_result)

@@ -1,7 +1,8 @@
-import unittest
-from ddt import ddt
 from ddt import data
-from task03 import Class1, Class2
+from ddt import ddt
+import unittest
+from task03 import Class1
+from task03 import Class2
 
 
 @ddt

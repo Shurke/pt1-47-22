@@ -1,13 +1,13 @@
-import unittest
-from ddt import ddt
 from ddt import data
+from ddt import ddt
 from ddt import unpack
+import unittest
 from task09 import dispenser
 
 
 @ddt
 class TestSuiteDispenser(unittest.TestCase):
-    """ Test suite for Dispenser function """
+    """Test suite for Dispenser function """
 
     @data(('teaspoons', 59, '1 cup, 3 tablespoons, 2 teaspoons'))
     @unpack

@@ -13,6 +13,7 @@ class TestSuiteKgToPounds(unittest.TestCase):
     @unpack
     def test_kg_to_pounds(self, new_kg, expected_result):
         """Test conversion Kg to pounds.
+
         :param new_kg:            value to conversion
         :param expected_result:   expected num
         """

@@ -15,9 +15,7 @@ class TestSuiteMatchingWithElements(unittest.TestCase):
     @unpack
     def test_max_divisor(self, name, expected_result):
         """
-
         :param name:             input word
         :param expected_result:  output word
         """
-
         self.assertEqual(matching_with_elements(name), expected_result)

@@ -1,8 +1,8 @@
 from ddt import data
 from ddt import ddt
-import unittest
 from task03 import Class1
 from task03 import Class2
+import unittest
 
 
 @ddt

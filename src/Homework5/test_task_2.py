@@ -1,8 +1,8 @@
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-import unittest
 from task02 import RealString
+import unittest
 
 
 @ddt

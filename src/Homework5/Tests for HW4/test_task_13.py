@@ -14,7 +14,8 @@ class TestSuiteMatchingWithElements(unittest.TestCase):
     @data(('silicon', ' SiLiCON'), ('Silver', 'SiLvEr'))
     @unpack
     def test_max_divisor(self, name, expected_result):
-        """
+        """test_max_divisor function test
+
         :param name:             input word
         :param expected_result:  output word
         """

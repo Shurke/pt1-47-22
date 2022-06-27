@@ -1,8 +1,8 @@
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-import unittest
 from task01 import KgToPounds
+import unittest
 
 
 @ddt
